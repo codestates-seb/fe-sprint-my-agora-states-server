@@ -25,6 +25,7 @@ app.use(
 
 // ! 다른 포트 번호로 서버 켜기
 // ! PORT=3002 nodemon my-agora-states-server/app.js
+// ! PORT=3002 npm start
 // port 환경 변수 설정 @see: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
 const port = process.env.PORT || 3001;
 
