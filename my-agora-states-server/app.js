@@ -32,6 +32,7 @@ const port = process.env.PORT || 3001;
 const discussionsRouter = require("./router/discussions");
 
 // TODO: /discussions 경로로 라우팅합니다.
+app.use("/discussions", discussionsRouter);
 
 app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
