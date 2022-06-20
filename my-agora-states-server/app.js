@@ -9,6 +9,7 @@ app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
+app.use(express.json());
 
 const port = 3001;
 const discussionsRouter = require("./router/discussions");
