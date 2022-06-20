@@ -53,7 +53,9 @@ describe('Bare Minimum Requirements - Server', () => {
         .then((res) => {
           const { body } = res;
           expect(Array.isArray(body)).toEqual(true);
-          expect(body).toEqual(agoraStatesDiscussions);
+          agoraStatesDiscussions.forEach((discussion, index) => {
+            expect(body[index].title).toEqual(discussion[index].title)
+          })
           return;
         });
     });
