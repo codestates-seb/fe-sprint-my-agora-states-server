@@ -56,6 +56,7 @@ describe('Bare Minimum Requirements - Server', () => {
           agoraStatesDiscussions.forEach((discussion, index) => {
             expect(body[index].title).toEqual(discussion.title)
           })
+
           return;
         });
     });
