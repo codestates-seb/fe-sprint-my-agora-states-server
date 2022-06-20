@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(
   morgan("dev", {
     stream: {
-      write: (message) => console.log(message),
+      write: (message) => process.stdout.write(message),
     },
   })
 );
