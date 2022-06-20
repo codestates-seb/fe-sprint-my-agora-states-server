@@ -11,6 +11,18 @@ app.use(cors());
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
 app.use(express.json());
 
+// @see: https://seohyun0120.tistory.com/entry/Log-morgan으로-http-request-로그를-남겨보자
+// morgan은 포맷과 객체를 인자로 받는 함수
+// stream은 객체
+// write는 log 함수의 키
+app.use(
+  morgan("dev", {
+    stream: {
+      write: (message) => console.log(message),
+    },
+  })
+);
+
 const port = 3001;
 const discussionsRouter = require("./router/discussions");
 
