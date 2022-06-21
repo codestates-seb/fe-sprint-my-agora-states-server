@@ -32,13 +32,13 @@ Github Page 배포 링크를 아래 작성합니다.
 
 **my-agora-states-server 시작**
 
-- [ ] `package.json` 을 참고하여 나만의 아고라 스테이츠 서버를 로컬 환경에서 실행합니다.
+- [ㅇ] `package.json` 을 참고하여 나만의 아고라 스테이츠 서버를 로컬 환경에서 실행합니다.
 
 **my-agora-states**
 
-- [ ] my-agora-states-server가 켜져있는지 확인합니다.
-- [ ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
-- [ ] Github Page로 재배포해서, 동기들도 확인할 수 있게 제작합니다.
+- [ㅇ] my-agora-states-server가 켜져있는지 확인합니다.
+- [ㅇ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
+- [ㅇ] Github Page로 재배포해서, 동기들도 확인할 수 있게 제작합니다.
 
 ## Advanced Challenge Self Checklist
 
