@@ -33,7 +33,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dompurify": "^2.3.8",
-    "express": "^4.17.1",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
     "jsdom": "^19.0.0",
     "morgan": "^1.10.0"
   },
