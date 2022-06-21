@@ -1,5 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-let discussionsData = [...agoraStatesDiscussions]
+const discussionsData = [...agoraStatesDiscussions]
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -12,7 +12,7 @@ const discussionsController = {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     let list = discussionsData.filter(item => item.id === Number(req.params.id))
     // length가 0이 아닐 때와 0일 때를 구분해서 리턴합니다.
-    return list.length ? res.status(200).json(list) : res.status(404).end();
+    return list.length ? res.status(200).json(...list) : res.status(404).end();
   },
 
   createOne: (req, res) => {
@@ -30,7 +30,6 @@ const discussionsController = {
       avatarUrl,
       bodyHTML,
     };
-
 
     // 새로운 데이터를 맨 앞에 추가합니다.
     discussionsData.unshift(newDiscussion);
