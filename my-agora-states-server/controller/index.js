@@ -4,7 +4,25 @@ let filtering;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
-    return res.status(200).json(discussionsData);
+    if (req.query.page !== undefined) {
+      let num = req.query.page;
+
+      if ((num - 1) * 10 > discussionsData - 1) {
+        return res.status(400).json('maximum');
+      }
+
+      if (num * 10 > discussionsData.length) {
+        return res
+          .status(200)
+          .json(discussionsData.slice((num - 1) * 10, discussionsData.length));
+      }
+      return res
+        .status(200)
+        .json(discussionsData.slice((num - 1) * 10, num * 10));
+    }
+    // 0~9
+    // num * 10, (num + 1) * 10 - 1
+    return res.status(200).json(discussionsData.slice(0, 10));
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
   },
 
