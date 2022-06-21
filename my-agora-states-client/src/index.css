@@ -1,0 +1,22 @@
+:root {
+  --width: min(95vw, 800px);
+  --width-input: min(400px, 100%);
+
+  --color-inner: rgb(250, 250, 250);
+  --color-dark: rgb(61, 61, 61);
+  --color-grey: rgb(190, 190, 190);
+
+  --shadow-outer: 2px 4px 30px 0px rgb(214, 214, 214);
+  --shadow-button: 2px 2px 4px 0px rgba(201, 201, 201, 0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(251, 251, 251);
+  margin: 0px;
+}
+
+
