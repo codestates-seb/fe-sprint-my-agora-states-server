@@ -1,6 +1,6 @@
 // TODO: discussions 라우터를 완성합니다.
 const { discussionsController } = require("../controller");
-const { findAll, findById, createOne, updateById, deleteById } =
+const { findAll, findById, createOne, updateById, deleteById, searchByText } =
   discussionsController;
 const express = require("express");
 const router = express.Router();
@@ -19,5 +19,7 @@ router.put("/:id", updateById);
 
 // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
 router.delete("/:id", deleteById);
+
+
 
 module.exports = router;

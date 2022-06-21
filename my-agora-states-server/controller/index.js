@@ -6,7 +6,7 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
     const { query } = req;
-    const { limit, page } = query;
+    const { limit, page, text } = query;
 
     const start = (page - 1) * 10;
     const end = page * 10;
@@ -24,9 +24,9 @@ const discussionsController = {
     }
 
     if (Object.keys(query)) {
-      Object.keys(query).forEach((key) => {
-        if (!typeCheck(query[key])) res.status(400).send();
-      });
+      // Object.keys(query).forEach((key) => {
+      //   if (!typeCheck(query[key])) res.status(400).send();
+      // });
 
       if (limit > discussionsData.length) {
         res.status(200).json([]);
@@ -41,11 +41,23 @@ const discussionsController = {
       }
 
       if (limit) {
-        res.status(200).json(discussionsData.slice(0, limit));
+        if (!typeCheck(limit)) {
+          res.status(400).send();
+        } else {
+          res.status(200).json(discussionsData.slice(0, limit));
+        }
       }
 
       if (page) {
         res.status(200).json(targetPage);
+      }
+
+      if (text) {
+        let filteredData = [...discussionsData];
+        filteredData = filteredData.filter(
+          (data) => data.title.includes(text) || data.author.includes(text)
+        );
+        res.status(200).json(filteredData);
       }
     }
   },
