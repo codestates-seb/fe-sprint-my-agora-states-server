@@ -4,8 +4,31 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
-    return res.status(200).json(discussionsData);
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
+    const { limit, page } = req.query;
+    const curPage = Number(page) || 1;
+    const limitSize = Number(limit) || 10;
+    const skipPage = (curPage - 1) * limitSize;
+    const resultPage = discussionsData.slice(skipPage, curPage * limitSize);
+
+    if (limit && page) {
+      if (limit > discussionsData.length) {
+        return res.status(200).json([]);
+      }
+    }
+
+    if (limit) {
+      if (isNaN(Number(limit)) === true) {
+        return res.status(400).json("wrong request");
+      }
+      return res.status(200).json(resultPage);
+    }
+
+    if (page) {
+      return res.status(200).json(resultPage);
+    }
+
+    return res.status(200).json(discussionsData);
   },
 
   findById: (req, res) => {
