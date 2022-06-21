@@ -5,19 +5,25 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 // TODO: cors를 적용합니다.
-
+app.use(cors());
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+app.use(express.json());
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
+const router = require('./router/discussions');
+const router2 = require('./router/discussions');
 
 // TODO: /discussions 경로로 라우팅합니다. 
 
-app.get('/', (req, res) => {
+app.use('/discussions', [router , router2])
+// app.use('/discussions/:id', router2)
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
+app.get('/', (req, res) => {
+  res.status(200).json("작동돼라")
   throw '';
-});
+})
 
 const server = app.listen(port, () => {
   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
