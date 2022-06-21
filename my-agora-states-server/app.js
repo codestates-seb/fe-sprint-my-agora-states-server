@@ -13,10 +13,13 @@ const port = 3001;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: /discussions 경로로 라우팅합니다. 
+app.use('/discussions', discussionsRouter)
 
 app.get('/', (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  throw '';
+  res.status(200).send('My Agora States Server')
+  // todo: query response 작성해볼것
+  // throw '';
 });
 
 const server = app.listen(port, () => {

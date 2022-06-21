@@ -165,7 +165,7 @@ describe('Bare Minimum Requirements - Server', () => {
 //           expect(body.length).toEqual(9);
 //           return;
 //         });
-//     });
+//     });/ㅍㄹㅊ 
 //     test('limit이 3인 경우, 쿼리 파라미터 page 값에 따라 보고 싶은 페이지를 정할 수 있어야 합니다.', () => {
 //       return request(server)
 //         .get('/discussions?limit=3&page=1')
