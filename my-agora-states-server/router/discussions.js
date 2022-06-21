@@ -11,6 +11,7 @@ router.get("/", findAll);
 router.get("/:id", findById);
 
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
+router.post("/newDiscussion", createOne);
 
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
 
