@@ -63,13 +63,10 @@ header .main-title {
   right: 0;
   margin: 0 auto;
   height: 80px;
+  background-color: #e6e5ff;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-header .main-title.active {
-  backdrop-filter: blur(10px);
 }
 
 section.form__container {
@@ -174,7 +171,7 @@ section.discussion__wrapper {
 }
 
 .discussion__wrapper .discussion__answered p {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .discussion__wrapper .discussion__answer__button {
