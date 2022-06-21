@@ -5,13 +5,16 @@ const express = require('express');
 const router = express.Router();
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
-
+//?q=hello => query parameter
+router.get('/', findAll);
 // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
-
+// /:id => path parameter => req.params.id
+router.get('/:id', findById);
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
-
+router.post('/', createOne);
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
-
+router.put('/', updateById);
 // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
+router.delete('/', deleteById);
 
 module.exports = router;
