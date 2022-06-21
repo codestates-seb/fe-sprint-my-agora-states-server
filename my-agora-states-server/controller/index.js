@@ -1,11 +1,39 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
 
+const divide = (count, arr) => {
+  const result = [];
+  for(let i = 0; i < arr.length; i += count) result.push(arr.slice(i, i + count));
+  return result;
+}
+
+const isParams = (page, limit) => {
+  if(isNaN(page) && isNaN(limit)) return true;
+  return false;
+}
+
 const discussionsController = {
   findAll: (req, res) => {
-    // TODO: 모든 discussions 목록을 응답합니다.
-    return res.status(200).json(discussionsData);
-    // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
+    if (!Object.keys(req.query).length) return res.status(200).json(discussionsData);
+    let { page, limit } = req.query;
+    page = Number(page);
+    limit = Number(limit);
+    if (isParams(page, limit)) return res.status(400).end();
+    if (limit > discussionsData.length) return res.status(200).json([]);
+    let temp;
+    if (page && limit) {
+      // page와 limit가 있는 경우
+      temp = divide(limit, discussionsData)[page - 1];
+      return res.status(200).json(temp);
+    } else if (page && !limit) {
+      // page는 있으며 limit가 없는 경우
+      temp = divide(10, discussionsData)[page - 1];
+      return res.status(200).json(temp);
+    } else {
+      // page는 없으며 limit는 있는 경우
+      temp = discussionsData.slice(0, limit);
+      return res.status(200).json(temp);
+    }
   },
 
   findById: (req, res) => {
