@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/codestates-seb/fe-sprint-my-agora-states-server/issues"
   },
-  "homepage": "https://github.com/codestates-seb/fe-sprint-my-agora-states-server#readme",
+  "homepage": "https://mark1237200.github.io/my-agora-states-server/",
   "jest": {
     "reporters": [
       "default",
