@@ -5,10 +5,20 @@ const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
+    return res.status(200).json(discussionsData);
   },
 
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
+    const { id } = req.params; // string
+    // existId - 객체에 해당id가 있는 지 조회, 없으면 404에러
+    let existId = discussionsData.filter((el) => el.id === Number(id));
+    if (existId.length !== 0) {
+      let result = discussionsData.filter((el) => el.id === Number(id));
+      return res.status(200).json(...result); // result가 [{ }] 이어서 ...로 펼치기
+    } else {
+      return res.status(404).json("Incorect Request.");
+    }
   },
 
   createOne: (req, res) => {
