@@ -117,7 +117,7 @@ describe('Bare Minimum Requirements - Server', () => {
   });
 });
 
-// Advanced Challenge 테스트가 필요하면 주석을 해제합니다.
+//Advanced Challenge 테스트가 필요하면 주석을 해제합니다.
 // describe('Advanced Challenge - Server', () => {
 //   let server;
 //   describe('GET /discussions 요청 - Pagination', () => {
