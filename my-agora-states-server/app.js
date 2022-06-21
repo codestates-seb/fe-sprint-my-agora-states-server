@@ -20,7 +20,7 @@ app.use("/discussions", discussionsRouter);
 
 app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  res.status(200).send("하하 ");
+  res.status(200).send("어서오십숍숍!!!!!!!!!!!!!!!!!");
   throw "";
 });
 
