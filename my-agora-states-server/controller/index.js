@@ -13,8 +13,12 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     const { id } = req.params;
-    const item = discussionsData.filter((e) => e.id === Number(id));
-    return item.length ? res.status(200).json(...item) : res.status(404).send();
+    const item = discussionsData.find((e) => e.id === Number(id));
+    if (item) {
+      return res.status(200).json(item);
+    } else {
+      return res.status(404).send();
+    }
   },
 
   createOne: (req, res) => {
