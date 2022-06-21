@@ -3,6 +3,7 @@ const { discussionsController } = require('../controller');
 const { findAll, findById, createOne, updateById, deleteById } = discussionsController;
 const express = require('express');
 const router = express.Router();
+const { app } = require("../app");
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
 router.get('/', findAll);
