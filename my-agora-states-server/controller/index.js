@@ -10,6 +10,13 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
+    const discussionsID = discussionsData.find((item) => String(item.id) === req.params.id);
+
+    if (discussionsID == null) {
+      return res.status(404).json({ message: "존재하지 않는 id 입니다." });
+    }
+
+    return res.json(discussionsID);
   },
 
   createOne: (req, res) => {
