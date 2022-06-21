@@ -75,6 +75,15 @@ const discussionsController = {
 
   deleteById: (req, res) => {
     // ADVANCED: path parameter id를 가진 discussion을 삭제합니다.
+    const idIndex = discussionsData.findIndex((item) => item.id === Number(req.params.id));
+
+    if (idIndex == null) {
+      return res.status(404).json({ message: "존재하지 않는 id 입니다." });
+    }
+
+    discussionsData.splice(idIndex, 1);
+
+    return res.status(200).json(discussionsData);
   },
 };
 
