@@ -10,8 +10,9 @@ const morgan = require('morgan');
 app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-app.use(express.json());
+app.use(express.json({strict: false}));
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
+app.use(morgan('dev'));
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
