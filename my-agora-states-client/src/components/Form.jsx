@@ -7,17 +7,14 @@ export default function Form() {
   const [content, setContent] = useState("");
 
   function handleNameChange(event) {
-    console.log(event.target.value);
     setUsername(event.target.value);
   }
 
   function handleTitleChange(event) {
-    console.log(event.target.value);
     setTitle(event.target.value);
   }
 
   function handleContentChange(event) {
-    console.log(event.target.value);
     setContent(event.target.value);
   }
 
