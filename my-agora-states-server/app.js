@@ -4,14 +4,15 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 
-// TODO: cors를 적용합니다.
+// TODO: cors를 적용합니다.o
 
-// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.o
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
-
+app.use(cors());//cors처리
+app.use(express.json());//express.json 적용
 // TODO: /discussions 경로로 라우팅합니다. 
 
 app.get('/', (req, res) => {
