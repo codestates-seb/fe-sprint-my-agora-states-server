@@ -9,6 +9,9 @@ const router = express.Router();
 router.get("/", findAll);
 // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
 router.get("/:id", findById);
+// :id => path parameter => req.params.id
+// ?q=hello => query parameter => req.query.query
+
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
 router.post("/", createOne);
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.

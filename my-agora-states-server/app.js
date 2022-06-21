@@ -4,8 +4,9 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 
-const port = 3001;
-const discussionsRouter = require("./router/discussions");
+// 주소값 // www.urclass.com/playlist/140
+// www.urclass.com/ => 루트 경로
+// www.urclass.com/playlist => playlist 경로 =>
 
 // TODO: cors를 적용합니다.
 app.use(cors());
@@ -13,12 +14,16 @@ app.use(cors());
 app.use(express.json({ strict: false }));
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
 
+const port = 3001;
+const discussionsRouter = require("./router/discussions");
+
 // TODO: /discussions 경로로 라우팅합니다.
 app.use("/discussions", discussionsRouter);
 
 app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  res.sendStatus(200);
+  res.status(200).send("health check");
+  throw "";
 });
 
 const server = app.listen(port, () => {
