@@ -1,12 +1,19 @@
 // TODO: discussions 라우터를 완성합니다.
-const { discussionsController } = require('../controller');
-const { findAll, findById, createOne, updateById, deleteById } = discussionsController;
-const express = require('express');
+const { discussionsController } = require("../controller");
+const { findAll, findById, createOne, updateById, deleteById } =
+  discussionsController;
+const express = require("express");
 const router = express.Router();
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
+// router.get("/discussions", findAll);
+router.get("/", findAll); // 경로 /discussions 경로로 들어올때 findAll 함수 실행됨
 
 // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
+// router.get("/discussions/:id", findById);
+router.get("/:id", findById);
+// :id => path.params.id
+//
 
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
 
