@@ -1,0 +1,43 @@
+.row{
+  display: table-row;
+}
+
+a{
+  color: black;
+  cursor:pointer;
+  text-decoration: none;
+}
+.col {
+  display: table-cell;
+}
+
+/* .col1 {
+  padding: 0.5rem 1rem;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 2vw;
+} */
+
+.col1 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  width: 2vw;
+}
+
+.col2 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  width: 5vw;
+}
+
+.col3 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  width: 50vw;
+}
+
+.col4 {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  width: 2vw;
+}
