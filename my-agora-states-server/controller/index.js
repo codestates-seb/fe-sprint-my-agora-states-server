@@ -35,9 +35,10 @@ const discussionsController = {
         return res.status(404).send('Request Page is big Current Page length');
       const offset = (page - 1) * limit;
       const limit_discussions = discussionsData.slice(offset, offset + +limit);
-      return res
-        .status(200)
-        .json({ limit_discussions, total_page: new Array(total_page) });
+      // return res
+      //   .status(200)
+      //   .json({ limit_discussions, total_page: new Array(total_page) });
+      return res.status(200).json(limit_discussions);
     }
   },
 
