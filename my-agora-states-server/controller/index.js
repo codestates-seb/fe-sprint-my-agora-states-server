@@ -7,14 +7,14 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
     let data = discussionsData
-    let page = req.query.page ? Number(req.query.page) : 0
-    let limit = req.query.limit ? Number(req.query.limit) : 10 
+    // let page = req.query.page ? Number(req.query.page) : 0
+    // let limit = req.query.limit ? Number(req.query.limit) : 10 
 
-    if(req.query.limit){
-      if(!(req.query.limit / 1)) return res.status(400).send()
-      if(req.query.limit) data = discussionsData.slice((page * limit), (page * limit) + limit)
-      if(Number(req.query.limit) > discussionsData.length) data = []
-    } 
+    // if(req.query.limit){
+    //   if(!(req.query.limit / 1)) return res.status(400).send()
+    //   if(req.query.limit) data = discussionsData.slice((page * limit), (page * limit) + limit)
+    //   if(Number(req.query.limit) > discussionsData.length) data = []
+    // } 
     // else data = discussionsData.slice((page * 10), (page * 10) + 10)
 
     return res.status(200).json(data)
