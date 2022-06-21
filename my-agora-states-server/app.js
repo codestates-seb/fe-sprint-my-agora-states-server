@@ -20,7 +20,7 @@ app.use('/discussions', discussionsRouter); //  /discussions 경로로 라우팅
 app.get('/', (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
   res.status(200).send('this is agora-states-server');
-  throw 'Not Found!';
+  throw '';
 });
 
 const server = app.listen(port, () => {
