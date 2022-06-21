@@ -52,12 +52,12 @@ Github Page 배포 링크를 아래 작성합니다.
    - [V] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
    - [V] Github Page 배포 ([가이드](https://github.com/gitname/react-gh-pages), [공식문서](https://create-react-app.dev/docs/deployment/#github-pages))
 2. **my-agora-states-server 페이지네이션**
-   - [ ] 쿼리 파라미터 limit 값에 따라 한 번에 볼 수 있는 discussion 개수를 정할 수 있어야 합니다.
-   - [ ] 쿼리 파라미터 limit가 없는 요청은 discussions 목록 10개를 응답합니다.
-   - [ ] 쿼리 파라미터 page가 없는 요청은 쿼리 파라미터 limit값 만큼의 discussion 목록을 응답합니다.
-   - [ ] 잘못된 쿼리 파라미터 값을 요청받은 경우, 상태 코드 400을 응답합니다.
-   - [ ] 범위를 벗어난 파라미터 값을 요청받은 경우, 빈 배열을 응답해야 합니다.
-   - [ ] 위를 벗어난 파라미터 값을 요청받은 경우, 상태 코드 200을 응답합니다.
+   - [V] 쿼리 파라미터 limit 값에 따라 한 번에 볼 수 있는 discussion 개수를 정할 수 있어야 합니다.
+   - [V] 쿼리 파라미터 limit가 없는 요청은 discussions 목록 10개를 응답합니다.
+   - [V] 쿼리 파라미터 page가 없는 요청은 쿼리 파라미터 limit값 만큼의 discussion 목록을 응답합니다.
+   - [V] 잘못된 쿼리 파라미터 값을 요청받은 경우, 상태 코드 400을 응답합니다.
+   - [V] 범위를 벗어난 파라미터 값을 요청받은 경우, 빈 배열을 응답해야 합니다.
+   - [V] 위를 벗어난 파라미터 값을 요청받은 경우, 상태 코드 200을 응답합니다.
 3. **my-agora-states-server 생성/변경/삭제**
    - [ ] `my-agora-states-server/router/discussions.js`
      - [ ] `POST /discussions`
