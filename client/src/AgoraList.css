@@ -1,0 +1,105 @@
+/*discussion*/
+.AgoraList {
+  margin-top: 220px;
+  background-color: rgba(255, 200, 210, 0.3);
+  min-height: calc(100vh - 315px);
+}
+.AgoraList .discussions__container {
+  padding: 0;
+  margin: 0;
+}
+.AgoraList .discussions__container .discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0 10px;
+  border-bottom: 1px dashed rgba(194, 124, 146, 0.8);
+  position: relative;
+}
+.AgoraList .discussions__container .discussion__container:last-child {
+  border: none;
+}
+.editNdelete {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.editNdelete span {
+  cursor: pointer;
+}
+.AgoraList
+  .discussions__container
+  .discussion__container:hover
+  .discussion__avatar--image,
+.AgoraList
+  .discussions__container
+  .discussion__container:hover
+  .discussion__title {
+  transform: scale(1.02);
+  color: #f2789f;
+  transition: transform 0.3s;
+}
+
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__avatar--wrapper {
+  flex: 1 1 10%;
+}
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__avatar--wrapper
+  .discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+.AgoraList .discussions__container .discussion__container .discussion__content {
+  flex: 1 1 80%;
+  padding: 0 10px;
+}
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__title {
+  font-size: 16px;
+}
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__answered {
+  flex: 1 1 10%;
+  text-align: center;
+  color: rgb(242, 120, 159);
+}
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information
+  .isAnswer {
+  font-weight: 700;
+  font-size: 12px;
+}
+.AgoraList
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information
+  .isAnswer.yes {
+  color: rgb(242, 120, 159);
+  font-weight: 700;
+  font-size: 12px;
+}

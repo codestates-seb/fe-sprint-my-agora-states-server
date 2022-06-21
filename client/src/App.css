@@ -1,0 +1,58 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: 'EliceDigitalBaeum_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'EliceDigitalBaeum_Regular';
+}
+body {
+  background-color: rgb(254, 227, 236);
+  background-image: linear-gradient(
+    to bottom,
+    #ffc8d2,
+    #ffcfc3,
+    #ffdbb3,
+    #ffecab,
+    #e8ffb3
+  );
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.App {
+  margin: auto;
+  width: 540px;
+}
+.App h1 {
+  font-size: 20px;
+  position: fixed;
+  top: 0;
+  width: 540px;
+  z-index: 5;
+  background-color: #ffc8d2;
+  height: 70px;
+  padding-top: 10px;
+}
+.App h1::after {
+  content: '';
+  width: 170px;
+  height: 15px;
+  position: absolute;
+  z-index: -1;
+  left: 7px;
+  top: 25px;
+  background-color: rgba(255, 175, 200, 0.8);
+}
