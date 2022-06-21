@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node my-agora-states-server/app.js",
     "dev": "nodemon my-agora-states-server/app.js",
+    "client": "cd client && npm start",
+    "runall": "concurrently --kill-others-on-fail \"npm run dev\" \"npm run client\"",
     "test": "jest"
   },
   "repository": {
@@ -35,10 +37,12 @@
     "dompurify": "^2.3.8",
     "express": "^4.17.1",
     "jsdom": "^19.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "react-intersection-observer": "^9.3.3"
   },
   "devDependencies": {
     "codestates-assignment-manager": "^1.8.0",
+    "concurrently": "^7.2.2",
     "cross-env": "^7.0.3",
     "jest": "^26.6.3",
     "nodemon": "^2.0.16",
