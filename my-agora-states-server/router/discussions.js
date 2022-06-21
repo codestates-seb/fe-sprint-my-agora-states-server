@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get('/', findAll)
 router.get('/:id', findById)
-// router.post('/', createOne)
-// router.put('/:id', updateById)
-// router.delete('/:id', deleteById)
+router.post('/', createOne)
+router.put('/:id', updateById)
+router.delete('/:id', deleteById)
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
 // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
