@@ -7,6 +7,9 @@ export default function Discussion() {
   const [pagination, setPagination] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // 1. 버튼 그리기
+  // 2. findall 함수에 page 쿼리, limit 쿼리 추가하기
+  // 3. 숫자 버튼 누르면 누른 숫자의 쿼리 page로 라우터 적용하기
   useEffect(() => {
     (async () => {
       const page = searchParams.get("page") || 1;
@@ -25,7 +28,7 @@ export default function Discussion() {
             </div>
             <div className='discussion__content'>
               <h2 className='discussion__title'>
-                <a href={discussion.title}>{discussion.title}</a>
+                <a href={discussion.url}>{discussion.title}</a>
               </h2>
               <div className='discussion__information'>
                 <p className='discussion__question__date'>{`${discussion.author} / 
@@ -38,23 +41,21 @@ export default function Discussion() {
           </li>
         ))}
       </ul>
-      {new Array(pagination).fill(0).map((el, index) => {
-        return (
-          <button
-            onClick={(e) => {
-              setSearchParams({ page: index + 1 });
-            }}
-            key={index}
-          >
-            {index + 1}
-          </button>
-        );
-      })}
+      <nav className='page-button-container'>
+        {new Array(pagination).fill(0).map((el, index) => {
+          return (
+            <button
+              onClick={() => {
+                setSearchParams({ page: index + 1 });
+                window.scrollTo(0, 0);
+              }}
+              key={index}
+            >
+              {index + 1}
+            </button>
+          );
+        })}
+      </nav>
     </section>
   );
 }
-
-// 1. 버튼 그리기
-//
-// 2. findall 함수에 page 쿼리, limit 쿼리 추가하기
-// 3. 숫자 버튼 누르면 누른 숫자의 쿼리 page로 라우터 적용하기
