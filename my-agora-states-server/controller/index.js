@@ -21,6 +21,31 @@ const discussionsController = {
 
   createOne: (req, res) => {
     // ADVANCED: 새로운 discussion을 생성합니다.
+    const { id, createdAt, updatedAt, title, url, author, bodyHTML, avatarUrl } = req.body;
+
+    const discussionsID = discussionsData.find((item) => item.id === id);
+
+    if (discussionsID != null) {
+      return res.status(404).json({ message: "이미 존재하는 id 입니다." });
+    }
+
+    console.log(discussionsData.length);
+
+    const newDiscussion = {
+      id,
+      createdAt,
+      updatedAt,
+      title,
+      url,
+      author,
+      answer: null,
+      bodyHTML,
+      avatarUrl,
+    };
+
+    discussionsData.push(newDiscussion);
+
+    return res.status(201).json(newDiscussion);
   },
 
   updateById: (req, res) => {
