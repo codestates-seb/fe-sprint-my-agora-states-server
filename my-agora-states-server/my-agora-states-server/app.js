@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan());
 
 const port = 3001;
-const discussionsRouter = require("./my-agora-states-server/router/discussions");
+const discussionsRouter = require("./router/discussions");
 
 // TODO: /discussions 경로로 라우팅합니다.
 app.use("/discussions", discussionsRouter);
