@@ -26,15 +26,40 @@ const discussionsController = {
   createOne: (req, res) => {
     return res.status(200).json(discussionsData);
     // ADVANCED: 새로운 discussion을 생성합니다.
+    const { body } = req;
+    const { id, createdAt, title, url, author, bodyHTML } = body;
+    const newDiscussion = {
+      id,
+      createdAt,
+      title,
+      url,
+      author,
+      bodyHTML,
+    };
+    discussionsData.unshift(newDiscussion);
+    res.status(200).json(body.id);
   },
 
   updateById: (req, res) => {
-    return res.status(200).json(discussionsData);
-    // ADVANCED: path parameter id를 가진 discussion을 요청에 맞게 변경합니다.
+    const { body, params } = req;
+    const targetIndex = discussionsData.findIndex(
+      (discussion) => discussion.id === parseInt(params.id)
+    );
+    const editDiscussion = {
+      ...discussionsData[targetIndex],
+      ...body,
+    };
+    discussionsData.splice(targetIndex, 1, editDiscussion);
+    res.status(200).json({ targetIndex, editDiscussion });
   },
 
   deleteById: async (req, res) => {
-    return res.status(200).json(discussionsData);
+    const { params } = req;
+    const targetIndex = discussionsData.findIndex(
+      (discussion) => discussion.id === parseInt(params.id)
+    );
+    discussionsData.splice(targetIndex, 1);
+    res.status(200).json(targetIndex);
   },
 };
 

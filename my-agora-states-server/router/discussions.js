@@ -9,11 +9,11 @@ router.get("/", findAll);
 
 router.get("/:id", findById);
 
-router.get("/:id", createOne);
+router.post("/:id", createOne);
 
-router.get("/:id", updateById);
+router.patch("/:id", updateById);
 
-router.get("/:id", deleteById);
+router.delete("/:id", deleteById);
 
 module.exports = router;
 
