@@ -12,7 +12,7 @@ const jsonParser = express.json({strict:false})
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
-const main = require('./fe-sprint-my-agora-states/')
+
 
 
 app.use(jsonParser)
@@ -24,7 +24,7 @@ app.use('/discussions',discussionsRouter);
 
 app.get('/', (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  res.sendFile(__dirname + '/');
+
    throw res.status(200).send('helloWolrd!');
 });
 
