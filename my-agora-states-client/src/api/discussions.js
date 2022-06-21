@@ -1,11 +1,18 @@
-export async function findAll(page = 1) {
-  const response = await fetch(`http://localhost:3002/discussions?page=${page}`);
+import { LIMIT, BASE_URL } from "../constant";
+
+export async function findAll(page, limit = LIMIT) {
+  if (page == null) {
+    const response = await fetch(`${BASE_URL}/discussions`);
+    return await response.json();
+  }
+
+  const response = await fetch(`${BASE_URL}/discussions?page=${page}&limit=${limit}`);
 
   return await response.json();
 }
 
 export async function postDiscussion(body) {
-  const response = await fetch(`http://localhost:3002/discussions`, {
+  const response = await fetch(`${BASE_URL}/discussions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

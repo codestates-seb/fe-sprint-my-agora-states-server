@@ -5,17 +5,17 @@ const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
-    const limit = req.query.limit || 10;
-    const page = req.query.page || 1;
+    const limit = Number(req.query.limit || 10);
+    const page = Number(req.query.page);
+
+    if (isNaN(page)) {
+      return res.status(200).json(discussionsData);
+    }
 
     const start = (page - 1) * limit + 1;
     const end = start + limit;
 
-    return res.status(200).json({
-      data: discussionsData.slice(start - 1, end - 1),
-      limit: limit,
-      count: discussionsData.length,
-    });
+    return res.status(200).json(discussionsData.slice(start - 1, end - 1));
   },
 
   findById: (req, res) => {

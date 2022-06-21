@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { findAll } from "../api/discussions";
 import { useSearchParams } from "react-router-dom";
+import { LIMIT } from "../constant";
 
 export default function Discussion() {
   const [discussions, setDiscussions] = useState([]);
@@ -13,9 +14,9 @@ export default function Discussion() {
   // 3. 숫자 버튼 누르면 누른 숫자의 쿼리 page로 라우터 적용하기
   useEffect(() => {
     (async () => {
-      const { data, limit, count } = await findAll(page);
+      const [total, data] = await Promise.all([findAll(), findAll(page, LIMIT)]);
       setDiscussions(data);
-      setPagination(Math.ceil(count / limit));
+      setPagination(Math.ceil(total.length / LIMIT));
     })();
   }, [page]);
 
