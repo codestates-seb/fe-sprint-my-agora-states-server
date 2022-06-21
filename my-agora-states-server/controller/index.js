@@ -4,11 +4,24 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
+    res.status(200).send(discussionsData)
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
+    
   },
 
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
+    const id = req.params.id
+    let isId = false
+    console.log(id, isId)
+    for(el of discussionsData){
+      if(el['id'].toString() === id) isId = true
+    }
+
+    if(isId === true)
+      return res.status(200).json(...discussionsData.filter(el => el['id'].toString() === id))
+    else if(isId === false)
+      return res.status(404).json('There is no such ID')
   },
 
   createOne: (req, res) => {
