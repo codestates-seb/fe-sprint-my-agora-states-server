@@ -22,7 +22,8 @@ const discussionsController = {
     }
     // 0~9
     // num * 10, (num + 1) * 10 - 1
-    return res.status(200).json(discussionsData.slice(0, 10));
+    // return res.status(200).json(discussionsData.slice(0, 10));
+    return res.status(200).json(discussionsData);
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
   },
 
