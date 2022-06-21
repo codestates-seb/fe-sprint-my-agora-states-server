@@ -4,6 +4,12 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
+    const { limit, page } = req.query;
+    let resbody = discussionsData;
+    if (!limit && !page) {
+      return res.status(200).json(discussionsData);
+    }
+    return res.status(404).json("not found");
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
   },
 
