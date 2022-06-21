@@ -1,22 +1,24 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-const cors = require('cors');
-const morgan = require('morgan');
-
-// TODO: cors를 적용합니다.
-
-// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-// OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
+const cors = require("cors");
+const morgan = require("morgan");
 
 const port = 3001;
-const discussionsRouter = require('./router/discussions');
+const discussionsRouter = require("./router/discussions");
 
-// TODO: /discussions 경로로 라우팅합니다. 
+// TODO: cors를 적용합니다.
+app.use(cors());
+// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+app.use(express.json({ strict: false }));
+// OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
 
-app.get('/', (req, res) => {
+// TODO: /discussions 경로로 라우팅합니다.
+app.use("/discussions", discussionsRouter);
+
+app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  throw '';
+  res.sendStatus(200);
 });
 
 const server = app.listen(port, () => {
