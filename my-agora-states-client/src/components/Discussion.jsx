@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { getDiscussions } from "../api/discussions";
+import { findAll } from "../api/discussions";
+import { useSearchParams } from "react-router-dom";
 
 export default function Discussion() {
   const [discussions, setDiscussions] = useState([]);
+  const [pagination, setPagination] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     (async () => {
-      setDiscussions(await getDiscussions());
+      const page = searchParams.get("page") || 1;
+      const { data, limit, count } = await findAll(page);
+      setDiscussions(data);
+      setPagination(Math.ceil(count / limit));
     })();
-  }, []);
+  }, [searchParams]);
   return (
     <section className='discussion__wrapper'>
       <ul className='discussions__container'>
@@ -32,6 +38,23 @@ export default function Discussion() {
           </li>
         ))}
       </ul>
+      {new Array(pagination).fill(0).map((el, index) => {
+        return (
+          <button
+            onClick={(e) => {
+              setSearchParams({ page: index + 1 });
+            }}
+            key={index}
+          >
+            {index + 1}
+          </button>
+        );
+      })}
     </section>
   );
 }
+
+// 1. 버튼 그리기
+//
+// 2. findall 함수에 page 쿼리, limit 쿼리 추가하기
+// 3. 숫자 버튼 누르면 누른 숫자의 쿼리 page로 라우터 적용하기

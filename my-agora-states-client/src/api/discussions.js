@@ -1,5 +1,5 @@
-export async function getDiscussions() {
-  const response = await fetch("http://localhost:3002/discussions");
+export async function findAll(page = 1) {
+  const response = await fetch(`http://localhost:3002/discussions?page=${page}`);
   return await response.json();
 }
 
