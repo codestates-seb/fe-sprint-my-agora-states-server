@@ -1,4 +1,5 @@
 import "./index.css";
+import React from "react";
 import Form from "./component/Form";
 import Discussions from "./component/Discussions";
 import { useEffect, useState } from "react";
