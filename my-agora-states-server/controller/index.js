@@ -1,15 +1,13 @@
 const { open, writeFile, readFile } = require('fs/promises');
-const { close } = require('fs')
 
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const { nextTick } = require('process');
 const jsonPath = './my-agora-states-server/repository/discussions.json';
 
 const getDiscussionsData = async (path = jsonPath) => {
   const file = await open(path);
   const data = await file.readFile({ encoding: 'utf-8' });
 
-  file.on('close', () => console.log("파일 닫힘"))
+  /* file.on('close', () => console.log("파일 닫힘")) */
   file.close()
 
   return JSON.parse(data);
@@ -28,7 +26,6 @@ const getDiscussionsData = async (path = jsonPath) => {
 })(); */
 
 // console.log(process.cwd())
-// writeFile('./my-agora-states-server/repository/discussions.json', JSON.stringify(agoraStatesDiscussions))  
 
 class Discuss {
   constructor({ title, author, }) {
@@ -80,7 +77,7 @@ const discussionsController = {
       return (page - 1) * limit <= i && i < page * limit
     })
 
-    res.json({ data: pagedDate, maxPage: lastPage });
+    res.json(agoraStatesDiscussions/* { data: pagedDate, maxPage: lastPage } */);
   },
 
 
@@ -95,7 +92,7 @@ const discussionsController = {
       return;
     }
 
-    res.json(filtered);
+    res.json(filtered[0]);
   },
 
 
