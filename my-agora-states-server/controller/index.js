@@ -17,7 +17,7 @@ const discussionsController = {
     if(a.length !== 0){
       return res.status(200).json(...a)
     }else{
-      return res.status(404).send()
+      return res.status(404).send("올바르지 않은 아이디 값 입니다!")
     }
     // TODO: path parameter id를 가진 discussion을 응답합니다.
   },
