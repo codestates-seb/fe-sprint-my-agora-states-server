@@ -6,7 +6,31 @@ const discussionsController = {
     let data = agoraStatesDiscussions;
     // TODO: 모든 discussions 목록을 응답합니다.
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
-    return res.status(200).json(data);
+    if (req.query.limit || req.query.page) {
+      if(req.query.limit) {
+        if(Number(req.query.limit)>=0) {
+          let start=0;
+          let end=req.query.limit;
+          data_limit = data.slice(start,end)
+          if(req.query.page >=2) {
+            start = req.query.limit*req.query.page;
+            end = start + Number(req.query.limit);
+            data_limit = data.slice(start,end)
+          }
+          return res.status(200).json(data_limit);
+        }
+        else {
+          return res.status(400).send('Not found');
+        }
+      }
+      else {
+        data = data.slice(0,10);
+        return res.status(200).json(data);
+      }
+    }
+    else {
+      return res.status(200).json(data);
+    }
   },
 
   findById: (req, res) => {
