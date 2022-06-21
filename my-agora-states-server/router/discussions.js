@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', findAll);
 
 // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
-router.get('/', findById);
+router.get('/:id', findById);
 
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
 router.post('/', createOne);
