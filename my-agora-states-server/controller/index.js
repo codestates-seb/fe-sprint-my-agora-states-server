@@ -4,11 +4,21 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
+    return res.status(200).json(discussionsData);
     // ADVANCED: 테스트 케이스에 맞게 페이지네이션을 구현합니다.
   },
-
+  
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
+    
+    let list=discussionsData.filter((item)=>{
+      return Number(req.params.id)===item.id
+    }); //list 엔 id가같은것만 있음 배열로나옴
+    if(list.length!==0){
+      return res.status(200).json(...list);
+    }else{return res.status(404).json(discussionsData)}
+    
+  
   },
 
   createOne: (req, res) => {
