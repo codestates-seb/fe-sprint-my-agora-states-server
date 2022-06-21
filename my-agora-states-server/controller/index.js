@@ -29,8 +29,6 @@ const discussionsController = {
       return res.status(404).json({ message: "이미 존재하는 id 입니다." });
     }
 
-    console.log(discussionsData.length);
-
     const newDiscussion = {
       id,
       createdAt,
@@ -50,6 +48,29 @@ const discussionsController = {
 
   updateById: (req, res) => {
     // ADVANCED: path parameter id를 가진 discussion을 요청에 맞게 변경합니다.
+    const idIndex = discussionsData.findIndex((item) => String(item.id) === req.params.id);
+
+    if (idIndex == null) {
+      return res.status(404).json({ message: "존재하지 않는 id 입니다." });
+    }
+
+    const { id, createdAt, updatedAt, title, url, author, bodyHTML, avatarUrl } = req.body;
+
+    const discussion = discussionsData[idIndex];
+
+    discussionsData[idIndex] = {
+      ...discussion,
+      id: id ?? discussion.id,
+      createdAt: createdAt ?? discussion.createdAt,
+      updatedAt: updatedAt ?? discussion.updatedAt,
+      title: title ?? discussion.title,
+      url: url ?? discussion.url,
+      author: author ?? discussion.author,
+      bodyHTML: bodyHTML ?? discussion.bodyHTML,
+      avatarUrl: avatarUrl ?? discussion.avatarUrl,
+    };
+
+    return res.status(200).json(discussionsData[idIndex]);
   },
 
   deleteById: (req, res) => {
