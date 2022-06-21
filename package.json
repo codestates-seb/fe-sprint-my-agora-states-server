@@ -9,7 +9,10 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd my-agora-states-server && PORT=3002 npm run dev",
     "dev:client": "cd my-agora-states-client && npm run start",
-    "test": "cd my-agora-states-server && npm run test"
+    "test": "cd my-agora-states-server && npm run test",
+    "install": "concurrently \"npm run install:server\" \"npm run install:client\"",
+    "install:server": "cd my-agora-states-server && npm install",
+    "install:client": "cd my-agora-states-client && npm install"
   },
   "repository": {
     "type": "git",
