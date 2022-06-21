@@ -30,7 +30,7 @@ const discussionsController = {
     }
 
     const newDiscussion = {
-      id,
+      id: discussionsData[0] + 1,
       createdAt,
       updatedAt,
       title,
@@ -41,7 +41,7 @@ const discussionsController = {
       avatarUrl,
     };
 
-    discussionsData.push(newDiscussion);
+    discussionsData.unshift(newDiscussion);
 
     return res.status(201).json(newDiscussion);
   },
@@ -54,15 +54,13 @@ const discussionsController = {
       return res.status(404).json({ message: "존재하지 않는 id 입니다." });
     }
 
-    const { id, createdAt, updatedAt, title, url, author, bodyHTML, avatarUrl } = req.body;
+    const { createdAt, updatedAt, title, url, author, bodyHTML, avatarUrl } = req.body;
 
     const discussion = discussionsData[idIndex];
 
     discussionsData[idIndex] = {
       ...discussion,
-      id: id ?? discussion.id,
-      createdAt: createdAt ?? discussion.createdAt,
-      updatedAt: updatedAt ?? discussion.updatedAt,
+      updatedAt: new Date().toLocaleString(),
       title: title ?? discussion.title,
       url: url ?? discussion.url,
       author: author ?? discussion.author,
