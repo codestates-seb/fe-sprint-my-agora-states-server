@@ -7,8 +7,11 @@ const morgan = require('morgan');
 // TODO: cors를 적용합니다.
 app.use(cors());
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+// 자동으로 parse를 해준다. express에서 자동으로 지원.
 app.use(express.json());
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
+// http요청이 올때 로그를 찍는다. -> ?
+app.use(morgan('tiny'));
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');

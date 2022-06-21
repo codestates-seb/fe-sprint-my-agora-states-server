@@ -13,13 +13,15 @@ const discussionsController = {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
 
     const data = discussionsData.filter((el) => {
-      return Number(req.params.id) === el.id;
+      return Number(req.params.id) === el.id; // 숫자끼리 비교해야되서 Number()
     });
+    // discussionsData 배열 안의 객체를 하나하나 조회하면서 path parameter id를 가진 discussion을 찾아서 data에 할당한다.
 
     if (data.length !== 0) {
-      return res.status(200).json(...data);
+      // 찾는 id가 data에 있으면 200을 응답.
+      return res.status(200).json(...data); // data[0]
     } else {
-      return res.status(404).json('Not Found!');
+      return res.status(404).json('Not Found!'); // 없다면 404를 응답하면서 'Not Found!' 에러 표시
     }
   },
 
