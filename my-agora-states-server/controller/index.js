@@ -11,11 +11,11 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     if(req.params.id !== undefined) {
-      const list = discussionsData.filter((item) => {
+      const matchedId = discussionsData.filter((item) => {
         return Number(req.params.id) === item.id
       })
-      if (list.length !== 0) {
-        return res.status(200).json(...list)
+      if (matchedId.length !== 0) {
+        return res.status(200).json(...matchedId)
       } else {
         return res.status(404).send('Not Found!')
       }
