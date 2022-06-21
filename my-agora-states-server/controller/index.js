@@ -24,12 +24,6 @@ const discussionsController = {
         return res.status(404).end("not found!");
       }
     }
-
-    // const { id, title, url, author, bodyHTML, avatarUrl } = req.body;
-    // const data = discussionsData.filter(
-    //   (discussionsData) => discussionsData.id === Number(req.params.id)
-    // );
-    // return res.json(data);
   },
 
   createOne: (req, res) => {
