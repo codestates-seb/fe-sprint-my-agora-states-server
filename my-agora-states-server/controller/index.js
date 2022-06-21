@@ -12,10 +12,11 @@ const discussionsController = {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     const {id} = req.params;
     if(id) {
-      let data = discussionsData
+      let data = discussionsData;
+      // req.params.id -> 문자를 *1을 통해 숫자로 바꿔줌
       data = data.filter((item) => item.id === (req.params.id)*1)
-      if(data.length > 0) {
-        return res.status(200).json(data[0])
+      if(data.length !== 0) { //  빈배열이 아니라면!
+        return res.status(200).json(data[0]) // filter는 배열을 리턴 그 배열에서 원하는 데이터를 가져오기 위해 인덱스0
       } else return res.status(404).end()
       }
       // data = data.filter(item => 
