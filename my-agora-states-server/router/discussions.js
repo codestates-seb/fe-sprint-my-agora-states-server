@@ -14,9 +14,11 @@ router.get('/', findAll);
 router.get('/:id', findById);
 
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
+router.post('/:id', createOne);
 
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
+router.put('/:id', updateById);
 
 // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
-
+router.delete('/:id', deleteById);
 module.exports = router;

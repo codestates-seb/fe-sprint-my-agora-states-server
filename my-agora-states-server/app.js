@@ -10,7 +10,7 @@ app.use(express.json({strict: false}))
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
-app.use(morgan('combined'))
+app.use(morgan('tiny'))
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
@@ -20,7 +20,8 @@ app.use('/discussions', discussionsRouter)
 
 app.get('/', (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  res.status(200).send('HELLO');
+  res.status(200).send('health check');
+  // throw '';  //테스트의 편의를 위해 작성
 });
 
 const server = app.listen(port, () => {
