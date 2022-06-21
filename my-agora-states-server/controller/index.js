@@ -22,18 +22,15 @@ const discussionsController = {
     const [temp] = discussionsData.filter((item) => item.id === id);
     return res.status(200).json(temp);
 
-    // findById: (req, res) => {
-    //   // TODO: path parameter id를 가진 discussion을 응답합니다.
+    // const { id } = req.params;
 
-    //   const { id } = req.params;
-
-    //   const data = discussionsData.filter(
-    //     (item) => Number(item.id) === Number(id)
-    //   );
-    //   if (data.length === 0) {
-    //     return res.status(404).send("Error");
-    //   }
-    //   return res.status(200).json(data[0]);
+    // const data = discussionsData.filter(
+    //   (item) => Number(item.id) === Number(id)
+    // );
+    // if (data.length === 0) {
+    //   return res.status(404).send("Error");
+    // }
+    // return res.status(200).json(data[0]);
   },
 
   createOne: (req, res) => {
