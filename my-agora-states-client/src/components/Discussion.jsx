@@ -22,7 +22,8 @@ export default function Discussion() {
                 <a href={discussion.title}>{discussion.title}</a>
               </h2>
               <div className='discussion__information'>
-                <p className='discussion__question__date'>{`${discussion.author} / ${discussion.createdAt}`}</p>
+                <p className='discussion__question__date'>{`${discussion.author} / 
+                  ${new Date(`${discussion.createdAt}`).toLocaleString()}`}</p>
               </div>
             </div>
             <div className='discussion__answered'>
