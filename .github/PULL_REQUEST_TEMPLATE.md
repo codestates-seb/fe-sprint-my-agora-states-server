@@ -6,7 +6,7 @@ Section2에서 배운 내용을 총 동원하여 나만의 아고라 스테이�
 
 ## 배포 링크
 
-Github Page 배포 링크를 아래 작성합니다.
+https://topbin2.github.io/agora-states-react/
 
 ## Bare Minimum Requirement Self Checklist
 
