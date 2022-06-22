@@ -13,7 +13,7 @@ const port = 3001;
 const discussionsRouter = require("./router/discussions");
 
 app.use(cors());
-app.use(morgan());
+app.use(morgan("tiny")); // log 값
 app.use(express.json());
 
 // TODO: /discussions 경로로 라우팅합니다.
@@ -22,7 +22,7 @@ app.use("/discussions", discussionsRouter);
 app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
   res.status(200).send("Welcome my Agora!!!");
-  throw new error("my error");
+  throw ""; // test 빠르게 해주는 용도로..
 });
 
 app.use((req, res, next) => {
