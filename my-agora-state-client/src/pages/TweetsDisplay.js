@@ -23,9 +23,11 @@ function TweetsDisplay() {
     })
   
     const addDiscussion = ({ title, author, bodyText }) => {
+      // let newDate = new Date();
       let newDiscussion = {
         id: "",
-        createdAt: new Date().toLocaleString('ko-KR').slice(-11),
+        // createdAt: new Date().toLocaleString('ko-KR').slice(-11),
+        createdAt: "",
         title: title,
         url: "https://github.com/codestates-seb/agora-states-fe/discussions",
         author: author,

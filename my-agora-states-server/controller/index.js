@@ -50,7 +50,7 @@ const discussionsController = {
     const url = "https://github.com/codestates-seb/agora-states-fe/discussions/" + id
     const newDiscussion = {
       id,
-      createdAt: new Date().toLocaleString('ko-KR').slice(-11),
+      createdAt: new Date().toISOString(),
       title,
       url,
       author,
@@ -75,7 +75,7 @@ const discussionsController = {
     const updated = {
       ...discussionsData[idx],
       ...req.body,
-      updatedAt: new Date().toLocaleString('ko-KR').slice(-11)
+      updatedAt: new Date().toISOString()
     };
 
     if (idx !== -1) { 
@@ -86,14 +86,24 @@ const discussionsController = {
     }
   },
 
-  deleteById: (req, res) => {
-    // ADVANCED: path parameter id를 가진 discussion을 삭제합니다.
-    let list = discussion;
-    if (req.params){
-      list = list.filter((item)=>{ return item.id === req.params.id})
-      return res.status(200)
-    }
-  },
+//   deleteById: (req, res) => {
+//     // ADVANCED: path parameter id를 가진 discussion을 삭제합니다.
+//     let list = discussion;
+//     if (req.params){
+//       list = list.filter((item)=>{ return item.id === Number(req.params.id)})
+//       return res.status(200)
+//     }
+//   },
+// };
+deleteById: (req, res) => {
+  const idx = discussionsData.findIndex((item) => item.id === Number(req.params.id));
+  if (idx !== -1) {
+    discussionsData.splice(idx, 1);
+    return res.status(202).send("resource deleted successfully");
+  } else {
+    return res.status(404).send("Not found");
+  }
+},
 };
 
 module.exports = {
