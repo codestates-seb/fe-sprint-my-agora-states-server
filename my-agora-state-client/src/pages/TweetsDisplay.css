@@ -1,0 +1,9 @@
+.tweetdisplay { 
+    display:flex;
+    flex-direction: column;
+    /* background-color: aquamarine; */
+}
+
+.diarytowrite {}
+
+.diarylist {}

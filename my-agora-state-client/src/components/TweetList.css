@@ -1,0 +1,14 @@
+.discussion__wrapper {
+    width: 540px;
+}
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    list-style-type:none;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    background-color: #DEB6AB;
+    border-radius: 10px; 
+}
+
