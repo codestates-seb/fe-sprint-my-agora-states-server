@@ -8,25 +8,25 @@ const discussionsController = {
     const { limit, page } = req.query;
     let result = discussionsData;
 
-    let limits = limit ? Number(limit) : 10;
-    let pages = page ? Number(page) : 0;
+    // let limits = limit ? Number(limit) : 10;
+    // let pages = page ? Number(page) : 0;
 
-    // console.log(!Number(limit)); // true
-    if (limit) {
-      // limit가 숫자가 아니면 404에러
-      if (!Number(limit)) {
-        return res.status(400).json("Incorrect Request");
-      }
-      // limit가 숫자면 출력
-      else {
-        if (page) result = discussionsData.slice(0, limits * pages);
-        else result = discussionsData.slice(0, limits);
-      }
+    // // console.log(!Number(limit)); // true
+    // if (limit) {
+    //   // limit가 숫자가 아니면 404에러
+    //   if (!Number(limit)) {
+    //     return res.status(400).json("Incorrect Request");
+    //   }
+    //   // limit가 숫자면 출력
+    //   else {
+    //     if (page) result = discussionsData.slice(0, limits * pages);
+    //     else result = discussionsData.slice(0, limits);
+    //   }
 
-      if (limit > discussionsData.length) result = [];
-    } else {
-      result = discussionsData.slice(0, limits);
-    }
+    //   if (limit > discussionsData.length) result = [];
+    // } else {
+    //   result = discussionsData.slice(0, limits);
+    // }
     return res.status(200).json(result);
   },
 
