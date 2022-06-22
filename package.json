@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node my-agora-states-server/app.js",
     "dev": "nodemon my-agora-states-server/app.js",
-    "test": "jest"
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "repository": {
     "type": "git",
