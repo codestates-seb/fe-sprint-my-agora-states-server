@@ -18,7 +18,8 @@ app.use("/discussions", discussionsRouter);
 
 app.get("/", (req, res) => {
   // TODO: 서버 상태 확인을 위해 상태 코드 200으로 응답합니다.
-  res.status(200).send("Welcome");
+  res.status(200).send("health check");
+  // throw ""; //에러를 강제 발생하게 하는 것, 빨리 test하려고 넣은 것
 });
 
 const server = app.listen(port, () => {
