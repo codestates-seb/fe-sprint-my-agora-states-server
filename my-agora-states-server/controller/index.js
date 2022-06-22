@@ -12,6 +12,7 @@ const discussionsController = {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     // req.params.id가 문자열이기 때문에 Number()로 형변환.
 
+    // 1.
     // const { id } = req.params;
 
     // const data = discussionsData.filter(
@@ -22,7 +23,7 @@ const discussionsController = {
     // }
     // return res.status(200).json(data[0]);
 
-    // reference
+    // 2. reference
     // const { id } = req.params;
     // const found = discussionsData.find((d) => d.id === Number(id));
 
@@ -32,21 +33,20 @@ const discussionsController = {
     //   return res.status(404).send("Not found");
     // }
 
+    // 3.
     if (req.params) {
-      const soo = discussionData.find(
-        (bin) => bin.id === Number(req.params.id)
-      );
-      if (soo !== undefined) {
-        res.status(200).json(soo);
+      const idx = discussionsData.find((el) => el.id === Number(req.params.id));
+      if (idx !== undefined) {
+        res.status(200).json(idx);
       }
     }
-    res.status(404).json();
+    res.status(404).send("Not found");
   },
 
   createOne: (req, res) => {
     // POST는 body에서 raw로 JSON을 선택해서 적어줘서 보내줘야 응답한다.
     // ADVANCED: 새로운 discussion을 생성합니다.
-    console.log(req.body);
+    // console.log(req.body);
     const newItem = req.body;
     discussionsData.unshift(newItem);
 
@@ -65,7 +65,7 @@ const discussionsController = {
     );
 
     discussionsData.splice(idx, 1, change);
-    console.log(change);
+    // console.log(change);
 
     return res.status(200).json(change);
   },
