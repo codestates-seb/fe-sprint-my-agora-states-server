@@ -41,25 +41,12 @@ const discussionsController = {
   },
 
   updateById: (req, res) => {
-    const { body, params } = req;
-    const targetIndex = discussionsData.findIndex(
-      (discussion) => discussion.id === parseInt(params.id)
-    );
-    const editDiscussion = {
-      ...discussionsData[targetIndex],
-      ...body,
-    };
-    discussionsData.splice(targetIndex, 1, editDiscussion);
-    res.status(200).json({ targetIndex, editDiscussion });
+    return res.status(200).json(discussionsData);
+    // ADVANCED: path parameter id를 가진 discussion을 요청에 맞게 변경합니다.
   },
 
   deleteById: async (req, res) => {
-    const { params } = req;
-    const targetIndex = discussionsData.findIndex(
-      (discussion) => discussion.id === parseInt(params.id)
-    );
-    discussionsData.splice(targetIndex, 1);
-    res.status(200).json(targetIndex);
+    return res.status(200).json(discussionsData);
   },
 };
 
