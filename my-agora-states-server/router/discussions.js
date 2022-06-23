@@ -2,17 +2,17 @@
 const { discussionsController } = require('../controller');
 const { findAll, findById, createOne, updateById, deleteById } = discussionsController;
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); //필수 (라우터를 쓰겟다)
 
 // TODO: 모든 discussion 목록을 조회하는 라우터를 작성합니다.
-  router.get("/", findAll);
+  router.get('/', findAll)
   // TODO: discussion 하나를 조회하는 라우터를 작성합니다.
-  router.get("/:id", findById);
+  router.get('/:id', findById)
   // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
-  router.post("/", createOne);
+  router.post('/', createOne)
   // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
-  router.patch("/:id", updateById);
+  router.put('/:id', updateById)
   // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
-  router.delete("/:id", deleteById);
+  router.delete('/:id', deleteById)
   
 module.exports = router;

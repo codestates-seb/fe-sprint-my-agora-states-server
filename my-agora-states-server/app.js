@@ -6,11 +6,10 @@ const morgan = require('morgan');
 
 // TODO: cors를 적용합니다.
 app.use(cors())
-app.use(express.json())
-app.use(morgan())
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+app.use(express.json())
 // OPTIONAL: HTTP 요청 logger인 morgan을 적용합니다.
-
+app.use(morgan())
 
 const port = 3001;
 const discussionsRouter = require('./router/discussions');
@@ -18,7 +17,7 @@ const router = require('./router/discussions');
 // const { route } = require('./router/discussions');
 
 // TODO: /discussions 경로로 라우팅합니다.
-app.use('/discussions', discussionsRouter)
+app.use('/discussions', discussionsRouter) //앞에 주소를 쳤을경우 뒤에 오는 값을 참조해라
 
 
 router.get('/discussions', (req, res)=>{
