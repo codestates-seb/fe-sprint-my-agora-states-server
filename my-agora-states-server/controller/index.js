@@ -11,12 +11,12 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: path parameter id를 가진 discussion을 응답합니다.
     const { id } = req.params;
-    const data = discussionsData.filter(item => Number(id) === item.id);
+    const data = discussionsData.find(item => item.id === Number(id)); // 자바스크립트는 number 타입 아니어도 에러를 안뿜어서...꽤나 짱났다
     
-    if(data.length === 0){ // 요청에 해당하는 id가 discussionsData에 존재하지 않으면
-      return res.status(404).end(); // .json('Incorrect request') 오류 메시지를 보내던지 .end()를 하던지 종결을 시켜주어야 함. 근데 전자로 하면 테케 통과 안됨.
+    if(data){ // 요청에 해당하는 id가 discussionsData에 존재하면
+      return res.json(data).status(200);
     }
-    return res.json(...data).status(200);
+    return res.status(404).end(); // .json('Incorrect request') 오류 메시지를 보내던지 .end()를 하던지 종결을 시켜주어야 함. 근데 전자로 하면 테케 통과 안됨.
   },
 
   createOne: (req, res) => {
