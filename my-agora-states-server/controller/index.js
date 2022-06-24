@@ -1,16 +1,21 @@
-const { open, writeFile, readFile } = require('fs/promises');
+const { open, writeFile } = require('fs/promises');
 
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const jsonPath = './my-agora-states-server/repository/discussions.json';
+/* const initialData = getDiscussionsData(); */
 
-const getDiscussionsData = async (path = jsonPath) => {
+async function getDiscussionsData(path = jsonPath) {
+  console.log("0. getDiscussionsData 함수 실행");
   const file = await open(path);
+  console.log(file);
+  console.log("1. 파일 열기 완료");
   const data = await file.readFile({ encoding: 'utf-8' });
+  console.log("2. 파일 읽기 완료");
+  const discussions = JSON.parse(data);
 
-  /* file.on('close', () => console.log("파일 닫힘")) */
-  file.close()
-
-  return JSON.parse(data);
+  file.on('close', () => console.log("3. 파일 닫힘(끝)"))
+  /* file.close(); */
+  return discussions;
 }
 
 /* const idGenerator = (async () => {
@@ -28,14 +33,14 @@ const getDiscussionsData = async (path = jsonPath) => {
 // console.log(process.cwd())
 
 class Discuss {
-  constructor({ title, author, }) {
+  constructor({ title, author, bodyHTML }) {
     this.createdAt = new Date();
     this.updatedAt = new Date();
     this.title = title;
     this.url = "";
     this.author = author;
     this.answer = null;
-    this.bodyHTML = "";
+    this.bodyHTML = bodyHTML;
     this.avatarUrl = "";
   }
 }
@@ -58,9 +63,12 @@ const PaginationError = (limit, page, lastPage) => {
   return new Error(errMsg);
 }
 
+
 const discussionsController = {
 
   findAll: async (req, res, next) => {
+    console.log("get 요청");
+    /* const data = await initialData; */
     const data = await getDiscussionsData();
     const { query } = req;
     const limit = Number(query?.limit || 10);
@@ -77,11 +85,13 @@ const discussionsController = {
       return (page - 1) * limit <= i && i < page * limit
     })
 
-    res.json(agoraStatesDiscussions/* { data: pagedDate, maxPage: lastPage } */);
+    res.json({ data: pagedDate, maxPage: lastPage });
+    console.log("get 응답 전송 완료");
   },
 
 
   findById: async (req, res, next) => {
+    /* const data = await initialData; */
     const data = await getDiscussionsData();
     const reqID = Number(req.params.id);
     const filtered = data.filter((el) => el.id === reqID);
@@ -92,19 +102,25 @@ const discussionsController = {
       return;
     }
 
-    res.json(filtered[0]);
+    res.json(filtered);
   },
 
 
   createOne: async (req, res) => {
+    console.log("post 요청");
     const newData = new Discuss({ ...req.body });
+    /* const data = await initialData; */
     const data = await getDiscussionsData();
 
     newData.id = data.length + 100;
     data.unshift(newData);
 
+    const file = await open(jsonPath, 'r');
+    const modified = await file.writeFile(JSON.stringify(data), { encoding: 'utf8' });
+    file.on('close', () => console.log("쓰기 작업 완료"))
+    file.close();
     res.status(201).json({ newDiscussionID: newData.id });
-    writeFile(jsonPath, JSON.stringify(data));
+    console.log("post 응답 전송 완료"); 
   },
 
 

@@ -1,6 +1,3 @@
-discussions.json
-백업/
-
 # Logs
 logs
 *.log
@@ -107,3 +104,5 @@ dist
 .tern-port
 
 .prettierrc
+my-agora-states-server/repository/discussions.json
+백업/
