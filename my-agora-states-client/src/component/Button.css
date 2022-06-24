@@ -1,0 +1,27 @@
+.form__submit {
+  display: flex;
+  justify-content: center;
+  grid-column: 3/4;
+  align-self: end;
+}
+
+/* submit 버튼 */
+.form__submit input {
+  width: 100px;
+  height: 42px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: rgb(238, 153, 42);
+  border: 2px solid rgb(238, 153, 42);
+  border-radius: 40px;
+  transition: 0.6s all;
+  box-shadow: var(--shadow-button);
+}
+
+.form__submit input:hover,
+.form__submit input:active {
+  color: rgb(238, 153, 42);
+  background-color: rgb(255, 255, 255);
+  transition: 0.6s all;
+}

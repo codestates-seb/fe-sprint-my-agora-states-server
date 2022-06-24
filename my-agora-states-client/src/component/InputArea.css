@@ -1,0 +1,38 @@
+/* discussion 입력 section */
+.form__input--wrapper {
+  display: inline-grid;
+  row-gap: 8px;
+  grid-template-columns: 130px auto 120px;
+  grid-template-rows: 1fr 1fr min-content;
+  width: var(--width);
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgba(253, 206, 145, 0.678);
+  padding: 10px;
+  box-shadow: var(--shadow-outer);
+}
+
+.form__input--wrapper label {
+  grid-column: 1/2;
+}
+
+/* 입력란 */
+.form__input--wrapper > :is(input, textarea) {
+  width: var(--width-input);
+  height: 30px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: var(--color-inner);
+  transition: 0.6s all;
+}
+
+.form__input--wrapper > :is(input, textarea):focus {
+  outline: none;
+  box-shadow: 0px 3px 1px 0px #aed1ff;
+  transition: 0.6s all;
+}
+
+.form__input--wrapper textarea {
+  height: 70px;
+  max-width: var(--width-input);
+}

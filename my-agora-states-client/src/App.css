@@ -1,0 +1,41 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  row-gap: 10px;
+  overflow: hidden;
+}
+
+/* 제목 */
+h1 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  font-size: 3rem;
+  transition: 0.6s all;
+  animation: showing 1s;
+  text-shadow: 2px 4px 30px rgb(107, 107, 107);
+}
+
+@keyframes showing {
+  0% {
+    right: -100%;
+  }
+  90% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    right: 0%;
+  }
+}
+
+h1:hover {
+  color: rgb(50, 112, 170);
+  transition: 0.6s all;
+}
+
+/* Discussion 래퍼 */
+section.discussion__wrapper {
+  width: var(--width);
+}
