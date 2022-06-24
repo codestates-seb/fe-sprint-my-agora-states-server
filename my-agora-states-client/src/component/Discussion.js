@@ -1,3 +1,4 @@
+import React from 'react';
 import './Discussion.css';
 
 /* 날짜시간 변환 함수 */
@@ -31,7 +32,7 @@ const Discussion = (props) => {
 }
 
 
-const DiscussSect = ({ data, toolComp }) => {
+const DiscussSect = React.memo( ({ data, toolComp }) => {
 
   return (
     <ul className="discussions__container">
@@ -41,7 +42,7 @@ const DiscussSect = ({ data, toolComp }) => {
       {data.map((props) => <Discussion {...props} key={props.id} />)}
     </ul>
   );
-}
+});
 
 export default DiscussSect;
 
