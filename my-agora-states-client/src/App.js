@@ -4,41 +4,50 @@ import './App.css';
 import Form from './component/InputArea';
 import DiscussSect from './component/Discussion';
 
+const FetchData = async (path = "", method = "GET", body = {}) => {
+  const option = {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    ...body
+  }
+  const serverReq = await fetch(`http://localhost:3003/discussions${path}`, option);
+  console.log(serverReq.ok);
 
+  return await serverReq.json();
+}
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [newItem, setNewItem] = useState({ author: "", title: "", bodyHTML: "" });
+  const [reRender, setReRender] = useState("init");
 
   useEffect(() => {
-  console.log("useEffect"); // 왜 두번 실행?
-    (async () => {
-      const serverReq = await fetch('http://localhost:3003/discussions');
-      const option = {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title: "test",
-          author: "fff"
-        })
-      }
-      /* const serverReq = await fetch('http://localhost:3001/discussions', option); */
-      const serverData = await serverReq.json();  // {data: 데이터 배열, maxPage: 마지막 페이지}
+    if (!reRender) return;
 
-      setData(serverData.data);
-      setIsLoading(false);
-    })();
+    if (reRender === "init") {
+      (async () => {
+        const serverData = await FetchData();
+        setData(serverData.data); // {data: 데이터 배열, maxPage: 마지막 페이지}
+        // setReRender(null);
+      })()
+    } else if (reRender === "newItem") {
+      (async () => {
+        const serverData = await FetchData("", "POST", { body: JSON.stringify(newItem) });
+        setData(serverData.data); // {data: 데이터 배열, maxPage: 마지막 페이지}
+        // setReRender(null);
+        setNewItem({ author: "", title: "", bodyHTML: "" });
+      })()
+    }
+  }, [reRender])
 
-    return () => setIsLoading(true);
-  }, [])
 
   return (
     <>
       <h1>My Agora States</h1>
       <section className="form__container">
-        <Form />
+        <Form newItem={newItem} setNewItem={setNewItem} setReRender={setReRender} />
       </section>
 
       <section className="discussion__wrapper">
