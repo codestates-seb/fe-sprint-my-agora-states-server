@@ -13,12 +13,14 @@ router.get("/", findAll); // 경로 /discussions 경로로 들어올때 findAll 
 // router.get("/discussions/:id", findById);
 router.get("/:id", findById);
 // :id => path.params.id
-//
 
 // ADVANCED: discussion 하나를 생성하는 라우터를 작성합니다.
+router.post("/", createOne);
 
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
+router.put("/:id", updateById);
 
 // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
+router.delete("/:id", deleteById);
 
 module.exports = router;
