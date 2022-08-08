@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "browser": { "zlib": false } ,
   "scripts": {
     "start": "node my-agora-states-server/app.js",
     "dev": "nodemon my-agora-states-server/app.js",

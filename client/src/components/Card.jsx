@@ -1,8 +1,10 @@
+import { forwardRef } from "react";
 import { useState } from "react";
 import { UseRequest } from "../hooks/UseRequest";
 
-const Card = ({imgUrl, linkUrl, title, author, createdAt, id, setFunc}) => {
+const Card = forwardRef(({isAnswer, imgUrl, linkUrl, title, author, createdAt, id, setFunc}) => {
     const [isHover, setIsHover] = useState(false);
+    
     const handleHoverEvent = () => {
         setIsHover(true);
     };
@@ -11,7 +13,7 @@ const Card = ({imgUrl, linkUrl, title, author, createdAt, id, setFunc}) => {
         setIsHover(false);
     };
 
-    const deleteRequest = UseRequest(`http://localhost:3010/discussions/${id}`,'', 'DELETE')
+    const deleteRequest = UseRequest(`http://localhost:3010/discussions/${id}`,'', 'DELETE');
     
     const handleDeleteClick = async (e) => {
         setFunc(await deleteRequest());
@@ -34,10 +36,14 @@ const Card = ({imgUrl, linkUrl, title, author, createdAt, id, setFunc}) => {
                 <div className="discussion__information">
                     {author} / {createdAt}
                 </div>
-                <p className="discussion__answered">☑</p>
+                <p className="discussion__answered">
+                    {
+                        isAnswer ? '☑' : 'X'
+                    }
+                </p>
             </div>
         </div>
     );
-};
+});
 
 export default Card;

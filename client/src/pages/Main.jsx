@@ -1,32 +1,84 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
-import { UseFetch } from "../hooks/UseFetch";
 import Card from "../components/Card";
 import { useInView } from 'react-intersection-observer';
+import { graphql } from '@octokit/graphql';
 
 const Main = ({linkPath}) => {
     const [isModal, setIsModal] = useState(false);
     const [data, setData] = useState([]);
     const [ref, inView] = useInView();
     const [page, setPage] = useState(20);
-    
-    const callData = UseFetch(`http://localhost:3010/discussions${linkPath}?limit=${page}`);
+    const API_KEY = process.env.REACT_APP_AUTH_KEY;
+    // const callData = UseFetch(`http://localhost:3010/discussions${linkPath}?limit=${page}`);
+
     useEffect(() => {
         window.onbeforeunload = () => {
             window.scrollTo(0, 0);
         }
-    },[]);
-
+    }, []);
+    
     useEffect(() => {
-        const dataArr = async () => {
-            const datalist = await callData();
-            setData(datalist);
-        }
-        dataArr();
+        const getGql = async () => {
+            const graphqlWithAuth = graphql.defaults({
+              headers: {
+                authorization: `token ${API_KEY}`,
+              },
+            });
+      
+            const response = await graphqlWithAuth(`
+              {
+                repository(owner: "codestates-seb", name: "agora-states-fe") {
+                  discussions(first: ${page}) {
+                    nodes {
+                        id
+                        title
+                        createdAt
+                        url
+                        author {
+                            avatarUrl
+                            login
+                        }
+                        answer {
+                            isAnswer
+                        }
+                    }
+                  }
+                }
+      
+                viewer {
+                  login
+                  status {
+                    id
+                  }
+                }
+      
+                user(login: "Blossssom") {
+                  id
+                  avatarUrl
+                }
+                
+              }
+            `);
+            const resDiscussions = response.repository.discussions.nodes;
+            setData(resDiscussions);
+          };
+      
+          getGql();
+
+        
     }, [page]);
 
+    // useEffect(() => {
+    //     const dataArr = async () => {
+    //         const datalist = await callData();
+    //         setData(datalist);
+    //     }
+    //     dataArr();
+    // }, [page]);
+
     useEffect(() => {
-        if(inView) {
+        if(inView && page <= 80) {
             console.log('inView!!!');
             setPage(prev => prev + 20);
         }
@@ -65,10 +117,10 @@ const Main = ({linkPath}) => {
                     data.map((v, i) => 
                         data.length - 1 === i 
                             ? <li className="discussion__container" key={v.id} ref={ref}>
-                                <Card setFunc={setData} imgUrl={v.avatarUrl} linkUrl={v.url} title={v.title} author={v.author} createdAt={timeFormat(v.createdAt)} id={v.id} ref={ref} />
+                                <Card setFunc={setData} isAnswer={v.answer} imgUrl={v.author.avatarUrl} author={v.author.login} linkUrl={v.url} title={v.title} createdAt={timeFormat(v.createdAt)} id={v.id} ref={ref} />
                               </li>
                             : <li className="discussion__container" key={v.id}>
-                                <Card setFunc={setData} imgUrl={v.avatarUrl} linkUrl={v.url} title={v.title} author={v.author} createdAt={timeFormat(v.createdAt)} id={v.id} />
+                                <Card setFunc={setData} isAnswer={v.answer} imgUrl={v.author.avatarUrl} author={v.author.login} linkUrl={v.url} title={v.title} createdAt={timeFormat(v.createdAt)} id={v.id} />
                               </li>
                     )
                 }
