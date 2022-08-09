@@ -13,5 +13,5 @@ router.post('/',createOne)
 // ADVANCED: discussion 하나를 수정하는 라우터를 작성합니다.
 router.put('/:id',updateById)
 // ADVANCED: discussion 하나를 삭제하는 라우터를 작성합니다.
-router.delete('/',deleteById)
+router.delete('/:id',deleteById)
 module.exports = router;
