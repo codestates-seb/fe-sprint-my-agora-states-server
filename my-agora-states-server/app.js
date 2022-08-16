@@ -13,7 +13,7 @@ app.use(morgan('tiny'));
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 
 
-const port = 3000;
+const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
