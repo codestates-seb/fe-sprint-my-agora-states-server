@@ -17,7 +17,7 @@ describe('Bare Minimum Requirements - Server', () => {
       server.close();
     });
 
-    test('상태 코드 200을 응답합니다.', () => {
+    test('상태 코드 200과 함께 응답을 보냅니다.', () => {
       return request(server)
         .get('/')
         .then((res) => {
@@ -37,7 +37,7 @@ describe('Bare Minimum Requirements - Server', () => {
       server.close();
     });
 
-    test('상태 코드 200을 응답합니다.', () => {
+    test('상태 코드 200과 함께 응답을 보냅니다.', () => {
       return request(server)
         .get('/discussions')
         .then((res) => {
@@ -47,7 +47,7 @@ describe('Bare Minimum Requirements - Server', () => {
         });
     });
 
-    test('모든 discussions 목록을 응답합니다.', () => {
+    test('모든 discussions 목록을 응답으로 보냅니다.', () => {
       return request(server)
         .get('/discussions')
         .then((res) => {
@@ -70,7 +70,7 @@ describe('Bare Minimum Requirements - Server', () => {
       server.close();
     });
 
-    test('해당 id가 존재하는 경우, 상태 코드 200를 응답합니다.', () => {
+    test('discussionsData에 해당 id와 일치하는 데이터가 존재하는 경우, 상태 코드 200과 함께 응답을 보냅니다.', () => {
       return request(server)
         .get('/discussions/2')
         .then((res) => {
@@ -80,7 +80,7 @@ describe('Bare Minimum Requirements - Server', () => {
         });
     });
 
-    test('해당 id가 존재하지 않는경우, 상태 코드 404를 응답합니다.', () => {
+    test('discussionsData에 해당 id와 일치하는 데이터가 존재하지 않는 경우, 상태 코드 404와 함께 응답을 보냅니다.', () => {
       return request(server)
         .get('/discussions/1239018')
         .then((res) => {
@@ -90,7 +90,7 @@ describe('Bare Minimum Requirements - Server', () => {
         });
     });
 
-    test('응답의 body 속성으로 id, title, url, author, bodyHTML, avatarUrl가 있어야 합니다.', () => {
+    test('응답의 body 속성으로 id, title, url, author, bodyHTML, avatarUrl이 있어야 합니다.', () => {
       return request(server)
         .get('/discussions/2')
         .then((res) => {
@@ -105,7 +105,7 @@ describe('Bare Minimum Requirements - Server', () => {
         });
     });
 
-    test('해당 id를 가진 discussion을 응답합니다.', () => {
+    test('discussionsData 중 해당 id와 일치하는 discussion을 응답으로 보냅니다.', () => {
       return request(server)
         .get('/discussions/2')
         .then((res) => {
