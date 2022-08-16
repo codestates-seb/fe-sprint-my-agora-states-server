@@ -2,11 +2,7 @@
 
 Section2에서 배운 내용을 총 동원하여 나만의 아고라 스테이츠 서버를 만듭니다.
 
-- [코드스테이츠 fe-sprint-my-agora-states-server 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states-server)에서 자신의 리포지토리로 fork후 과제 진행합니다.
-
-## 배포 링크
-
-Github Page 배포 링크를 아래 작성합니다.
+- [코드스테이츠 fe-sprint-my-agora-states-server 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states-server)에서 자신의 Repository로 fork후 과제 진행합니다.
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -34,7 +30,6 @@ Github Page 배포 링크를 아래 작성합니다.
 **my-agora-states**
 - [ ] my-agora-states-server가 켜져있는지 확인합니다.
 - [ ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
-- [ ] Github Page로 재배포해서, 동기들도 확인할 수 있게 제작합니다.
 
 ## Advanced Challenge Self Checklist
 
@@ -46,11 +41,3 @@ Github Page 배포 링크를 아래 작성합니다.
         - [ ] 디스커션 나열 기능
         - [ ] 디스커션 추가 기능
     - [ ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
-
-### My Own Self Checklist
-
-자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
-
-- []
-- []
-- []
