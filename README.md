@@ -1,1 +1,1 @@
-# fe-sprint-my-agora-states-server-dev
+# fe-sprint-my-agora-states-server
