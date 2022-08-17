@@ -5,7 +5,7 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
-    return res.status(200).send(discussionsData)
+    return res.status(200).json(discussionsData)
   },
 
   findById: (req, res) => {
@@ -19,10 +19,10 @@ const discussionsController = {
       })
 
       if(filteredById.length === 0){
-        return res.status(404).send('Not found data');
+        return res.status(404).json('Not found data');
       }
       else{
-        return res.status(200).send(...filteredById);
+        return res.status(200).json(...filteredById);
       }
     }
   }
