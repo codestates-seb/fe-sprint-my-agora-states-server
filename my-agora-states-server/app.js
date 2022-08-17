@@ -1,29 +1,3 @@
-// // express,cors 라이브러리 불러온다
-// const express = require('express');
-// // 모든 것에 대한 cors 처리
-// const cors = require('cors');
-// //들어온 요청을 콘솔에 찍어준다.
-// const morgan = require('morgan');
-// const discussionsRouter = require('./router/discussions') //해당 파일에서 router 파일을 가져올것
-// const port = 4000;
-
-// const app = express(); // 서버 개설
-
-// app.use(morgan('tiny')); 
-// app.use(express.json({strict : false}));// json 요청 데이터 정제
-// app.use(cors()); // 모든 요청에 대한 cors 처리
-
-// app.use('/discussions', discussionsRouter)
-
-// app.get('/',(req,res)=>{
-//   res.status(200).send('fe-sprint-my-agora-states-server');
-// })
-
-// const server = app.listen(port,()=>{
-//   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
-// })
-
-
 const express = require('express');
 const app = express();
 

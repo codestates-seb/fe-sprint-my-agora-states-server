@@ -1,17 +1,7 @@
-const { agoraStatesDiscussions } = require("../repository/discussions"); 
+const { agoraStatesDiscussions } = require("../repository/discussions"); // require로 불러오면 해당 파일을 객체형태로 불러옴
 const discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
-//   findAll : (req,res)=>{
-//     return res.status(200).json(discussionsData);
-//   },
-//   findById : (req,res)=>{
-//     const {id} = req.params;
-//     const result =  discussionsData.fliter((x)=>{
-//       return x.id===Number(id)
-//     })
-//     return result.length!==0 ? res.status(200).json(...result) : res.status(404).send('Not found');
-//   },
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     return res.status(200).json(discussionsData)
@@ -28,11 +18,11 @@ const discussionsController = {
     if(result.length!==0){
     return res.status(200).json(...result); // 배열에 객체가 있으면 ...문법을 쓰면 객체 상태만 반환됨
   }else{
-    return res.status(404).send('Not Found');
+    res.status(404).send('Not Found');
   }
   }
+};
 
-}
 module.exports = {
  discussionsController,
 };
