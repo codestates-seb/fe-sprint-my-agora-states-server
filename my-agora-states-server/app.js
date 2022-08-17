@@ -9,14 +9,21 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
+app.use(cors())
+//별도의 처리 없이 app.use(cors())를 하게 되면 모든 도메인에서 제한 없이 해당 서버에 요청을 보내고 응답을 받을 수 있음
+//app.use(cors()) 괄호안에 작성하면 지정해서 적용할 수 있음
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-
+app.use(express.json())
+//json 형태의 데이터를 해석해주기 위해서 사용
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
+app.use("/discussions", discussionsRouter);
+//app.use를 사용하여 /discussions 경로로 라우팅
+//'./router/discussions'의 경로 === discussionsRouter
 
 
 app.get('/', (req, res) => {
@@ -30,3 +37,4 @@ const server = app.listen(port, () => {
 
 module.exports.app = app;
 module.exports.server = server;
+
