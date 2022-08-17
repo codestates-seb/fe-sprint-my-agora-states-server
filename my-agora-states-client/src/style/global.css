@@ -1,0 +1,142 @@
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+} */
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+.All {
+  border: solid 1px lavenderblush;
+  background-color: lavenderblush;
+}
+
+h1 {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  font-size: 40px;
+  color: royalblue;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  margin: 8px;
+  padding: 4px;
+}
+
+.form__container {
+  text-align: center;
+  width: 540px;
+  height: 185px;
+  background: pink;
+  margin-bottom: 10px;
+  display: inline-block;
+  display: flex;
+}
+
+label {
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.form {
+  /* border: solid 1px black; */
+  display: flex;
+}
+.form__input--name, .form__input--title,.form__textbox {
+  /* border: solid 1px blue; */
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input--name > input, .form__input--title > input {
+  height: 20px;
+  border: none;
+  margin-top: 4px;
+  margin-right:20px;
+}
+
+.form__textbox > textarea {
+  height: 50px;
+  border: none;
+  margin-top: 4px;
+  margin-right:20px;
+}
+ 
+.form__input--wrapper {
+  margin-top: 20px;
+  width: 540px;
+  height: 185px;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form__submit {
+  /* border: solid 1px burlywood; */
+  margin-top: -50px;
+  margin-left: -80px;
+}
+.form__submit > input {
+  margin-top: 20px;
+  border: none;
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  background: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* discussion */
+.discussion__container {
+  display: flex;
+  width: 542px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-right: 40px;
+  background-color: rgb(224, 227, 251);
+  border-bottom: 0px;
+}
+
+img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-left: 20px;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: x-large;
+}
+
+.discussion__content {
+  padding-right: 20px;
+  
+}
