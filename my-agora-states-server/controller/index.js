@@ -10,13 +10,10 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const { id } = req.params;
-    const filteredDiscussion = discussionsData.filter((d) => {
-      return (id === String(d.id));
-    })
-    if (filteredDiscussion.length === 0) return res.status(404).end();
-    return res.status(200).json(filteredDiscussion[0]);
+    const filteredDiscussion = discussionsData.find((data) => String(data.id) === id);
+    if (filteredDiscussion !== undefined) return res.status(200).json(filteredDiscussion);
+    else return res.status(404).end();
   }
-
 };
 
 module.exports = {
