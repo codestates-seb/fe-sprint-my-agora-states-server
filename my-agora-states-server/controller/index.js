@@ -266,7 +266,7 @@ const discussionsController = {
     // filter는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환
     // find()는 배열안에서 주어진 판별 함수를 만족하는 첫 번째 요소를 반환함 없으면 undifined.
     if(finddata){
-    return res.status(200).json(finddata)
+    return res.status(200).send(finddata)
       }else{
         return res.status(404).send("Sorry cant find that!")}
   
