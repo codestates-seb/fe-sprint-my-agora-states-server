@@ -31,8 +31,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "cros": "^1.0.1",
     "dompurify": "^2.3.8",
-    "express": "^4.17.1",
+    "express": "^4.18.1",
     "jsdom": "^19.0.0",
     "morgan": "^1.10.0"
   },
