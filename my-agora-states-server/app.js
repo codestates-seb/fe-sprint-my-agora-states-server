@@ -7,6 +7,8 @@ const morgan = require('morgan');
 // morgan 미들웨어가 세팅되어 있습니다.
 // HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어 입니다.
 app.use(morgan('tiny'));
+app.use(cors());
+app.use(express.json());
 
 // TODO: cors를 적용합니다.
 
@@ -15,7 +17,7 @@ app.use(morgan('tiny'));
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
-
+app.use("/discussions", discussionsRouter);
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
 
 
