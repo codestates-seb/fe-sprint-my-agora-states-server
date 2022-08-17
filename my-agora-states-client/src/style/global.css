@@ -23,7 +23,7 @@
 }
 
 h1 {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   display: flex;
   align-items: center;
   position: relative;
@@ -43,6 +43,7 @@ main {
 }
 
 .form__container {
+  border: 2px solid;
   text-align: center;
   width: 540px;
   height: 185px;
@@ -75,6 +76,7 @@ label {
   border: none;
   margin-top: 4px;
   margin-right:20px;
+  border: 2px solid;
 }
 
 .form__textbox > textarea {
@@ -82,6 +84,7 @@ label {
   border: none;
   margin-top: 4px;
   margin-right:20px;
+  border: 2px solid;
 }
  
 .form__input--wrapper {
@@ -95,12 +98,12 @@ label {
 
 .form__submit {
   /* border: solid 1px burlywood; */
-  margin-top: -50px;
-  margin-left: -80px;
+  margin-top: -51px;
+  margin-left: -78px;
 }
 .form__submit > input {
   margin-top: 20px;
-  border: none;
+  border: 2px solid;
   width: 80px;
   height: 30px;
   font-size: 18px;
@@ -110,6 +113,7 @@ label {
 
 /* discussion */
 .discussion__container {
+  border: 2px solid;
   display: flex;
   width: 542px;
   box-sizing: border-box;
@@ -121,11 +125,12 @@ label {
   border-bottom: 0px;
 }
 
-img {
+.discussion__avatar--image {
   border-radius: 50%;
   width: 48px;
   height: 48px;
   margin-left: 20px;
+  border: 1px solid;
 }
 
 .discussion__answered {
@@ -139,4 +144,27 @@ img {
 .discussion__content {
   padding-right: 20px;
   
+}
+.discussion__title {
+  padding-left: 10px;
+  /* text-align: left; */
+  font-weight: lighter;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-size: 1.3em;
+}
+
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
+.discussion__information {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-left: 80px;
+  text-align: center;
+  background-color: white;
+  padding: 1px;
+  border: solid 2px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

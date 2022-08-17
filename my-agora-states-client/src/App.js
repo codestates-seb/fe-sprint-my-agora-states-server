@@ -1,16 +1,22 @@
 import Login from'./component/Login.js'
-import Discussion from'./component/Discussion.js'
+import Discussions from'./component/Discussions.js'
 import './style/global.css'
 import { useEffect, useState } from 'react';
+import LoadingIndicator from './component/LoadingIndicator.js';
 
 export default function App() {
-  // const [ agora , setAgora ] = useState([]);
+  const [ discussions , setDiscussions ] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchApi = ()=> {
-    fetch('http://localhost:4000/')
+  useEffect(()=> {
+    setIsLoading(true);
+    fetch('http://localhost:4000/discussions')
       .then((response) => response.json())
-      .then((data)=> console.log(data))
-  };
+      .then((data)=> {
+      setDiscussions(data)
+      setIsLoading(false);
+  })
+  }, []);
 
   return (
     <div className='All'>
@@ -19,17 +25,13 @@ export default function App() {
       </div>
 
       <main>
-      <div>
         {/* 위 로그인 박스 - 전 아고라스테이츠 프로젝트 참고 */}
         <Login />
-        </div>
-      <div>
+   
         {/* 아래 댓글 창 */}
-        <Discussion />
-          <section>
-          {fetchApi}
-          </section>
-      </div>
+        {isLoading ? 
+          <LoadingIndicator /> : <Discussions discussions={discussions}/> 
+        }
       </main>
       
     </div>
