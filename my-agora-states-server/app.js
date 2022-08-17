@@ -10,13 +10,16 @@ app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
 
-// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+app.use(cors());
 
+// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+app.use(express.json());
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
+app.use('/discussions', discussionsRouter);
 
 
 app.get('/', (req, res) => {
