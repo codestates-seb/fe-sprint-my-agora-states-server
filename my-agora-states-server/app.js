@@ -10,6 +10,7 @@ app.use(morgan("tiny"));
 
 app.use(cors());
 
+app.use(express.json());
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 
 const port = 4000;
