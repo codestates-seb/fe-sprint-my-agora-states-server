@@ -1,6 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
-import { uuid } from 'uuidv4';
 
 const discussionsController = {
   findAll: (req, res) => {
