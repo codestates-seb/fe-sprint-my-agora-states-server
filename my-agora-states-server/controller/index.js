@@ -102,6 +102,13 @@ const discussionsController = {
 
   deleteById: (req, res) => {
     // ADVANCED: path parameter id를 가진 discussion을 삭제합니다.
+    const { id } = req.params;
+
+    let filterDiscussionData = discussionsData.filter(
+      (ele) => ele.id !== Number(id)
+    );
+    discussionsData = filterDiscussionData;
+    res.status(201).json(discussionsData);
   },
 };
 
