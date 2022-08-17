@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node my-agora-states-server/app.js",
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon my-agora-states-server/app.js"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dompurify": "^2.3.8",
-    "express": "^4.17.1",
+    "express": "^4.18.1",
     "jsdom": "^19.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
     "codestates-assignment-manager": "^1.8.0",
