@@ -15,7 +15,7 @@ const discussionsController = {
 		if (!filteredDis.length) {
 			res.status(404).send('No Discussions');
 		} else {
-			res.status(200).send(...filteredDis);
+			res.status(200).send(filteredDis);
 		}
 	},
 };

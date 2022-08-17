@@ -13,10 +13,9 @@ const discussionsController = {
 		const { id } = req.params;
 		const filteredDis = agoraStatesDiscussions.filter((el) => el.id === +id);
 		if (!filteredDis.length) {
-			res.status(404).send('No Discussions');
-		} else {
-			res.status(200).send(...filteredDis);
+			res.status(404).send('No Discussions').end();
 		}
+		res.status(200).send(filteredDis);
 	},
 };
 
