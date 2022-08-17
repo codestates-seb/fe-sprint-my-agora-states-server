@@ -11,11 +11,11 @@ const discussionsController = {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const { id } = req.params;
     let list = discussionsData;
-    let Idx = discussionsData.findIndex((el) => el.id === Number(id));
+    let Idx = discussionsData.findIndex((el) => String(el.id) === id);
     if (Idx === -1) {
       return res.status(404).send("not found");
     } else {
-      list = list.filter((el) => el.id === Number(id));
+      list = list.filter((el) => String(el.id) === id);
       return res.status(200).json(...list);
     }
   },
