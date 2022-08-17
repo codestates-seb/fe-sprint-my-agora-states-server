@@ -27,7 +27,7 @@ const discussionsController = {
       return res.status(404).send(...filteredList);
     }
   }
-
+ 
 };
 
 module.exports = {
