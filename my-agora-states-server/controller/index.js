@@ -6,7 +6,6 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
    
     res.send('TODO:')
-    return res.status(200).send(discussionsData);
   },
 
   findById: (req, res) => {
