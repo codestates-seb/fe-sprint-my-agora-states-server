@@ -9,14 +9,14 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
-    const filteredDiscussion = discussionsData.filter(
-      (discussion) => discussion.id == req.params.id
+    const findedDiscussion = discussionsData.find(
+      (discussion) => discussion.id === Number(req.params.id)
     );
 
-    if (filteredDiscussion[0]) {
-      res.send(filteredDiscussion[0]);
+    if (findedDiscussion) {
+      res.send(findedDiscussion);
     } else {
-      res.status(404).json("해당 id와 일치하는 데이터가 존재하지 않습니다.");
+      res.status(404).send("해당 id와 일치하는 데이터가 존재하지 않습니다.");
     }
   },
 };
