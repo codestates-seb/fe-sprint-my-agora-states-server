@@ -5,11 +5,11 @@ const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     let resBody = discussionsData;
-    const { limit, pages } = req.query;
-    if (!limit && !pages) {
-      return res.status(200).json(resBody);
-    }
-    return res.status(404).send('Not Found!');
+    // const { limit, pages } = req.query;
+    // if (!limit && !pages) {
+    //   return res.status(200).json(resBody);
+    // }
+    return res.status(200).send(resBody);
   },
 
   findById: (req, res) => {
