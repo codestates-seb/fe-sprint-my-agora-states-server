@@ -17,7 +17,7 @@ const discussionsController = {
     if (filtered.length !== 0) {
       return res.status(200).json(filtered[0]);
     } else {
-      return res.status(404).send("Bad Request");
+      return res.status(404).send("Not Found");
     }
   },
 };
