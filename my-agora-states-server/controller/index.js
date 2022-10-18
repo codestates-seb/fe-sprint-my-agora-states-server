@@ -18,7 +18,10 @@ const discussionsController = {
     if (filteredData) {
       res.status(200).send(...filteredData);
     }
-    res.status(404).send("Not found");
+    else{
+      res.status(404).send("Not found");
+    }
+  
   },
 
 };
