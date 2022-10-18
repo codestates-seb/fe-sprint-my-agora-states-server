@@ -1,0 +1,58 @@
+$icon_size : 30px;
+
+@mixin flex-box($direction : row, $alignment : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $alignment;
+  align-items: $alignment;
+}
+
+.discussion-wrapper {
+  @include flex-box(row, center);
+  list-style: none;
+  margin-left: 0;
+
+  .discussion{
+    @include flex-box(row, center);
+    width: 80%;
+    height: 95px;
+
+    .discussion-avatar-container {
+      @include flex-box(row, center);
+      height: 100%;
+      background-color: rgb(59, 59, 59);
+      border: 0.5px solid white;
+      border-right: 0px;
+      border-top-left-radius: 5%;
+      border-bottom-left-radius: 5%;
+
+      .discussion-avatar{
+        width: $icon_size;
+        height: $icon_size;
+      }
+
+    }
+  
+    .discussion-content {
+      height: 100%;
+      @include flex-box(row, center);
+      border: 0.5px solid white;
+      border-left : 0;
+      border-top-right-radius: 3%;
+      border-bottom-right-radius: 3%;
+
+      .discussion-title-container {
+        font-size: 15px;
+        .discussion-title {
+          text-decoration: none;
+        }
+      }
+  
+      .discussion-information {
+        font-size: 15px;
+      }
+    }
+  }
+
+}
+

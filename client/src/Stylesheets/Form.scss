@@ -1,0 +1,50 @@
+@mixin flex-box($direction : row, $alignment : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $alignment;
+  align-items: $alignment;
+}
+
+
+.form-container {
+
+  width: 100vw;
+  color : white;
+  @include flex-box(column, );
+
+
+  .form-inputs-wrapper {
+    width: 50%;
+    @include flex-box(column, center);
+
+    .form-input {
+      width: inherit;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start
+    }
+
+  }
+
+
+  .search-container {
+    @include flex-box(row, center);
+    align-items: center;
+    width: 50%;
+
+    .search-input {
+      width: inherit;
+      @include flex-box(row, space-between);
+
+    }
+
+    .button-container {
+      @include flex-box(row, center);
+      height: inherit;
+      
+      .form-button {
+        text-align: center;
+      }
+    }
+  }
+}
