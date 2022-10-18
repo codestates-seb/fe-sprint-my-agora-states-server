@@ -15,7 +15,7 @@ const discussionsController = {
       return ele.id === Number(id);
     });
 
-    if (filteredDat.length !== 0) {
+    if (filteredData.length !== 0) {
       res.status(200).send(...filteredData);
     }
     else{
