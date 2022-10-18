@@ -12,7 +12,9 @@ const Discussion = ({ data }) => {
         <h2 className="discussion__title">
           <a href={data.url}>{data.title}</a>
         </h2>
-        <div className="discussion__information">{`${data.author} / ${data.createdAt}`}</div>
+        <div className="discussion__information">{`${data.author} / ${new Date(
+          data.createdAt
+        )}`}</div>
       </div>
       <div className="discussion__answered">
         {data.answer === null ? "❓" : "✅"}

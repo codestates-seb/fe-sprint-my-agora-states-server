@@ -1,5 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -20,6 +20,13 @@ const discussionsController = {
     } else {
       res.status(404).send("Invalid ID");
     }
+  },
+
+  postQuestion: (req, res) => {
+    const data = req.body;
+    discussionsData = [data, ...discussionsData];
+
+    res.json(discussionsData);
   },
 };
 
