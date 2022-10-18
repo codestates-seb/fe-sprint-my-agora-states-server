@@ -1,0 +1,45 @@
+.discussion-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 10px;
+  color: #eeeeee;
+  border-top: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+}
+
+.discussion-container:hover {
+  background-color: #555555;
+}
+
+.discussion_avatar > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.discussion_title {
+  width: 500px;
+  margin: 0 10px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.discussion_author,
+.discussion_date {
+  width: 200px;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.discussion_date {
+  margin: 0 10px;
+}
+
+.discussion_checkbox {
+  width: 30px;
+  text-align: center;
+}

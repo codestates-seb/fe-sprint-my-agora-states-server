@@ -1,0 +1,30 @@
+.discussions_header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 5px 10px;
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+}
+
+.discussions_avatar {
+  width: 50px;
+}
+
+.discussions_title {
+  width: 500px;
+  margin: 0 10px;
+}
+
+.discussions_author,
+.discussions_date {
+  width: 200px;
+}
+
+.discussions_date {
+  margin: 0 10px;
+}
+
+.discussions_answer {
+  width: 30px;
+}

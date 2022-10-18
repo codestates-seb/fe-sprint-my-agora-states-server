@@ -1,0 +1,28 @@
+.question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.question-form label {
+  display: inline-block;
+  width: 50px;
+}
+
+.question-form input {
+  width: 500px;
+  height: 25px;
+}
+
+.question-form textarea {
+  width: 500px;
+  height: 500px;
+}
+
+.question-form-submit {
+  text-align: right;
+}
+
+.question-form [type="submit"] {
+  width: 60px;
+}

@@ -1,0 +1,12 @@
+.navigation-button {
+  width: 75px;
+  height: 30px;
+  margin: 20px 10px;
+  color: #eeeeee;
+  background-color: #181818;
+  border: none;
+}
+
+.navigation-button:hover {
+  background-color: #888888;
+}
