@@ -19,6 +19,10 @@ const discussionsController = {
     } else {
       res.status(404).send('Bad Request, ID is unknown');
     }
+  },
+
+  postNewQuestion: (req, res) => {
+
   }
 
 };

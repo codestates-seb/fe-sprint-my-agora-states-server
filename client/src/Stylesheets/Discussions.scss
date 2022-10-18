@@ -1,0 +1,25 @@
+@mixin flex-box($direction : row, $alignment : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $alignment;
+  align-items: $alignment;
+}
+
+.discussions-wrapper {
+  @include flex-box(column, space-around);
+  justify-content: center;
+  width: 45rem;
+  height: 80vh;
+
+  .discussions-container {
+    height: 50vh;
+    overflow: scroll;
+  }
+
+  .discussions-buttons-container {
+    width: 30%;
+    align-self: center;
+    @include flex-box(row, space-between);
+  }
+
+}

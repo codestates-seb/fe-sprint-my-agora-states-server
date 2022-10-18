@@ -1,0 +1,19 @@
+@mixin flex-box($direction : row, $alignment : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $alignment;
+  align-items: $alignment;
+}
+
+.App {
+  background : linear-gradient(rgb(86, 86, 86), black);
+  text-align: center;
+  @include flex-box(column, );
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
