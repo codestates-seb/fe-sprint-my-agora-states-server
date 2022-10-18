@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const cors = require('cors');
+const cors = require('cors');     //const로 변수를 선언하여 require메서드로 모듈을 가져옴
 const morgan = require('morgan');
 
 // morgan 미들웨어가 세팅되어 있습니다.
@@ -9,14 +9,19 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
+app.use(cors())
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-
+app.use(express.json({strict: false}))
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
+app.use('/discussions', discussionsRouter)   
+            // 포트번호가 선언된 바로 아래에서 discussionsRouter라는 변수를 선언하여 router 폴더 내 discussions을 경로로 지정
+            // app.use로 라우팅
+
 
 
 app.get('/', (req, res) => {

@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "cores": "^0.8.5",
     "cors": "^2.8.5",
     "dompurify": "^2.3.8",
     "express": "^4.17.1",
