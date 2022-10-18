@@ -7,7 +7,7 @@ const Form = ({ setNewQuestion, discussionsData }) => {
     const randomNumber = Math.floor(Math.random() * 40);
 
     const question = {
-      id: Math.random() * 1000,
+      id: Math.floor(Math.random() * 1000),
       createdAt: Date(),
       updatedAt: Date(),
       title: e.target.title.value,
