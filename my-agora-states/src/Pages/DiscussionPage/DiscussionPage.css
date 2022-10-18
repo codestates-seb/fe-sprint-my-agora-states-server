@@ -1,0 +1,23 @@
+hr {
+  margin-top: 20px;
+}
+
+.discussion-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.discussion-page > div {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.discussion-page_label {
+  width: 50px;
+}
+
+.discussion-page_content {
+  width: 940px;
+}
