@@ -18,7 +18,7 @@ const discussionsController = {
     if(list.length === 0){
       return res.status(404).end()
     }else {
-      return res.status(200).json(...list)
+      return res.status(200).json(list[0])
     }
     
   }
