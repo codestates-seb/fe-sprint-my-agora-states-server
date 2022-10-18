@@ -9,10 +9,10 @@ const discussionsController = {
   findById: (req, res) => {
     const { id } = req.params;
     const list = discussionsData.filter((element) => element.id === Number(id));
-    if (list) {
-      return res.status(200).json(list);
+    if (list.length === 0) {
+      res.status(404).send("cannot find ID");
     } else {
-      return res.status(404).json("Incorrect request");
+      res.status(200).json(...list);
     }
   },
 };
