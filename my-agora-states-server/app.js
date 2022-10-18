@@ -15,6 +15,7 @@ app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 const jsonParser = express.json();
+app.use(jsonParser);
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
