@@ -6,10 +6,14 @@ import Landing from "./Landing";
 
 const Main = () => {
   const [discussionsData, setDiscussionsData] = useState([]);
+  const [newQuestion, setNewQuestion] = useState({});
 
   return (
     <main>
-      <Landing />
+      <Landing
+        setNewQuestion={setNewQuestion}
+        discussionsData={discussionsData}
+      />
       <aside className="blank"></aside>
       <div className="discussions-num">{`Discussions(${discussionsData.length})`}</div>
       <aside className="blank"></aside>
@@ -19,6 +23,7 @@ const Main = () => {
           <Discussions
             discussionsData={discussionsData}
             setDiscussionsData={setDiscussionsData}
+            newQuestion={newQuestion}
           />
         </ul>
       </section>

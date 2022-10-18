@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Discussion from "./Discussion";
 
-const Discussions = ({ discussionsData, setDiscussionsData }) => {
+const Discussions = ({ discussionsData, setDiscussionsData, newQuestion }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -18,14 +18,14 @@ const Discussions = ({ discussionsData, setDiscussionsData }) => {
       }
     }
     fetchData();
-  }, []);
+  }, [newQuestion]);
 
   if (!isLoading) {
     return discussionsData.map((el) => {
       return <Discussion data={el} key={el.id} />;
     });
   } else {
-    return "data is loading";
+    return "Server is temporarily unavailable. Please contact the administrator";
   }
 };
 

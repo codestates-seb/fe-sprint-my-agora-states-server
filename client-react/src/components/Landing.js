@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 
-const Landing = () => {
+const Landing = ({ setNewQuestion, discussionsData }) => {
   const [hideForm, setHideForm] = useState("hide");
   const handleBtnClick = () => {
     if (hideForm === "hide") {
@@ -21,7 +21,10 @@ const Landing = () => {
           질문하기
         </button>
         <section className={"form__container" + " " + hideForm}>
-          <Form />
+          <Form
+            setNewQuestion={setNewQuestion}
+            discussionsData={discussionsData}
+          />
         </section>
       </section>
       <aside className="blank landing"></aside>
