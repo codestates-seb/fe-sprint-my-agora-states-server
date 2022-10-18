@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node my-agora-states-server/app.js",
     "test": "jest"
+    
   },
   "repository": {
     "type": "git",
