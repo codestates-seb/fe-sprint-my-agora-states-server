@@ -10,11 +10,10 @@ const discussionsController = {
     findById: (req, res) => {
         // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
         const {id} = req.params;
-        const id_filter = discussionsData.filter((el) => {
-            return el.id === Number(id);
-        })
-        if (id_filter.length === 0) return res.status(404).json('No discussion found!');
-        return res.status(200).json(id_filter[0]);
+        const id_filter = discussionsData.find((el) => el.id === Number(id));
+        console.log(id_filter);
+        if (id_filter === undefined) return res.status(404).json('No discussion found!');
+        return res.status(200).json(id_filter);
     }
 
 };
