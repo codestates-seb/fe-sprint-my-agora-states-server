@@ -17,7 +17,7 @@ app.use(express.json());
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
-app.use('/discussion', discussionsRouter);
+app.use('/discussions', discussionsRouter);
 
 
 app.get('/', (req, res) => {
