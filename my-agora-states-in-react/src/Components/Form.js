@@ -13,6 +13,9 @@ const Form = () => {
 	const handleChangeMsg = (event) => {
 		setMsg(event.target.value);
 	};
+	const handleClickSubmit = (event) => {
+		//제출 후 처리
+	};
 	return (
 		<section className="form__container">
 			<h2>New discussions</h2>
@@ -53,7 +56,7 @@ const Form = () => {
 					</div>
 				</div>
 				<div className="form__submit">
-					<input type="submit" value="SUBMIT" />
+					<button onClick={handleClickSubmit}>SUBMIT</button>
 				</div>
 			</form>
 		</section>

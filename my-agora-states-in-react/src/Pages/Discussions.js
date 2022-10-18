@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import SingleDiscussion from "../Components/SingleDiscussion";
 
-const Discussions = () => {
+const Discussions = (props) => {
 	const SingleDiscussionRender = (item) => {
-		return <SingleDiscussion key={item.id} />;
+		return (
+			<SingleDiscussion
+				key={item.id}
+				date={item.createdAt.toLocaleString("ko-KR")}
+				title={item.title}
+				url={item.url}
+				author={item.author}
+				imgSrc={item.avatarUrl}
+			/>
+		);
 	};
 	return (
 		<section className="discussion__wrapper">
@@ -11,8 +20,11 @@ const Discussions = () => {
 				Discussions <span id="allItemNum"></span>
 			</h2>
 			<ul className="discussions__container">
-				{/* <!-- 개별 질문 목록 --> */}
-				<SingleDiscussion />
+				{props.discussionData ? (
+					props.discussionData.map((el) => SingleDiscussionRender(el))
+				) : (
+					<SingleDiscussion />
+				)}
 			</ul>
 			<div className="pagination"></div>
 		</section>

@@ -1,17 +1,7 @@
-import "./style.css";
-// Components
-import Header from "./Components/Header";
-import Form from "./Components/Form";
-import Discussions from "./Pages/Discussions";
+import Main from "./Pages/Main";
 
 function App() {
-	return (
-		<main>
-			<Header />
-			<Form />
-			<Discussions />
-		</main>
-	);
+	return <Main />;
 }
 
 export default App;
