@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 const server = app.listen(port, () => {
-  console.log(`BASH-CLI-LOG$ [RUN] My Agora States Server... | http://localhost:${port}`);
+  console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
 });
 
 module.exports.app = app;
