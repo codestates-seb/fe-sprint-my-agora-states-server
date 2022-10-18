@@ -22,9 +22,6 @@ const discussionsController = {
     } else{
       res.status(404).json("Not Found")
     }
-  
-    
-    
   }
   
 };
