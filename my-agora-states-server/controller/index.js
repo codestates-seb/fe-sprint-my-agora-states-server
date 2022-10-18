@@ -15,8 +15,9 @@ const discussionsController = {
 			filteredDiscussion = discussionsData.filter((el) => {
 				return el.id === Number(req.params.id);
 			});
+			if (filteredDiscussion.length > 0) res.send(filteredDiscussion[0]);
+			else res.status(404).send("일치하는 데이터가 없습니다.");
 		}
-		res.send(filteredDiscussion[0]);
 	},
 };
 
