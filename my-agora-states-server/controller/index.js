@@ -16,8 +16,16 @@ const discussionsController = {
     }
     return res.status(200).send(filteredDiscussion[0]);
   },
+  create: (req, res) => {
+    const id = discussionsData[0].id + 1;
+    const { createdAt, title, url, author, text, answer, avatarUrl, notice } = req.body;
+
+    discussionsData.unshift({ id, createdAt, title, url, author, text, answer, avatarUrl, notice });
+    return res.status(201).send("submit succeed!");
+  },
 };
 
 module.exports = {
   discussionsController,
 };
+
