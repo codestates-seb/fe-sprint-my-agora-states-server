@@ -18,10 +18,10 @@ const discussionsController = {
     }
   },
 
-  // create: (req, res) => {
+  create: (req, res) => {
 
 
-  // }
+  }
 
 };
 
