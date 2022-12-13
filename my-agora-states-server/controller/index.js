@@ -3,9 +3,6 @@ const discussionsData = agoraStatesDiscussions; // array
 
 const discussionsController = {
   findAll: (req, res) => {
-    // console.log(Array.isArray(discussionsData));
-    // console.log(discussionsData.length);
-
     // TODO: 모든 discussions 목록을 응답합니다.
     return res.json(discussionsData);
   },
@@ -24,6 +21,12 @@ const discussionsController = {
     }
 
     return res.json(filterdDiscussionsData[0]);
+  },
+
+  create: (req, res) => {
+    console.log("form 데이터 전송 테스트2");
+    console.log(req.params);
+    return res.status(201).end();
   },
 };
 
