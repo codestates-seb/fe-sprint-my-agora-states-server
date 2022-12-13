@@ -29,6 +29,7 @@ const discussionsController = {
       return res.status(404).json(` ${id} is not found`)
     }else{
       return res.status(200).json(filDisData[0])
+      
     }
     // res.send(discussionsData.filter(()=>{
     //   let pass = true
