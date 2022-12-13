@@ -5,27 +5,25 @@ const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     // res.send('TODO:')
-    //return res.state(200).json(agoraStatesDiscussions);
-    res.send(agoraStatesDiscussions);
+    res.send(discussionsData)
   },
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     //res.send('TODO:')
     const { id } = req.params;
-    if(id) {
-      let date = discussionsData.filter((el)=> {
-        return Number(id) === el.id;
-      });
-      if(date.length===0) {
-      return res.statu(200).josn({state: false});
-      }else {
-        return res.statu.josn(...date)
-      }
+    let idDiscussionsData = discussionsData.filter(el=>el.id===Number(id))
+  if(idDiscussionsData.length!==0){
+      res.status(200).send(idDiscussionsData[0])
+    }else{
+      res.status(404).send('no data')
     }
-  },
+  }
+
 };
 
 module.exports = {
   discussionsController,
 };
+
+
