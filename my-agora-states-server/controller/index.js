@@ -17,6 +17,24 @@ const discussionsController = {
       ? res.status(200).json(filtered[0])
       : res.status(404).send();
   },
+
+  createDiscussion: (req, res) => {
+    const { author, title, url, createdAt, answer, avatarUrl } = req.body;
+
+    const newDiscussion = {
+      id: discussionsData.length + 1,
+      author,
+      title,
+      url,
+      createdAt,
+      answer,
+      avatarUrl,
+    };
+
+    discussionsData.unshift(newDiscussion);
+
+    return res.status(200).json(discussionsData);
+  },
 };
 
 module.exports = {
