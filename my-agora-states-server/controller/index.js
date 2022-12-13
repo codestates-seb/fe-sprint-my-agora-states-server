@@ -14,7 +14,6 @@ const discussionsController = {
     const filtered_data = discussionsData.filter(
       (item) => item.id === Number(uuid)
     );
-    console.log(filtered_data[0]);
     if (filtered_data.length === 0) {
       return res.status(404).send("error!!");
     } else {
