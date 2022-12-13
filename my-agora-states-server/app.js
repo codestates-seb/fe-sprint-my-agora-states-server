@@ -9,10 +9,14 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
+//? cors가 필요한 이유 => 서버가 허용한 클라이언트의 요청에만 응답하기 위해서
 app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-app.use(express.json());
+//? express.json 속성 중 strict 디폴트 값이 true로 설정돼 있기 때문에
+//? Object만 허용돼 있는 상태이다. Object 형태가 아닌 String 형태도 받을 수 있게 하려면
+//? strict를 false로 해 주면 된다.
+app.use(express.json({ strict: false }));
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
