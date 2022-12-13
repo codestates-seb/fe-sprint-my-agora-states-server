@@ -17,7 +17,7 @@ const discussionsController = {
 
     // 데이터가 없는 경우
     if (!data) {
-      res.status(400).send('Bad Request');
+      res.status(404).send('Bad Request');
       return;
     }
     res.json(data);
