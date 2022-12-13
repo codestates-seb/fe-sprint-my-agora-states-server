@@ -1,4 +1,3 @@
-const { identity } = require("underscore");
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
 
