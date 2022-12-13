@@ -3,19 +3,20 @@ const discussionsData = agoraStatesDiscussions;
 
 
 const discussionsController = {
+  // [GET]
+  // 모든 discussions 목록을 조회
   findAll: (req, res) => {
     return res.status(200).json(discussionsData)
   },
 
-  // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다
+  // [GET] 
+  // 요청으로 들어온 id와 일치하는 discussion을 응답합니다
   findById: (req, res) => {
     const { id } = req.params;
-   
-    console.log('id, ' + id) //output --> 2
-    console.log('req.params, '+ req.params) //output --> [object Object]
+
 
     let filteredData = discussionsData;
-    if(req.params){
+    if(id){
       filteredData = filteredData.filter((data) => {
         //console.log('data.id, ' + data.id) //output --> id들 순회
         //! 받은 id는 string 이라는 점에서 막힘! 
