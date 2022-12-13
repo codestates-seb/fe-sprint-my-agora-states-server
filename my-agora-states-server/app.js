@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const jsonParser = express.json({strict: false});
 
 const cors = require('cors');
 const morgan = require('morgan');
@@ -9,19 +10,26 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
-
+app.use(cors())
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-
+app.post('/discussions',cors(), jsonParser, (req, res)=> {
+  res.json(req.body)
+})
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
+app.use('/discussions', discussionsRouter);
 
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   res.status(200).send('fe-sprint-my-agora-states-server');
+});
+
+app.use((req, res, next) => {
+  res.status(404).send('Not Found!');
 });
 
 const server = app.listen(port, () => {
