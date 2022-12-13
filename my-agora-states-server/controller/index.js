@@ -8,7 +8,7 @@ const discussionsController = {
   },
 
   findById: (req, res) => {
-    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+
     const { id } = req.params;
     let result = discussionsData.filter((el) => {
       return el.id === +id; //params 은 string / number 형변환 필요
