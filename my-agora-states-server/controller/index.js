@@ -23,7 +23,8 @@ const discussionsController = {
     
       // list = list.filter((e) => e.id !== req.params.id)
     }
-    
+    res.send('TODO:')
+
   }
 
 };
