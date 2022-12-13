@@ -12,6 +12,7 @@ const discussionsController = {
     const { id } = req.params;
     // console.log(typeof id); // string
 
+
     const filterdDiscussionsData = discussionsData.filter(
       (discussion) => discussion.id == id
     );
