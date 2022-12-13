@@ -20,7 +20,6 @@ const discussionsController = {
       res.status(404).json({ message: 'Not Found' });
     }
   },
-    res.send('TODO:')
   }
 
 
