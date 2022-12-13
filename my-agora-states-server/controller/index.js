@@ -24,6 +24,7 @@ const discussionsController = {
     }
   },
 
+
   postDiscussion: (req, res) => {
     discussionsData.unshift(req.body);
     res.status(301).json(req.body);
