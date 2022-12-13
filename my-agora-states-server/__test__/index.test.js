@@ -6,7 +6,7 @@ const request = require('supertest');
 const { agoraStatesDiscussions } = require('../repository/discussions');
 
 describe('Bare Minimum Requirements - Server', () => {
-  let server;
+  let server; 
 
   describe('GET / 요청: Health check', () => {
     beforeAll(() => {
