@@ -9,16 +9,7 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
-    const { id } = req.params;
-    const data = discussionsData.find(
-      (discussion) => discussion.id === Number(id) // res.params.id가 string 형태로 들어오기 때문에 Number 타입으로 변환
-    );
-    if (data) {
-      return res.status(200).json(data);
-    } else {
-      return res.status(404).send("Sorry, Page is Not Found");
-    }
-  },
+
 };
 
 module.exports = {
