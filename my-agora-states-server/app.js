@@ -21,13 +21,19 @@ const discussionsRouter = require("./router/discussions");
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다.
 app.use("/discussions", discussionsRouter);
 
-app.use(express.static(path.join(__dirname, "../", "my-agora-states-client")));
+// app.use(express.static(path.join(__dirname, "../", "my-agora-states-client")));
+app.use(
+  express.static(path.join(__dirname, "../", "my-agora-states-in-react/build"))
+);
 
 app.get("/", (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   // res.status(200).send("fe-sprint-my-agora-states-server");
+  // res.sendFile(
+  //   path.join(__dirname, "../", "my-agora-states-client/index.html")
+  // );
   res.sendFile(
-    path.join(__dirname, "../", "my-agora-states-client/index.html")
+    path.join(__dirname, "../", "my-agora-states-in-react/", "build/index.html")
   );
 });
 
