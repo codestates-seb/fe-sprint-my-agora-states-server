@@ -15,7 +15,11 @@ const discussionsController = {
       (discussion) => discussion.id === Number(id)
     );
 
-    res.status(200).json(filteredDiscussions);
+    if (filteredDiscussions.length === 0) {
+      res.status(404).send();
+      return;
+    }
+    res.status(200).json(...filteredDiscussions);
   },
 };
 
