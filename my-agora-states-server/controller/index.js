@@ -8,9 +8,9 @@ const discussionsController = {
       return res.status(200).json(discussionsData);
     }
   },
-
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+
     const {id} = req.params;
     //req.params.id >> 문자열 형태를 숫자로 바꿔준뒤 비교필터
     let filtDisData = discussionsData.filter(discussion=>{ 
