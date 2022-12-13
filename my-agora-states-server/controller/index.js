@@ -24,6 +24,7 @@ const discussionsController = {
   //     return res.status(404).end();
   //   }
   // },
+  
   const { id } = req.params;
   const found = discussionsData.find((d) => d.id === Number(id));
   if (found) {
