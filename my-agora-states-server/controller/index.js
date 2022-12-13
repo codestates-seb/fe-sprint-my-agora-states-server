@@ -18,7 +18,6 @@ const discussionsController = {
     }else{
       return res.status(200).send(fitered_data[0])
     }
-    res.send('TODO:')
   }
 
 };
