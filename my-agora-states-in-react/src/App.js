@@ -16,11 +16,13 @@ function App() {
     });
   }, []);
 
+  console.log(disList);
+
   return (
     <div className="App">
       <main>
         <h1>My Agora States</h1>
-        <Form />
+        <Form disList={disList} setDisList={setDisList} />
         <Discussions disList={disList} />
       </main>
     </div>
