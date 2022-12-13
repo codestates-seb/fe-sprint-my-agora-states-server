@@ -18,7 +18,7 @@ const discussionsController = {
     
     if(req.params.id) {
       filteredDiscussion = discussionsData.filter((el) => {
-        el.id === Number(req.params.id);
+       return el.id === Number(req.params.id);
       });
       if(filteredDiscussion.length > 0) res.send(filteredDiscussion[0]);
       else res.status(404).send('id가 존재하지 않습니다.')
