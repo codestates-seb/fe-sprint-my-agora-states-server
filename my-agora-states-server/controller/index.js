@@ -37,6 +37,7 @@ const discussionsController = {
   //discusstions/:id
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+
     const {id} = req.params;
     let data = discussionsData.filter(el=>el.id===Number(id));
     console.log(data);
