@@ -9,18 +9,15 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
-    const paramsId = req.params.id;
-    const filtering = discussionsData.filter(el => el.id === Number(paramsId))
+    const {id} = req.params;
+    const filtering = discussionsData.filter(el => el.id === Number(id))
     // console.log(filtering)
-    if(filtering){
+    if(filtering.length > 0){  
       return res.status(200).json(...filtering)
-    }else{
-      return res.status(404).json(...filtering)
+    }else {
+      return res.status(404).json("no")
     }
-
-
   }
-
 };
 
 module.exports = {
