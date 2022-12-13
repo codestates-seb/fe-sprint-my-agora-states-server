@@ -9,7 +9,12 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+
     const { uuid } = req.params;
+
+    res.send('TODO:')
+  }
+
 
     const filtered_data = discussionsData.filter(
       (item) => item.id === Number(uuid)
