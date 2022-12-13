@@ -17,7 +17,7 @@ const discussionsController = {
     console.log("findById", data);
     return res.status(200).send(data);
     // res.send('TODO:')
-  },
+  }
 };
 
 module.exports = {
