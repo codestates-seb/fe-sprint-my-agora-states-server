@@ -1,4 +1,23 @@
+// import { useEffect, useState } from 'react';
+
 function Form() {
+  // const [textName, setTextName] = setState('');
+  // const handleChange = (e) => {
+  //   return e.target.value;
+  // }
+  // const handleKeyPress = (e) => {
+  //   if () {
+  //     return
+  //   }
+  // }
+
+  // const [textTitle, setTextTitle] = setState('');
+  // const [textQuestion, setTextQuestion] = setState('');
+
+  // useEffect(() => {
+  //   return setTextName(text);
+  // }, []);
+
   return (
     <section className='form__container'>
       <form action='' method='get' className='form'>
