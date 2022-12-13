@@ -1,10 +1,26 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
+    // console.log(discussionsData.length)
     res.send(discussionsData)
+  },
+
+  postDiscussion: (req, res) => {
+    const {body} = req
+    discussionsData.unshift(body)
+    // console.log(discussionsData.length)
+    res.json(body)
+  },
+
+  delDiscussion: (req, res) => {
+    const {id} = req.params
+    if (id.length) {
+      discussionsData = discussionsData.filter((data) => Number(id) !== data.id)
+    }
+    res.end()
   },
 
   findById: (req, res) => {
