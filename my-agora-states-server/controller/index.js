@@ -6,8 +6,7 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
     const data = discussionsData;
     console.log("findAll", data);
-    return res.status(200).send(data);
-    // res.send('TODO:')
+    return res.status(200).json(data);
   },
 
   findById: (req, res) => {
@@ -15,8 +14,7 @@ const discussionsController = {
     const { id } = req.params;
     const data = discussionsData.filter((data) => data.id === id);
     console.log("findById", data);
-    return res.status(200).send(data);
-    // res.send('TODO:')
+    return res.status(200).json(data);
   },
 };
 
