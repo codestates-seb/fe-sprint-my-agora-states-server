@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  
+  h1{
+    font-size: 200px;
+    white-space: nowrap;
+    position: absolute;
+    letter-spacing: -5px;
+    top: -220px;
+    left: 100px;
+    color: #fff;
+    z-index: -1;
+    font-family: 'ghanachoco';
+    font-style: italic;
+    font-weight: bolder;
+    transform: translateY(300%);
+    animation: myAgora 1s ease-out 0s 1 forwards;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+  .contentContainer{
+    width: 60vw;
+    height: 80vh;
+    background-color: #fff;
+    overflow: hidden;
+  }
+} 
+@keyframes myAgora {
+  100%{
+    transform: translateY(0%);
+  }
+}
+

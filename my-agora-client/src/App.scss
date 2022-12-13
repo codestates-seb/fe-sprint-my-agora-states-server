@@ -1,0 +1,42 @@
+
+@import 'animate.css';
+@import '~loaders.css/src/animations/pacman.scss';
+body{
+  background-color: rgb(21, 19, 19);
+  margin: 0;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+.loader-active{
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  animation: fadeOut 1.5s 1s;
+  animation-fill-mode: forwards;
+  .pacman{
+    div{
+      background: #fff;
+    }
+    div:nth-child(1){
+      background: none;
+      border-color: #fff;
+      border-right: 25px solid transparent;
+    }
+    div:nth-child(2){
+      background: none;
+      border-color: #fff;
+      border-right: 25px solid transparent;
+    }
+    
+  }
+}
