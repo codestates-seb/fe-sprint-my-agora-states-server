@@ -1,4 +1,5 @@
-const { agoraStatesDiscussions } = require("../repository/discussions");
+// const { agoraStatesDiscussions } = require("../repository/discussions");
+const { agoraStatesDiscussions } = require("../repository/discussions")
 const discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
