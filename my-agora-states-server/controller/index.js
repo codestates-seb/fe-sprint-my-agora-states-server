@@ -16,7 +16,7 @@ const discussionsController = {
     if (filteredData.length !== 0) {
       return res.status(200).send(filteredData[0]);
     } else {
-      return res.status(404).send();
+      return res.status(404).send('no data');
     }
   },
 };
