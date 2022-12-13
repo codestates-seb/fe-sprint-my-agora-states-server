@@ -1,22 +1,27 @@
+import React from "react";
 import "./App.css";
+import { useEffect, useState } from "react";
 
 import Form from "./Components/Form";
 import Discussions from "./Components/Discussions";
+import Paging from "./Components/Paging";
 
 import { getDiscussion } from "./api/getDiscussionApi";
 
-import { useEffect, useState } from "react";
-
 function App() {
   const [disList, setDisList] = useState([]);
+  const [fullList, setFullList] = useState([]);
+  const [page, setPage] = useState("1");
+
+  console.log(page);
 
   useEffect(() => {
     getDiscussion().then((result) => {
-      setDisList(result);
+      setFullList(result);
+      let pagingArray = result.slice((page - 1) * 10, page * 10);
+      setDisList(pagingArray);
     });
-  }, []);
-
-  console.log(disList);
+  }, [page]);
 
   return (
     <div className="App">
@@ -24,6 +29,7 @@ function App() {
         <h1>My Agora States</h1>
         <Form disList={disList} setDisList={setDisList} />
         <Discussions disList={disList} />
+        <Paging page={page} setPage={setPage} fullList={fullList} />
       </main>
     </div>
   );
