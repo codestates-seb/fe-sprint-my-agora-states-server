@@ -14,6 +14,7 @@ const discussionsController = {
     const {id} = req.params
     //디스터션데이터에서일치하는것을 필터해서 저장해주고 그것을 리턴해줌
     let filteredData = discussionsData.filter((el)=>{
+      console.log(typeof id)
       return el.id === Number(id)
     })
     if(filteredData.length===0){
