@@ -1,4 +1,3 @@
-const { filter } = require("../../../fe-sprint-statesairline-server/statesairline/repository/flightList");
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
 
