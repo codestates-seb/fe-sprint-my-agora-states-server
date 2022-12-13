@@ -4,7 +4,7 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
-    res.json(discussionsData);
+    res.status(200).json(discussionsData); // 상태코드를 주지않은 경우 알아서 200으로 처리함
   },
 
   findById: (req, res) => {
@@ -20,7 +20,7 @@ const discussionsController = {
       res.status(404).send('Bad Request');
       return;
     }
-    res.json(data);
+    res.status(200).json(data);
   },
 };
 
