@@ -8,19 +8,32 @@ import './App.css';
 function App() {
   // states
   const [discussionList, setDiscussionList] = useState([]);
+  const [listChange, setListChange] = useState('');
+
   // useEffect
   useEffect(() => {
     getDiscussions().then((result) => {
       return setDiscussionList(result);
     });
-  }, []);
+  }, [listChange]);
+
+  // 목록 업데이트 시켜주는 함수 실행
+  const submit = (obj) => {
+    fetch('http://localhost:4000/discussions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(obj),
+    }).then((res) => {
+      return setListChange(res);
+    });
+  };
 
   return (
     <main>
       <h1>🌜Agora States🌛</h1>
-      <Form />
-      <section class='discussion__wrapper'>
-        <ul classname='discussions__container'>
+      <Form onSubmit={submit} />
+      <section className='discussion__wrapper'>
+        <ul className='discussions__container'>
           <Discussions list={discussionList} />
         </ul>
       </section>

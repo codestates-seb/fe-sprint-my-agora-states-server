@@ -1,4 +1,5 @@
 function Discussion({
+  key,
   answer,
   author,
   avatarUrl,

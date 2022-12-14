@@ -1,7 +1,7 @@
 function Pages() {
   return (
     <section>
-      <div class='pageNumbers' id='pagenation'></div>
+      <div className='pageNumbers' id='pagenation'></div>
     </section>
   );
 }
