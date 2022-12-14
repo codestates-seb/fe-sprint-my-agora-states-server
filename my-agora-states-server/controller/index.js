@@ -21,6 +21,24 @@ const discussionsController = {
       return res.status(404).json('Not Found');
     }
   },
+
+  addDiscussion: (req, res) => {
+    console.log(req);
+    let { createdAt, title, url, author, answer, bodyHTML, avatarUrl } =
+      req.body;
+    let newDiscussion = {
+      id: discussionsData.length + 5,
+      createdAt,
+      title,
+      url,
+      author,
+      answer,
+      bodyHTML,
+      avatarUrl,
+    };
+    discussionsData.unshift(newDiscussion);
+    return res.status(200).json(newDiscussion);
+  },
 };
 
 module.exports = {
