@@ -13,7 +13,6 @@ const discussionsController = {
   // [GET] 
   // 요청으로 들어온 id와 일치하는 discussion을 응답합니다
   findById: (req, res) => {
-    const { id } = req.params;
 
     let filteredData = discussionsData;
     if(id){
