@@ -10,7 +10,7 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const { id } = req.params;
-    
+
     const filteredIdData = discussionsData.filter((value) => {
       return value.id === Number(id);
     })
@@ -19,8 +19,35 @@ const discussionsController = {
     } else {
       return res.status(200).json(...filteredIdData);
     }
-  }
-};
+  },
+
+  addQuestion: (req, res) => {
+    discussionsData.unshift(req.body);
+    res.status(301).json(req.body);
+  },
+
+  deleteQuestion: (req, res) => {
+    const { id } = req.params;
+
+    const idx = discussionsData.findIndex((value) => {
+      return value.id === Number(id)
+    });
+
+    if (idx !== -1) {
+      discussionsData.splice(idx, 1);
+      return res.end();
+    }
+  },
+
+  // deleteQuestion: (req, res) => {
+  //   const { id } = req.params;
+
+  //   if (id.length) {
+  //   discussionsData = discussionsData.filter((value) => Number(id) !== value.id)
+  //   }
+  //   res.end();
+  // }
+}
 
 module.exports = {
   discussionsController,
