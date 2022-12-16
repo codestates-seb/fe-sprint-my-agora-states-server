@@ -13,8 +13,6 @@ function App() {
   const [fullList, setFullList] = useState([]);
   const [page, setPage] = useState("1");
 
-  console.log(page);
-
   useEffect(() => {
     getDiscussion().then((result) => {
       setFullList(result);
