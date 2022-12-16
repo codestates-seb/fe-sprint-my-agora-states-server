@@ -32,9 +32,16 @@ app.get("/", (req, res) => {
   // res.sendFile(
   //   path.join(__dirname, "../", "my-agora-states-client/index.html")
   // );
-  res.sendFile(
-    path.join(__dirname, "../", "my-agora-states-in-react/", "build/index.html")
-  );
+  res
+    .status(200)
+    .sendFile(
+      path.join(
+        __dirname,
+        "../",
+        "my-agora-states-in-react/",
+        "build/index.html"
+      )
+    );
 });
 
 const server = app.listen(port, () => {
