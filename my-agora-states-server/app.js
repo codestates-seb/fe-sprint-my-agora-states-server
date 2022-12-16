@@ -9,7 +9,10 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
+
+//내장함수 객체
 app.use(cors());
+
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 app.post('/discussions',cors(), jsonParser, (req, res)=> {
   res.json(req.body)
