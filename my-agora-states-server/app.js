@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
   // );
   res
     .status(200)
+    .send("fe-sprint-my-agora-states-server")
     .sendFile(
       path.join(
         __dirname,
