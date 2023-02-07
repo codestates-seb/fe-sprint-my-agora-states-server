@@ -8,6 +8,14 @@ const discussionsController = {
     res.status(200).json(discussionsData)
   },
 
+  addDiscussion: (req, res) => {
+    // 받은 서버 데이터를 업데이트한다.
+    console.log('this is request:', req.body)
+    discussionsData.unshift(req.body)
+    // 업데이트 된 데이터를 보내준다. 
+    res.status(200).json(discussionsData)
+  },
+
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     let { id } = req.params
