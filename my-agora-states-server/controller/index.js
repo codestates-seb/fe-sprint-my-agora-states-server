@@ -8,10 +8,16 @@ const discussionsController = {
   },
 
   findById: (req, res) => {
-    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
-    res.send('TODO:')
-  }
 
+    const { uuid } = req.params;
+    if (uuid) {
+      const uuidFiltered = discussionsData.find((el) => // 하나만 찾을 때는 find로. 찾은 요소를 리턴
+        el.id === Number(uuid)
+      )
+      if(!uuidFiltered) return res.status(404).send();
+      return res.status(200).send(uuidFiltered);
+    }
+  }
 };
 
 module.exports = {
