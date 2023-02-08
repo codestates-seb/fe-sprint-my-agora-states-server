@@ -1,5 +1,7 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
+// POST /discussion 에서 사용할 uuid입니다.
+const { v4: uuid } = require('uuid');
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -13,6 +15,16 @@ const discussionsController = {
     const [ discussion ] = discussionsData.filter(data => data.id === id)
     if(discussion) res.status(200).json(discussion);
     else res.status(404).end();
+  },
+  
+  create: (req, res) => {
+    const id = uuid();
+    const newDiscussion = {
+      id,
+      ...req.body
+    }
+    // discussionsData.push(newDiscussion);
+    return res.status(201).json(newDiscussion);
   }
 };
 
