@@ -32,10 +32,10 @@
   - [ ] `GET /discussions`
   - [ ] `GET /discussions/:id`
 
-- [ ] `my-agora-states-server/controller/index.js`
+- [x] `my-agora-states-server/controller/index.js`
 
-  - [ ] `discussionsController.findAll`
-  - [ ] `discussionsController.findById`
+  - [x] `discussionsController.findAll`
+  - [x] `discussionsController.findById`
 
 ### my-agora-states-server 과제 제출 (Pull request)
 
