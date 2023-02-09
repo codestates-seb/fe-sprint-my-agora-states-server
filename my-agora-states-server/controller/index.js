@@ -14,7 +14,6 @@ const discussionsController = {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     // discussion 하나를 조회
     const { id } = req.params;
-    console.log(req.params);
     const one_discussion = discussionsData.find((item) => {
       return item.id === Number(id);
     });
