@@ -1,5 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -21,6 +21,13 @@ const discussionsController = {
     if (sameData) return res.status(200).json(sameData);
     else return res.status(404).json("일치하는 id가 존재하지 않습니다"); 
   },
+
+  newPost:(req, res) =>{
+    const bodyData = req.body; //바디에 객체를 넘겨주어야 함
+    const postPlus = [ bodyData, ...discussionsData] // 바디에 추가된 포스트
+    discussionsData = newPost;
+    return res.status(200).json(postPlus)
+  }
 };
 
 module.exports = {
