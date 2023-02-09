@@ -4,20 +4,24 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 
+// * 서버와 미들웨어를 구현할 때에는 항상 URI와 구조를 생각하자!
+// * client request ===> middleware(cors 등 app.js 객체에서 설정) ===> router(페이지 불러오기 직전 render과정) ===> client response
+
 // morgan 미들웨어가 세팅되어 있습니다.
 // HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어 입니다.
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
+app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-
-
+app.use(express.json({strict : false})); // ? 굳이 안써도 되는 이유가 기억나지 않음 ㅠㅠ
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
-
+// * client request ===> middleware(cors 등 app.js 객체에서 설정) ===> router(페이지 불러오기 직전 render과정) ===> client response
+app.use('/discussions', discussionsRouter) 
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
