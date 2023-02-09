@@ -4,10 +4,12 @@ const { findAll, findById } = discussionsController;
 const express = require('express');
 const router = express.Router();
 
-// TODO: 모든 discussions 목록을 조회하는 라우터를 작성합니다.
+//지금 이곳이 flightRouter.js같은 역할하는거다
 
+// TODO: 모든 discussions 목록을 조회하는 라우터를 작성합니다.
+router.get('/', findAll);
 
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
-
+router.get('/:id', findById);
 
 module.exports = router;
