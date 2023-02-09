@@ -15,8 +15,8 @@ const discussionsController = {
     // find 메소드를 사용할 때 id 값을 비교할 때 문자열 값에서 숫자 값으로 변환해주어야 한다. 
     // 그렇기 위해서 Number() 함수를 사용하여 id 값을 숫자로 변환하여 사용한다.
     let { id } = req.params;
-    const sameData = agoraStatesDiscussions.find(
-      (same) => same.id === Number(id)
+    const sameData = discussionsData.find(
+      same => same.id === Number(id)
     );
     if (sameData) return res.status(200).json(sameData);
     else return res.status(404).json("일치하는 id가 존재하지 않습니다"); 
