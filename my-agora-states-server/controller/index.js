@@ -1,3 +1,5 @@
+const uuid4 = require('uuid4')
+
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
 
@@ -12,9 +14,14 @@ const discussionsController = {
     const {id} = req.params;
     const filtered = discussionsData.find(e=>e.id===Number(id));
     return filtered?res.status(200).json(filtered):res.status(404).send({message: 'can not found data'})
-    
-  }
+  },
 
+  addPost: (req, res) => {
+    const body = req.body;
+    const id = uuid4();
+    if(body) discussionsData.unshift({id, ...body})
+    return res.status(201).send(body);
+  }
 };
 
 module.exports = {
