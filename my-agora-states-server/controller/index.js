@@ -8,15 +8,16 @@ const calculatePages = (item) => Math.ceil(item.length / 10) || 0;
 const filterItem = (item) => (f) => {
   const discussion = item.filter((a) => f(a));
   return discussion;
-}; //O(n);
+}; // 무조건 O(n);
 
 const filterDiscussions = filterItem(discussionsData);
 
 const findById = (req, res) => {
-  // discussionsData.find(a => a.id === +req.params); // O(n)
-  // 고차함수
+  // discussionsData.find(a => a.id === +req.params); // 최악일 때 O(n)
+
   const discussion = filterDiscussions(compareByKey(req.params, "id"));
-  discussion.length
+
+  return discussion.length
     ? res.json(discussion[0])
     : res.status(404).json(discussion);
 };
@@ -27,7 +28,7 @@ const findByPage = (res, page, data) => {
   const start = (page - 1) * 10;
   const discussion = data.slice(start, start + 10);
   const pages = calculatePages(data);
-  res.json({ discussion, pages });
+  return res.json({ discussion, pages });
 };
 
 const findUnanswered = (data) => {
@@ -36,19 +37,19 @@ const findUnanswered = (data) => {
 
 const appendData = (req, res) => {
   discussionsData.unshift(req.body);
-  res.send("ok");
+  return res.status(201).send("ok");
 };
 const patchData = (req, res) => {
   discussionsData.find(compareByKey(req.params, "id")).answer = {
     ...req.body,
   };
-  res.send("ok");
+  return res.send("ok");
 };
 const deleteData = (req, res) => {
   discussionsData = discussionsData.filter(
     (a) => !compareByKey(req.params, "id")(a)
   );
-  res.send("deleted");
+  return res.send("deleted");
 };
 
 const discussionsController = {
