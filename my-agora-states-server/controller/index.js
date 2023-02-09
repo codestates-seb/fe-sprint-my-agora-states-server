@@ -16,7 +16,7 @@ const discussionsController = {
       (same) => same.id === Number(id)
     );
     if (sameData) return res.status(200).json(sameData);
-    else return res.status(404).end(); 
+    else return res.status(404).json("일치하는 id가 존재하지 않습니다"); 
   },
 };
 
