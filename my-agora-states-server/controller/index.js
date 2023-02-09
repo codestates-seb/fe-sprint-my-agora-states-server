@@ -6,7 +6,7 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
     // res.send(discussionsData) 보다 아래 코드가 더 적절한 이유.
     // 응답코드 200 제공하여 성공적으로 처리 알림, JSON으로 반환하여 클라이언트에서 더 쉽게 파싱하고 처리 가능.
-    res.state(200).json(discussionsData);
+    res.status(200).json(discussionsData);
   },
 
   findById: (req, res) => {
