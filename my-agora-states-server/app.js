@@ -19,6 +19,7 @@ const discussionsRouter = require('./router/discussions');
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다.
 app.use('/discussions', discussionsRouter);
+// 메인 화면을 원하는 경로로 라우팅
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
