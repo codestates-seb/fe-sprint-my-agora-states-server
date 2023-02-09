@@ -6,7 +6,7 @@ const morgan = require("morgan");
 
 // morgan 미들웨어가 세팅되어 있습니다.
 // HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어 입니다.
-// app.use(morgan("tiny"));
+app.use(morgan("tiny"));
 
 // TODO: cors를 적용합니다.
 app.use(cors());
