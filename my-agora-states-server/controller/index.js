@@ -20,7 +20,7 @@ const discussionsController = {
     
     if(!filtered) return res.status(404).send('not fined');
     else return res.status(200).json(filtered) 
-    
+    // 왜 커밋이 안되지?
   }
 
 };
