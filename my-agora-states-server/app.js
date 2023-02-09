@@ -22,7 +22,16 @@ app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   res.status(200).send('fe-sprint-my-agora-states-server');
 });
-
+app.use((req, res, next) => {
+  res.status(404).send("Not Found!");
+});
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({
+    message: "Internal Server Error",
+    stacktrace: err.toString(),
+  });
+});
 const server = app.listen(port, () => {
   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
 });
