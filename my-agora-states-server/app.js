@@ -9,9 +9,9 @@ const morgan = require('morgan');
 app.use(morgan('tiny'));
 
 // TODO: cors를 적용합니다.
-
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
-
+app.use(cors());
+app.use(express.json());
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
