@@ -9,9 +9,14 @@ const discussionsController = {
   },
 
   findById: (req, res) => {
-    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
-    res.send('TODO:')
-  }
+    const { id } = req.params;
+    const found = discussionsData.find(discussion => discussion.id === +id);
+    if (found) {
+      res.status(200).json(found);
+    } else {
+      res.status(404).send('id와 일치하는 discussion이 없음');
+    }
+  },
 
 };
 
