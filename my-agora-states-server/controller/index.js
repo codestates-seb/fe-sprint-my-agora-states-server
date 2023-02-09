@@ -14,7 +14,7 @@ const discussionsController = {
     const id = Number(req.params.id)
     const [ discussion ] = discussionsData.filter(data => data.id === id)
     if(discussion) res.status(200).json(discussion);
-    else res.status(404).end();
+    else res.status(404).send('Not Found!');
   },
   
   create: (req, res) => {
