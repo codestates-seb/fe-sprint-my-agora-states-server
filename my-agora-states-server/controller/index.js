@@ -1,5 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -15,9 +15,48 @@ const discussionsController = {
     const idx = discussionsData.findIndex((data) => data.id === +id);
 
     if (idx >= 0) {
-      res.status(200).json(discussionsData[idx]);
+      return es.status(200).json(discussionsData[idx]);
     } else {
-      res.status(404).json("Not Found!");
+      return res.status(404).json("Not Found!");
+    }
+  },
+  //update
+  createDiscussion: (req, res) => {
+    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    const body = req.body;
+    discussionsData.unshift(body);
+    return res.status(200).json(discussionsData);
+  },
+
+  updateDiscussion: (req, res) => {
+    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    const body = req.body;
+    const { id } = req.params;
+    //idx가 조건을 만족 못한다면 -1
+    const idx = discussionsData.findIndex((data) => data.id === +id);
+    console.log(idx);
+    if (idx >= 0) {
+      updatedDiscussion = { ...discussionsData[idx], ...body };
+
+      discussionsData.splice(idx, 1, updatedDiscussion);
+
+      return res.status(200).json(discussionsData);
+    } else {
+      return res.status(404).json("Not Found!");
+    }
+  },
+
+  //delete
+  deleteDiscussion: (req, res) => {
+    const { id } = req.params;
+    //idx가 조건을 만족 못한다면 -1
+    const idx = discussionsData.findIndex((data) => data.id === +id);
+
+    if (idx >= 0) {
+      discussionsData.splice(idx, 1);
+      return res.status(200).json(discussionsData);
+    } else {
+      return res.status(404).json("Not Found!");
     }
   },
 };
