@@ -11,6 +11,9 @@ const discussionsController = {
 
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    // id 값이 req.params로 들어오며, 이 값은 문자열 형태로 들어오게 된다.
+    // find 메소드를 사용할 때 id 값을 비교할 때 문자열 값에서 숫자 값으로 변환해주어야 한다. 
+    // 그렇기 위해서 Number() 함수를 사용하여 id 값을 숫자로 변환하여 사용한다.
     let { id } = req.params;
     const sameData = agoraStatesDiscussions.find(
       (same) => same.id === Number(id)
