@@ -10,10 +10,9 @@ app.use(express.json());
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
-const { addHook } = require('dompurify');
+// const { addHook } = require('dompurify');
 
 app.use('/discussions', discussionsRouter);
-
 
 app.get('/', (req, res) => {
   res.status(200).send('fe-sprint-my-agora-states-server');
