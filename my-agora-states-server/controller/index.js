@@ -1,12 +1,13 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
+  //---------------------------findAll---------------------------------
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
     return res.status(200).json(discussionsData)
   },
-//---------------------------findAll---------------------------------
+  //---------------------------findById---------------------------------
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const {id} = req.params
@@ -24,19 +25,22 @@ const discussionsController = {
       return res.json(filteredDiscussions[0])
     }
   },
-  //---------------------------findById---------------------------------
-  create: (req, res) => {
-    const discussionData_id = discussionData.length;
-    req.body.id = discussionData_id
-  discussionsData = [req.body,...discussionsData]
-  return res.json(discussionsData)
-  }
-  //---------------------------create---------------------------------
+ //---------------------------create---------------------------------
+  create: (req, res) => {   
+  console.log(req.body)
+  discussionsData.unshift(req.body)
+  //데이터를 다 돌려주지 않아도 된다. 기존 데이터에 추가만해준다.
+  return res.json(discussionsData[0])
+  },
+  //---------------------------delete---------------------------------
+  deletebyID: (req, res) => {    
+    console.log(req.body)
+    if(req.body === discussionsData[0].id){
+      discussionsData.shift()
+    }
+    return res.json(discussionsData)
+    }
 };
-
-
-
-
 
 module.exports = {
   discussionsController,
