@@ -36,7 +36,7 @@ const discussionsController = {
   create: (req, res) => { 
     discussionsData = [req.body,...discussionsData];
     return res.status(200).json(req.body); 
-
+    
   },
 
 
