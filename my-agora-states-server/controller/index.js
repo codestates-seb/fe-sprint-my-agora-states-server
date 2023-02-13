@@ -23,7 +23,8 @@ const discussionsController = {
 
   addQuestion: (req, res) => {
     discussionsData.unshift(req.body);
-    res.status(301).json(req.body);
+    return res.status(200).json(req.body);
+    // return res.status(301).json(req.body);
   },
 
   deleteQuestion: (req, res) => {
@@ -38,15 +39,6 @@ const discussionsController = {
       return res.end();
     }
   },
-
-  // deleteQuestion: (req, res) => {
-  //   const { id } = req.params;
-
-  //   if (id.length) {
-  //   discussionsData = discussionsData.filter((value) => Number(id) !== value.id)
-  //   }
-  //   res.end();
-  // }
 }
 
 module.exports = {
