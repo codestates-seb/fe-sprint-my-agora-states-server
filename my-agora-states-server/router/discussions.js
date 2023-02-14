@@ -1,6 +1,6 @@
 // TODO: discussions 라우터를 완성합니다.
 const { discussionsController } = require('../controller');
-const { findAll, findById } = discussionsController;
+const { findAll, findById, create, update, deleteId } = discussionsController;
 const express = require('express');
 const router = express.Router();
 
@@ -10,9 +10,11 @@ router.get('/', findAll);
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
 router.get('/:id', findById);
 
-// // 추가 POST(수정) , DEL(삭제)
-// router.post('/:id', create);
+// POST(등록) POST(수정) , 
+router.post('/', create);
 
-// router.put('/:id', update);
+router.put('/:id', update);
+
+router.delete('/:id', deleteId);
 
 module.exports = router;

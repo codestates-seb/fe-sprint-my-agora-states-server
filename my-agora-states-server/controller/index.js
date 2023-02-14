@@ -22,14 +22,20 @@ const discussionsController = {
   update: (req, res) => {
     const bodyData = req.body;
     const { id } = req.params; 
+
+    console.log(req.body)
+    console.log(req.params)
     let indexNum; 
-      for (i = 0; i < flights.length; i++) {
+      for (let i = 0; i < flights.length; i++) {
       if (discussionsData[i].id === Number(id)) {
         indexNum = i; 
       }
     }
     discussionsData[indexNum] = { ...discussionsData[indexNum], ...bodyData };
-    return res.status(200).json(discussionsData[findIndex]); 
+    discussionsData = {...discussionsData,...discussionsData[indexNum]}
+    return res.status(200).json(discussionsData); 
+
+
   },
 
   // [POST] 요청 된 데이터를 저장합니다.
@@ -40,6 +46,11 @@ const discussionsController = {
   },
 
 
+  deleteId: (req, res) => {
+      console.log(req.body)
+      discussionsData = discussionsData.filter((el) => el.id !== req.body); 
+      return res.status(200).json(discussionsData); 
+  },
 
 }
 
