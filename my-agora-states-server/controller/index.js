@@ -34,12 +34,29 @@ const discussionsController = {
   },
   //---------------------------delete---------------------------------
   deletebyID: (req, res) => {    
+    if(req.body){
+      discussionsData = discussionsData.filter((item) => {
+        return req.body !== item.id })     
+      }
+    
     console.log(req.body)
-    if(req.body === discussionsData[0].id){
-      discussionsData.shift()
-    }
     return res.json(discussionsData)
-    }
+    },
+  //---------------------------update--------------------------------
+  updatebyDiscussion: (req, res) => {    
+    const bodyData = req.body
+    const {id} = req.params
+    console.log(req.params) // 수정 할 게시물의 id가 들어옴
+    console.log(req.body) // 수정 게시물의 수정내용이 들어옴
+    let indexNum;
+      for(let i=0; i<discussionsData.length; i++) {
+        if(discussionsData[i].id === Number(id)) {
+          indexNum =i;
+        }
+      }
+      discussionsData[indexNum] = Object.assign(discussionsData[indexNum], bodyData);
+      return res.json(discussionsData)
+   }
 };
 
 module.exports = {

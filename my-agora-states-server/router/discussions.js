@@ -1,6 +1,6 @@
 // TODO: discussions 라우터를 완성합니다.
 const { discussionsController } = require('../controller/index');
-const { findAll, findById, create, deletebyID } = discussionsController;
+const { findAll, findById, create, deletebyID,updatebyDiscussion } = discussionsController;
 const express = require('express');
 const router = express.Router();
 
@@ -16,5 +16,9 @@ router.post('/', create);
 
 //작성한 글을 discussionData에서 삭제하는 라우터
 router.delete('/:id', deletebyID);
+//작성한 글을 discussionData에서 삭제하는 라우터
+router.put('/:id', updatebyDiscussion);
+
+
 
 module.exports = router;
