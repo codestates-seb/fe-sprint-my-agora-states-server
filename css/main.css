@@ -1,0 +1,30 @@
+.main__background{
+    display: flex;
+    width: 100%;
+}
+.main__background-title{
+    font-size: 90px;
+    margin-left: 120px;
+    margin-top: 90px;
+    margin-bottom: 45px;
+    position:relative;
+    z-index: 1;
+    font-family: 'Tilt Warp', cursive;
+    color: var(--indigo-color);
+}
+.main__background-sub{
+    position:relative;
+    z-index: 1;
+    margin-left: 120px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 550px;
+    color: var(--gray-color);
+    font-size: 17px;
+    line-height:1.5;
+}
+.main__background-image{
+    width:1000px;
+    height: 700px;
+    position:absolute;
+    right: 0;
+}
