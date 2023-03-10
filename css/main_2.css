@@ -1,0 +1,69 @@
+.container .main__qna .main__qna-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+}
+.form__container{
+    width:40%;
+
+}
+.form__container .form{
+    width:450px;
+    height: 500px;
+    border-radius: 9px;
+    border: 1px solid #c5c5cce5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.form__input-icon{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin: 50px 50px 45px 50px;
+    color:var(--blue-color);
+}
+.form__container .form .form__input-user,
+.form__container .form textarea{
+    width:380px;
+    padding:10px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.form__container .form .form__input-user{
+    height: 35px;
+    margin-bottom: 15px;
+}
+.form__container .form textarea{
+    height: 135px;
+    margin-bottom: 25px;
+    resize: none;
+}
+.form__submit {
+    height: 45px;
+}
+.form__submit input{
+    color:white;
+    background-color: var(--blue-color);
+    height: 35px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    width:380px;
+    transition:all .2s ease-in-out;
+}
+.form__submit input:hover{
+    opacity: 0.8;
+}
+.main__qna .main__qna-txt{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Days One', sans-serif;
+    color:black;
+    padding: 30px 0px;
+}
+.main__qna-subtitle{
+    color:var(--indigo-color);
+}
+
