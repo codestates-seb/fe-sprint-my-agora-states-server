@@ -193,3 +193,34 @@ ul {
   padding: 1rem;
   font-size: 25px;
 }
+
+/* pagination */
+
+.pagination-container {
+  width: 200px;
+}
+
+.pagination-container button {
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 2rem;
+}
+
+.pagination-numbers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-container button.active{
+  background-color: #eee;
+}
+
+.discussion__container.hidden {
+  display: none;
+}

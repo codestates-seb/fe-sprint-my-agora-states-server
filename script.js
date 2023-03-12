@@ -1,5 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
+if(dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 // -----------------------------------------------------
 // 디스커션 추가 기능
 
@@ -24,7 +31,19 @@ form.addEventListener('submit', function(e) {
   let title = form.elements.title;
   let story = form.elements.story;
 
-  agoraStatesDiscussions.unshift({
+  // agoraStatesDiscussions.unshift({
+  //   id: "",
+  //   createdAt: `${dateString} / ${timeString}`, // 현재시간추가(현지시간에 맞춰 출력)
+  //   title: title.value,
+  //   url: "", // 제목을 눌렀을때, 질문이 작은 새로운 창으로 뜨게끔 하는 기능 추가 (story가 여기 들어가야함) -> 팝업창이 뜨게끔 시도해봄 -> 실패
+  //   author: username.value,
+  //   answer: "", // answer도 결국엔 렌더링 되게끔 해야되지만, 여기선 필요없을듯? (답변까지 제출하는 폼은 없으니까 추가되는 답변은 다루기가 좀 애매)
+  //   bodyHTML: "",
+  //   avatarUrl:
+  //     "images.jpg",
+  //   story: story.value
+  // })
+  const obj = {
     id: "",
     createdAt: `${dateString} / ${timeString}`, // 현재시간추가(현지시간에 맞춰 출력)
     title: title.value,
@@ -35,17 +54,27 @@ form.addEventListener('submit', function(e) {
     avatarUrl:
       "images.jpg",
     story: story.value
-  })
+  };
+  data.unshift(obj);
+  agoraStatesDiscussions.unshift(obj);
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+
   username.value = '';
   title.value = '';
   story.value = '';
 
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+  
+
+  ul.prepend(convertToDiscussion(data[0]));
   alert("질문이 등록되었습니다");
 
+  location.reload();
+  // document.querySelector("pagination-number 1").click();
+  // window.load();
 //   const target = document.querySelector('.btn_open');
 //   const btnPopClose = document.querySelector('.pop_inner .btn_close');
-// let targetID;
+//   let targetID;
 
 // target.addEventListener('click', function(){
 //   targetID = this.getAttribute('href');
@@ -54,10 +83,11 @@ form.addEventListener('submit', function(e) {
 
 
 
+
+
 // btnPopClose.addEventListener('click', function() {
 //   this.parentNode.style.display = 'none';
 // })
-
 })
 
 
@@ -153,10 +183,26 @@ const convertToDiscussion = (obj) => {
 //   return li;
 // };
 
+// data 배열의 모든 데이터를 화면에 렌더링하는 함수 입니다.
+// const render = (element, from, to) => {
+//   if(!from && !to) {
+//     from = 0;
+//     to = data.length - 1; 
+//   }
+
+//   while (element.firstChild) {
+//     element.removeChild(element.firstChild);
+//   }
+//   for(let i = from; i < to; i += 1) {
+//     element.append(convertToDiscussion(data[i]));
+//   }
+//   return
+// } 
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < data.length; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
@@ -166,5 +212,74 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // ------------------------------------------------------------ 
-페이지네이션
+// 페이지네이션
+
+const paginationNumbers = document.querySelector(".pagination-numbers");
+const paginatedList = document.querySelector('.paginated-list');
+const listItems = paginatedList.querySelectorAll('li');
+const paginationLimit = 10;
+
+
+const pageCount = Math.ceil(listItems.length / paginationLimit);
+
+let currentPage;
+
+const appendPageNumber = (index) => {
+  const pageNumber = document.createElement("button");
+  pageNumber.className = `pagination-number ${index}`;
+  pageNumber.setAttribute('page-index', index);
+  pageNumber.textContent = index;
+
+  paginationNumbers.appendChild(pageNumber);
+}
+
+const getPaginationNumbers = () => {
+  for(let i = 1; i <= pageCount; i++) {
+    appendPageNumber(i);
+  }
+}
+
+window.addEventListener("load", () => {
+  getPaginationNumbers();
+  setCurrentPage(1);
+
+  document.querySelectorAll(".pagination-number").forEach((button) => {
+    const pageIndex = Number(button.getAttribute("page-index"));
+
+    if(pageIndex) {
+      button.addEventListener("click", () => {
+        setCurrentPage(pageIndex);
+      })
+    }
+  })
+  
+})
+
+const handleActivePageNumber = () => {
+  document.querySelectorAll('.pagination-number').forEach((button) => {
+    button.classList.remove('active');
+
+    const pageIndex = Number(button.getAttribute('page-index'));
+    if(pageIndex === currentPage) {
+      button.classList.add('active');
+    }
+  })
+}
+
+const setCurrentPage = (pageNum) => {
+  currentPage = pageNum;
+
+  handleActivePageNumber();
+
+  const prevRange = (pageNum - 1) * paginationLimit;
+  const currRange = pageNum * paginationLimit;
+
+  listItems.forEach((item, index) => {
+    item.classList.add('hidden');
+    if (index >= prevRange && index < currRange) {
+      item.classList.remove("hidden");
+    }
+  })
+} 
+
 
