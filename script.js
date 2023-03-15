@@ -1,23 +1,21 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+const checkLsAsk = localStorage.getItem('newDiscussion');
+if(checkLsAsk){
+  const checkLsAskArr = JSON.parse(checkLsAsk);
+  for(let i of checkLsAskArr){
+    agoraStatesDiscussions.unshift(i);
+  }
+}
+const setLocalStorage = (name, data)=>{
 
-let observer = new IntersectionObserver((e)=>{
-  e.forEach((x)=>{
-    if(x.isIntersecting){
-      x.target.style.opacity = 1;
-    }
-    else{
-      x.target.style.opacity = 0;
-    }
-  })
-});
+  let saveddata = localStorage.getItem('newDiscussion');
+  if(saveddata){
+    const parseSaved = JSON.parse(saveddata);
+    localStorage.setItem(name,JSON.stringify([...parseSaved,data]))
 
-
-const Section1 = document.querySelector('.form__container');
-const Section2 = document.querySelector('.discussion__wrapper');
-observer.observe(Section1);
-observer.observe(Section2);
-
+  }else{
+    localStorage.setItem(name,JSON.stringify([data]))
+  }
+}
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -30,8 +28,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  //image
+
   const avatarImg = document.createElement('img');
   avatarImg.src = obj.avatarUrl;
   avatarImg.className = 'discussion__avatar--image'
@@ -67,14 +64,30 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+console.log(agoraStatesDiscussions);
+render(ul);
+
+
 const form = document.querySelector('.form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#name');
 const story = document.querySelector('#story');
 
-function InputInser(event){
+form.addEventListener('submit',(event)=>{
   event.preventDefault();
-  //하나 객체 만들어서 ul에 append 해준다.
+ 
+
   const newDiscussion = {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: new Date(),
@@ -94,30 +107,17 @@ function InputInser(event){
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
-  console.log(newDiscussion);
+
   ul.prepend(convertToDiscussion(newDiscussion));
   title.value = '';
   author.value = '';
   story.value = '';
+
+  setLocalStorage('newDiscussion',newDiscussion);
   loadList();
-}
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+}) 
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
-
-
-form.addEventListener('submit',InputInser);
-
-
+/* 페이지네이션 */
 /* thisPage:현재 페이지 limit:한페이지에 보이는 list : li */
 let thisPage = 1;
 let limit = 5;
@@ -143,11 +143,12 @@ function loadList(){
   listPage();
 }
 loadList();
+
 function listPage(){
   /* 41/5 => 페이지 수 */
   let count = Math.ceil(list.length / limit);
   document.querySelector('.listPage').innerHTML = '';
-
+// 
   if(thisPage !== 1){
     let prev = document.createElement('li');
     prev.innerText = 'PREV';
@@ -173,7 +174,24 @@ function listPage(){
     document.querySelector('.listPage').appendChild(next);
   }
 }
+
 function changePage(i){
   thisPage = i;
   loadList();
 }
+
+
+let observer = new IntersectionObserver((e)=>{
+  e.forEach((x)=>{
+    if(x.isIntersecting){
+      x.target.style.opacity = 1;
+    }
+    else{
+      x.target.style.opacity = 0;
+    }
+  })
+});
+const Section1 = document.querySelector('.form__container');
+const Section2 = document.querySelector('.discussion__wrapper');
+observer.observe(Section1);
+observer.observe(Section2);
