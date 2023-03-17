@@ -12,15 +12,15 @@ const discussionsController = {
     const {body} = req
     discussionsData.unshift(body)
     // console.log(discussionsData.length)
-    res.json(body)
+    res.status(201).json(body)
   },
 
   delDiscussion: (req, res) => {
     const {id} = req.params
     if (id.length) {
-      discussionsData = discussionsData.filter((data) => Number(id) !== data.id)
+      discussionsData = discussionsData.filter((data) => Number(id) !== data.id) // 리턴값: 새로운 배열
     }
-    res.end()
+    res.status(202).end()
   },
 
   findById: (req, res) => {
