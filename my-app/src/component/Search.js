@@ -1,7 +1,7 @@
 import { useState, memo } from "react";
 import Modal from "./Modal";
 
-const Search = ({ search, setSearch, handleSeaarch }) => {
+const Search = ({ search, setSearch, handleSeaarch, setAgora }) => {
   const [modal, setModal] = useState(false);
 
   const onChange = (e) => setSearch(e.target.value);
@@ -29,7 +29,7 @@ const Search = ({ search, setSearch, handleSeaarch }) => {
           </button>
         </form>
       </div>
-      {modal ? <Modal setModal={setModal} /> : null}
+      {modal ? <Modal setModal={setModal} setAgora={setAgora} /> : null}
     </>
   );
 };

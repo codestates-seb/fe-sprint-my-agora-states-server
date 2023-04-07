@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getServer from "./getServer";
+import getServer from "./api/getServer";
 import Nav from "./component/Nav";
 import Search from "./component/Search";
 import Agora from "./component/Agora";
@@ -16,7 +16,8 @@ function App() {
 
   useEffect(() => {
     const json = getServer(
-      `http://localhost:4000/discussions?question=${search}`
+      `http://localhost:4000/discussions?question=${search}`,
+      "get"
     );
     json.then((data) => {
       setAgora(data);
@@ -31,12 +32,13 @@ function App() {
         search={search}
         setSearch={setSearch}
         handleSeaarch={handleSeaarch}
+        setAgora={setAgora}
       />
       <main>
         <article class="discussion__wrapper">
-          {isLoading && (
-            <ul class="discussions__container">
-              {agora.map((li, index) => (
+          <ul class="discussions__container">
+            {agora.length > 0 ? (
+              agora.map((li) => (
                 <Agora
                   key={li.id}
                   createdAt={li.createdAt}
@@ -47,9 +49,11 @@ function App() {
                   answerUrl={li.answer}
                   id={li.id}
                 />
-              ))}
-            </ul>
-          )}
+              ))
+            ) : (
+              <h1>결과를 찾을 수 없습니다!</h1>
+            )}
+          </ul>
         </article>
       </main>
     </>
