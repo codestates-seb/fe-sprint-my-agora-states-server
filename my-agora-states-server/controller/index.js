@@ -18,6 +18,11 @@ const discussionsController = {
       res.status(404).send("Discussion not found.");
     }
   },
+
+  create: (req, res) => {
+    discussionsData.unshift(req.body);
+    res.json(discussionsData);
+  },
 };
 
 module.exports = {
