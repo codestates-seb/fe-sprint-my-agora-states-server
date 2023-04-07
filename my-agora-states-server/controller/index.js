@@ -35,7 +35,7 @@ const discussionsController = {
       avatarUrl,
     };
 
-    // FIXME: 실제 배열에 push하는 작업
+    discussionsData.unshift(newPost);
 
     res.status(201).send(newPost);
   },
@@ -62,7 +62,9 @@ const discussionsController = {
     if (!discussionsData.some((data) => data.id !== Number(id))) {
       res.status(404).send('id에 해당하는 포스트가 존재하지 않습니다.');
     } else {
-      // FIXME: 실제 배열에서 삭제하는 작업
+      const beDeletedIdx = discussionsData.findIndex((data) => data.id === Number(id));
+
+      discussionsData.splice(beDeletedIdx, 1);
 
       res.status(200).send(`포스트(id: ${id})가 삭제되었습니다.`);
     }
