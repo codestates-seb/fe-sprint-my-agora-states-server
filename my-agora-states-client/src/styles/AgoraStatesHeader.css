@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+
+.title {
+  font-family: 'Dokdo', cursive;
+  font-size: 64px;
+  font-weight: 700px;
+  color: rgb(55, 53, 47);
+  margin: 16px 0;
+}
+
+.icon {
+  margin-right: 24px;
+  font-size: 48px;
+}
+
+.subscription {
+  line-height: 1.5;
+}
+
+.subscription_extra {
+  margin: 50px 0;
+}
