@@ -15,7 +15,7 @@ const discussionsController = {
     const filterId = discussionsData.filter((x) => x.id === Number(id));
 
     if (filterId.length > 0) {
-      return res.status(200).send(filterId);
+      return res.status(200).send(filterId[0]);
     } else res.status(404).send("Incorrect Request");
   },
 
@@ -24,14 +24,14 @@ const discussionsController = {
     const { id, title, author } = req.body;
     console.log(id, title, author);
     if (id && title && author) {
-      discussionsData.unshift({
+      let addList = Object.assign(discussionsData[0], {
         id: Number(id),
         createdAt: `${date}`,
-        updatedAt: `${date}`,
-        title: `${author}`,
+        title: `${title}`,
+        author: `${author}`,
       });
-
-      return res.status(200).send(discussionsData);
+      discussionsData.unshift(addList);
+      return res.status(200).send(addList);
     } else return res.status(404).send("Incorrect Request");
   },
 
