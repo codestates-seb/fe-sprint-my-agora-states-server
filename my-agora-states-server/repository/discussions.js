@@ -1,7 +1,7 @@
-const createDOMPurify = require('dompurify');
-const { JSDOM } = require('jsdom');
+const createDOMPurify = require("dompurify");
+const { JSDOM } = require("jsdom");
 
-const window = new JSDOM('').window;
+const window = new JSDOM("").window;
 const DOMPurify = createDOMPurify(window);
 
 module.exports.agoraStatesDiscussions = [
@@ -30,8 +30,7 @@ module.exports.agoraStatesDiscussions = [
     id: 44,
     createdAt: "2022-05-15T23:57:43Z",
     updatedAt: "2022-05-15T23:57:43Z",
-    title:
-      "반복되는 문자 리턴 문제에서 ' '(공백하나인 문자열)입력시 오류가 발생합니다.",
+    title: "반복되는 문자 리턴 문제에서 ' '(공백하나인 문자열)입력시 오류가 발생합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
     author: "JoeunNAL",
     answer: null,
@@ -65,8 +64,7 @@ module.exports.agoraStatesDiscussions = [
     id: 42,
     createdAt: "2022-05-13T03:38:57Z",
     updatedAt: "2022-05-13T03:38:57Z",
-    title:
-      "Unit10/Checkpoint2/종합퀴즈2/6번 관련하여 클로저의 효용성에 대해 질문드립니다.",
+    title: "Unit10/Checkpoint2/종합퀴즈2/6번 관련하여 클로저의 효용성에 대해 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/42",
     author: "JiYJ725",
     answer: {
@@ -87,8 +85,7 @@ module.exports.agoraStatesDiscussions = [
     id: 41,
     createdAt: "2022-05-13T02:26:58Z",
     updatedAt: "2022-05-13T02:26:58Z",
-    title:
-      "클로저 함수의 특징 설명 중 '함수를 리턴하는 함수'가 이해가 되지 않습니다.",
+    title: "클로저 함수의 특징 설명 중 '함수를 리턴하는 함수'가 이해가 되지 않습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/41",
     author: "Hong-sk",
     answer: {
@@ -110,8 +107,7 @@ module.exports.agoraStatesDiscussions = [
     id: 40,
     createdAt: "2022-05-10T14:43:13Z",
     updatedAt: "2022-05-10T14:43:13Z",
-    title:
-      "코플릿 배열 24번에 replaceAll을 쓰면 통과가 안되는 이유가 무엇인가요?.?",
+    title: "코플릿 배열 24번에 replaceAll을 쓰면 통과가 안되는 이유가 무엇인가요?.?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/40",
     author: "jindory",
     answer: {
@@ -216,8 +212,7 @@ module.exports.agoraStatesDiscussions = [
     id: 35,
     createdAt: "2022-05-09T11:48:24Z",
     updatedAt: "2022-05-09T11:48:24Z",
-    title:
-      "specrunner.html 파일에서는 베어테스트 통과하는데 터미널에는 오류가 발생합니다",
+    title: "specrunner.html 파일에서는 베어테스트 통과하는데 터미널에는 오류가 발생합니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/35",
     author: "JoeunNAL",
     answer: {
@@ -281,8 +276,7 @@ module.exports.agoraStatesDiscussions = [
     id: 30,
     createdAt: "2022-05-09T06:45:24Z",
     updatedAt: "2022-05-09T06:45:24Z",
-    title:
-      "specRunner에서는 통과가 되는데, node에서 bare에서 조차 통과가 되지 않습니다.",
+    title: "specRunner에서는 통과가 되는데, node에서 bare에서 조차 통과가 되지 않습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/30",
     author: "sweesweett",
     answer: {
@@ -492,8 +486,7 @@ module.exports.agoraStatesDiscussions = [
     id: 20,
     createdAt: "2022-05-07T08:33:57Z",
     updatedAt: "2022-05-07T08:33:57Z",
-    title:
-      "Unit9 - [JavaScript] 배열, 객체 Chapter2-1. 객체 기초 퀴즈 문제 수정이 필요합니다.",
+    title: "Unit9 - [JavaScript] 배열, 객체 Chapter2-1. 객체 기초 퀴즈 문제 수정이 필요합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/20",
     author: "ryan-kim-dev",
     answer: {
@@ -536,8 +529,7 @@ module.exports.agoraStatesDiscussions = [
     id: 18,
     createdAt: "2022-05-03T09:12:41Z",
     updatedAt: "2022-05-03T09:12:41Z",
-    title:
-      "flex grow 사용시 정확한 정렬이 안되고있는데, 이유 및 해결방안 궁금합니다",
+    title: "flex grow 사용시 정확한 정렬이 안되고있는데, 이유 및 해결방안 궁금합니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/18",
     author: "KiwookKim",
     answer: {
@@ -600,8 +592,7 @@ module.exports.agoraStatesDiscussions = [
     id: 15,
     createdAt: "2022-04-30T08:29:32Z",
     updatedAt: "2022-04-30T08:29:32Z",
-    title:
-      "코플릿 반복문 18번, 소수찾아 나열하는 이중반복문 문제를 풀다 막혀 질문드립니다.",
+    title: "코플릿 반복문 18번, 소수찾아 나열하는 이중반복문 문제를 풀다 막혀 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/15",
     author: "manyb2auties",
     answer: {
@@ -686,8 +677,7 @@ module.exports.agoraStatesDiscussions = [
     id: 11,
     createdAt: "2022-04-27T05:19:24Z",
     updatedAt: "2022-04-27T05:19:24Z",
-    title:
-      "Unit3 - [JavaScript] 기초 제어문, Chapter 2-2 실습 예시에 오타가 있는거 같습니다.",
+    title: "Unit3 - [JavaScript] 기초 제어문, Chapter 2-2 실습 예시에 오타가 있는거 같습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/11",
     author: "Gwanghyun-Jeon",
     answer: {
@@ -729,8 +719,7 @@ module.exports.agoraStatesDiscussions = [
     id: 9,
     createdAt: "2022-04-26T05:55:37Z",
     updatedAt: "2022-04-26T05:55:37Z",
-    title:
-      "문자열을 따옴표로 감싸지 않은 경우만 다른 에러메세지가 나오는 이유가 궁금합니다.",
+    title: "문자열을 따옴표로 감싸지 않은 경우만 다른 에러메세지가 나오는 이유가 궁금합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/9",
     author: "ryan-kim-dev",
     answer: {
@@ -833,20 +822,20 @@ module.exports.agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-].map(discussion => {
+].map((discussion) => {
   if (discussion.answer) {
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
-  }
-})
+    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+  };
+});
