@@ -50,7 +50,17 @@ const discussionsController = {
       return res.status(404).send("Not found");
     }
   },
+  deleteById: (req, res) => {
+    const idx = discussionsData.findIndex((el) => el.id === Number(req.params.id));
 
+    if (idx !== -1) {
+      discussionsData.splice(idx, 1);
+      return res.status(202).send("resource deleted successfully");
+    } else {
+      return res.status(404).send("Not found");
+    }
+  },
+};
 };
 
 module.exports = {
