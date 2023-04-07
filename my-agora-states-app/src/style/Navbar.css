@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+}
+
+.navigation {
+  text-align: end;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.navbar img {
+  width: 150px;
+  height: 150px;
+}
+
+.banner {
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 600px;
+  box-shadow: 3px 3px 20px #01010117, -3px -3px 10px #01010117;
+  padding: 15px;
+  margin: 30px;
+}

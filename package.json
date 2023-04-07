@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node my-agora-states-server/app.js",
+    "start": "cd my-agora-states-app && npm run dev",
     "test": "jest"
   },
   "repository": {
