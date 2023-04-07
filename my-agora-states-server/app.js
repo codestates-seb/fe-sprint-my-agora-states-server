@@ -22,6 +22,18 @@ app.get("/", (req, res) => {
     res.status(200).send("fe-sprint-my-agora-states-server");
 });
 
+app.use((req, res, next) => {
+    res.status(404).send("Not Found!");
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send({
+        message: "Internal Server Error",
+        stacktrace: err.toString(),
+    });
+});
+
 const server = app.listen(port, () => {
     console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
 });
