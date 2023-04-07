@@ -21,7 +21,7 @@ const discussionsRouter = require('./router/discussions');
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
-  res.status(200).send('fe-sprint-my-agora-states-server');
+  res.status(200).send('fe-sprint-my-agora-states-serverㅋㅋ');
 });
 
 const server = app.listen(port, () => {
