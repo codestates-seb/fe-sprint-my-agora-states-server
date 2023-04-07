@@ -1,0 +1,50 @@
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.categories {
+  display: flex;
+}
+
+.category {
+  margin-right: 1rem;
+}
+
+.category button {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button {
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  margin: 10px 20px 10px 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.btnLightBlue {
+  background: #5dc8cd;
+}
+
+.btnLightBlue.btnPush {
+  box-shadow: 0px 5px 0px 0px #1e8185;
+}
+
+.btnPush:hover {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.btnLightBlue.btnPush:hover {
+  box-shadow: 0px 0px 0px 0px #1e8185;
+}
