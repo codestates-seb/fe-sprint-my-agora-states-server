@@ -4,28 +4,28 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 
-// morgan 미들웨어가 세팅되어 있습니다.
-// HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어 입니다.
-app.use(morgan('tiny'));
-
-// TODO: cors를 적용합니다.
-
-// TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
+// router
+const discussionsRouter = require('./router/discussionsRouter');
 
 
-const port = 4000;
-const discussionsRouter = require('./router/discussions');
+// morgan 미들웨어는 HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어이다.
+app.use(morgan('tiny')); // tiny: 최소화된 로그를 출력
+app.use(cors()); // cors 헤더를 모든 응답에 넣어준다.
+app.use(express.json()); // 모든 응답은 json으로 한다. Content-Type: application/json
 
-// TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
+app.set('port', process.env.PORT || 4000);
 
 
+app.use('/discussions', discussionsRouter);
+
+
+// health check: 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보낸다.
 app.get('/', (req, res) => {
-  // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   res.status(200).send('fe-sprint-my-agora-states-server');
 });
 
-const server = app.listen(port, () => {
-  console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
+const server = app.listen(app.get('port'), () => {
+  console.log(`[RUN] My Agora States Server... | http://localhost:${app.get('port')}`);
 });
 
 module.exports.app = app;
