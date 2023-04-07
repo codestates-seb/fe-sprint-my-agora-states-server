@@ -1,6 +1,13 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
 
+const handleRequestBody = (req, res) => {
+  if (!req.body) return res.status(400).send("no request body");
+  const { title, author, bodyHTML } = req.body;
+  if (!title && !author && !bodyHTML) return res.status(400).send("bad request");
+  return true;
+};
+
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
@@ -14,6 +21,24 @@ const discussionsController = {
     if (!data) return res.status(404).send("Not found");
     return res.status(200).json(data);
   },
+
+  updateById: (req, res) => {
+    if (handleRequestBody(req, res) !== true) return;
+    const idx = discussionsData.findIndex((el) => el.id === Number(req.params.id));
+    const updated = {
+      ...discussionsData[idx],
+      ...req.body,
+      updateAt: new Date().toISOString(),
+    };
+
+    if (idx !== -1) {
+      discussionsData.splice(idx, 1, updated);
+      return res.status(200).send("resource updated successfully");
+    } else {
+      return res.status(404).send("Not found");
+    }
+  },
+  
   create: (req, res) => {
     const { title, author, bodyHTML } = req.body;
 
@@ -34,22 +59,7 @@ const discussionsController = {
     discussionsData.unshift(newDiscussion);
     return res.status(201).send("resource created successfully: ID" + id);
   },
-  updateById: (req, res) => {
-    if (handleRequestBody(req, res) !== true) return;
-    const idx = discussionsData.findIndex((el) => el.id === Number(req.params.id));
-    const updated = {
-      ...discussionsData[idx],
-      ...req.body,
-      updateAt: new Date().toISOString(),
-    };
 
-    if (idx !== -1) {
-      discussionsData.splice(idx, 1, updated);
-      return res.status(200).send("resource updated successfully");
-    } else {
-      return res.status(404).send("Not found");
-    }
-  },
   deleteById: (req, res) => {
     const idx = discussionsData.findIndex((el) => el.id === Number(req.params.id));
 
@@ -60,7 +70,6 @@ const discussionsController = {
       return res.status(404).send("Not found");
     }
   },
-};
 };
 
 module.exports = {
