@@ -24,6 +24,7 @@ const discussionsController = {
       res.status(201).send('discussion이 등록되었습니다.');
     }
   },
+
   updateDiscussion: (req, res) => {
     const { id } = req.params;
     const index = discussionsData.findIndex((discussion) => discussion.id === +id);
@@ -35,6 +36,7 @@ const discussionsController = {
       res.status(400).send('discussion이 존재하지 않습니다.');
     }
   },
+
   deleteDiscussion: (req, res) => {
     const { id } = req.params;
     const index = discussionsData.findIndex((discussion) => discussion.id === +id);
