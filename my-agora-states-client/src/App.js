@@ -10,6 +10,7 @@ function App() {
   const [datas, setDatas] = useState([]);
   const [discussionForm, setDiscussionForm] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:4000/discussions', {
@@ -32,6 +33,10 @@ function App() {
       });
     }
   }, [discussionForm]);
+
+  const clickHandler = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -72,14 +77,20 @@ function App() {
               <br />
               함께 성장하는 공간
             </p>
-            <button id="asking">질문하기</button>
+            <button id="asking" onClick={clickHandler}>
+              질문하기
+            </button>
           </div>
           <div className="main__image--wrapper">
             <img src={require('./img/agora-main.jpg')} alt="main" />
           </div>
         </section>
 
-        <DiscussionForm setDiscussionForm={setDiscussionForm} />
+        <DiscussionForm
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          setDiscussionForm={setDiscussionForm}
+        />
 
         <section className="discussion__wrapper">
           <h1>질문 모아보기</h1>

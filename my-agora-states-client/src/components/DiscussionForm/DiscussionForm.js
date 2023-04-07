@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './DiscussionForm.css';
 
-const DiscussionForm = ({ setDiscussionForm }) => {
+const DiscussionForm = ({ isOpen, setIsOpen, setDiscussionForm }) => {
   const [inputs, setInputs] = useState({
     name: '',
     email: '',
@@ -23,10 +23,11 @@ const DiscussionForm = ({ setDiscussionForm }) => {
   const submit = (e) => {
     e.preventDefault();
     setDiscussionForm(inputs);
+    setIsOpen(false);
     setInputs({ name: '', email: '', title: '', story: '', avatarUrl: '../../img/user.png' });
   };
 
-  return (
+  return isOpen ? (
     <section className="form__container show">
       <h1>질문하기</h1>
       <form method="" action="" className="form">
@@ -71,7 +72,7 @@ const DiscussionForm = ({ setDiscussionForm }) => {
         </div>
       </form>
     </section>
-  );
+  ) : undefined;
 };
 
 export default DiscussionForm;
