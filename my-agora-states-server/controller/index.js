@@ -1,5 +1,6 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
+//index.js
 
 const discussionsController = {
   findAll: (req, res) => {
