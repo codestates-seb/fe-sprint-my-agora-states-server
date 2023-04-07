@@ -13,6 +13,6 @@ router.get('/', findAll);
 
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
 // :id에 맞는 discussion을 조회하는 라우터는 GET 메소드를 사용하여 /:id 경로로 요청이 들어오면 findById 메소드를 호출하도록 설정
-router.get('/:id', findAll);
+router.get('/:id', findById);
 
 module.exports = router;
