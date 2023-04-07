@@ -5,9 +5,9 @@ const express = require('express');
 const router = express.Router();
 
 // TODO: 모든 discussions 목록을 조회하는 라우터를 작성합니다.
-
+router.get('/', findAll); //모든 목록을 조회한다
 
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
-
+router.get('/:id', findById); // :id
 
 module.exports = router;
