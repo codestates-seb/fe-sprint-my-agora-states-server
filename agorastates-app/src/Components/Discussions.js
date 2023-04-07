@@ -8,14 +8,16 @@ const Modal = ({data}) => {
   return (
     <div className = "modal">
         <div className="discussion__avatar--wrapper">
-          <img className="discussion__avatar--image"
-            src={data.avatarUrl}
-            alt={data.author}/>
+          <img className="discussion__avatar--image" src={data.avatarUrl} alt={data.author}/>
         </div>
         <div className="discussion__content">
           {/* <h2 className="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">{data.title}</a></h2> */}
           <h2 className="discussion__title">{data.title}</h2>
           <div className="discussion__information">{data.author} / {date.toLocaleString()}</div>
+          <div className="discussion__content">{data.bodyHTML}</div>
+          {data.answer !== undefined ? <div id = 'answerBox'>
+            <img src = {data.answer.avatarUrl} alt = 'answer-avatar'></img>
+          </div> : null}
         </div>
     </div>
   )
