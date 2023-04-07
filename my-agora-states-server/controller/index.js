@@ -12,6 +12,21 @@ const discussionsController = {
     res.send('TODO:')
   }
 
+  create: (req, res) => {
+    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    res.send('TODO:')
+  }
+
+  update: (req, res) => {
+    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    res.send('TODO:')
+  }
+
+  deleteByPostingId: (req, res) => {
+    // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
+    res.send('TODO:')
+  }
+
 };
 
 module.exports = {
