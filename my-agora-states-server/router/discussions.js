@@ -9,6 +9,6 @@ router.get('/', findAll);
 // 2. TODO: :id에 맞는 discussion을 조회하는 라우터
 router.get('/:id', findById);
 
-router.get('/', create);
+router.post('/', create);
 
 module.exports = router;
