@@ -1,6 +1,6 @@
 //discussions 라우터
 const { discussionsController } = require('../controller');
-const { findAll, findById, replaceById } = discussionsController;
+const { findAll, findById, replaceByAuthor } = discussionsController;
 const express = require('express');
 const router = express.Router();
 

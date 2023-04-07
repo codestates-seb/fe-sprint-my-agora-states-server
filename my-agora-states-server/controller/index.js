@@ -78,9 +78,6 @@ if(Object.keys(req.query).length === 0)은 req.query 객체에 속성이 하나�
 따라서 if(Object.keys(req.query).length === 0)를 사용하는 것이 더 안전합니다.
 
 
-
-
-친절한 지은씨
 위의 코드에서 'if(Object.keys(req.query).length === 0)' 대신 'if(req.query === undefined)' 라고 쓰면 안될까?
 if(Object.keys(req.query).length === 0)과 if(req.query === undefined)는 다르게 동작합니다.
 
