@@ -1,8 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
-const { v4: uuid } = require('uuid');
-
-let newData = [];
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -26,11 +23,35 @@ const discussionsController = {
 
   // POST
   create: (req, res) => {
-    const id = uuid();
+    const id = parseInt(discussionsData.length);
     const { author, title } = req.body;
-    newData.unshift({ id, author, title });
+    discussionsData.unshift({ id, author, title });
     res.location(`/discussions/:${id}`);
-    return res.status(201).json(newData[0]);
+    return res.status(201).json(discussionsData[0]);
+  },
+
+  // PUT
+  update: (req, res) => {
+    const { id } = req.params;
+    const bodyData = req.body;
+
+    // el.id와 id가 같은 인덱스를 반환해준다.
+    const beUpdatedIdx = discussionsData.findIndex((el) => el.id === parseInt(id));
+
+    //최종적으로 업데이트된 discussionsData
+    const updatedDiscussionsData = { ...discussionsData[beUpdatedIdx], ...bodyData }; 
+    // beUpdatedIdx를 updatedDiscussionsData로 수정
+    discussionsData.splice(beUpdatedIdx, 1, updatedDiscussionsData);
+    
+    return res.status(200).json(updatedDiscussionsData);
+  },
+
+  // DELETE
+  delete: (req, res) => {
+    const { id } = req.params;
+    if(!validate(id)) return res.status(400).json('Bad request');
+    discussionsData = discussionsData.filter((el) => el.id !== parseInt(id));
+    return res.status(204).json("No Content"); 
   },
 };
 
