@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import Discussions from "./Pages/Discussions";
 
 function App() {
+  const [discussions, setDiscussions] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/discussions", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => setDiscussions(json));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Sidebar />
+            <section className="features">
+              <Routes>
+                <Route path="/" element={<Discussions data={discussions} />} />
+              </Routes>
+            </section>
+          </main>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,5 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -17,6 +17,19 @@ const discussionsController = {
       return res.status(200).json(discussion);
     }
     return res.status(404).send("Not Found");
+  },
+
+  create: (req, res) => {
+    const id = discussionsData.length + 1;
+    const newDiscussion = { id, ...req.body };
+    discussionsData.unshift(newDiscussion);
+    return res.status(201).send(newDiscussion);
+  },
+
+  deleteById: (req, res) => {
+    const { id } = req.params;
+    discussionsData = discussionData.filter((item) => item.id !== id);
+    res.status(200).send(discussionsData);
   },
 };
 
