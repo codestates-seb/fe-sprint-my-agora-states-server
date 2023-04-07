@@ -49,7 +49,16 @@ const discussionsController = {
   },
 
   deleteByPostingId: (req, res) => {
-    res.send('TODO:')
+    const {id} = req.params;
+    const idNumber = Number(id)
+    if (id) {
+      const filteredDiscussionsById = discussionsData.filter((discussion) => discussion.id === idNumber ) // 찾음 
+      if (filteredDiscussionsById.length === 0) {
+        return res.status(404).json(`there is no posting by Id(${id}) you were searching for`)
+      }
+      discussionsData = discussionsData.filter((discussion) => discussion.id !== idNumber )
+      return res.status(200).json(filteredDiscussionsById[0])  // 업데이트 
+    } 
   }
 
 };
