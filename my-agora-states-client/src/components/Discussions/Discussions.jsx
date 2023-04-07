@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Discussion from '../Discussion/Discussion';
-import { getDiscussions, getDiscussions10 } from '../../api/DiscussionsData';
+import styles from './Discussions.module.css';
 
-const Discussions = () => {
-  const [discussions, setDiscussions] = useState([]);
-  useEffect(() => {
-    getDiscussions().then((data) => {
-      setDiscussions(data);
-    });
-
-    // getDiscussions10().then((data) => setDiscussions(data));
-  }, []);
-
-  console.log(discussions); // 빈배열..?
-
+const Discussions = ({ discussions, updateDiscussion }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ul>
-        {discussions.map((ele) => (
-          <Discussion ele={ele} />
-        ))}
+        {discussions.map((ele) =>
+          ele ? (
+            <Discussion
+              key={ele.id}
+              ele={ele}
+              updateDiscussion={updateDiscussion}
+            />
+          ) : null
+        )}
       </ul>
     </div>
   );

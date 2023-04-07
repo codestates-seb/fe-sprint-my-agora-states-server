@@ -35,7 +35,9 @@
     "express": "^4.17.1",
     "jsdom": "^19.0.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "react-icons": "^4.8.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "codestates-assignment-manager": "^1.8.0",

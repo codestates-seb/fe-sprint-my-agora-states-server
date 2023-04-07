@@ -1,5 +1,7 @@
 const { agoraStatesDiscussions } = require('../repository/discussions');
-const discussionsData = agoraStatesDiscussions;
+
+const { v4: uuidv4 } = require('uuid');
+let discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -11,13 +13,15 @@ const discussionsController = {
       const { page, limit } = req.query;
       console.log(`${page} / ${limit}`);
       const array = [];
-      const start = page === 0 ? page : page * limit + 1; // 10개 씩이면 1 * 10
-      const end = page === 0 ? start + limit : start - 1 + limit;
+      const start = +page * +limit; // 10개 씩이면 1 * 10
+      const end = start + +limit;
 
-      for (let i = start; i <= end; i++) {
+      for (let i = start; i < end; i++) {
         array.push(discussionsData[i]);
       }
-
+      console.log(`${start} - ${end}`);
+      console.log(array);
+      // console.log(array.map((item) => item.id || null));
       res.json(array);
     } else {
       // TODO: 모든 discussions 목록을 응답합니다.
@@ -35,6 +39,42 @@ const discussionsController = {
     } else {
       res.status(200).send(filtered[0]);
     }
+  },
+
+  createDiscussion: (req, res) => {
+    const { author, title, bodyHtml } = req.body;
+    const id = uuidv4();
+    const avatarUrl = `https://randomuser.me/api/portraits/men/${parseInt(
+      Math.random() * 100
+    )}.jpg`;
+
+    const newDiscussion = {
+      id,
+      createdAt: new Date().toLocaleString(),
+      title,
+      url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+      author,
+      answer: null,
+      bodyHtml,
+      avatarUrl,
+    };
+
+    discussionsData.unshift(newDiscussion);
+    res.status(201).send('Sucessfully added discussion...!');
+  },
+
+  deleteDiscussion: (req, res) => {
+    const { id } = req.params;
+
+    discussionsData = discussionsData.filter((item) => {
+      // item.id !== Number(id)
+
+      if (Number.isNaN(Number(id))) {
+        return item.id !== id;
+      }
+      return item.id !== Number(id);
+    });
+    res.status(204).json(discussionsData);
   },
 };
 

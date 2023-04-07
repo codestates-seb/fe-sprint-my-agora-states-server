@@ -1,5 +1,6 @@
 .wrapper {
   padding: 10px;
+  flex: 3;
 }
 
 .title {
