@@ -20,10 +20,15 @@ function App() {
     setDiscussions((prev) => prev.filter((d) => d.id !== id));
   };
 
+  const update = async (id, data) => {
+    await apis.updateDiscussion(id, data);
+    setDiscussions((prev) => prev.map((d) => (d.id === id ? { ...d, ...data } : d)));
+  };
+
   return (
     <Layout>
       <Hero setDiscussions={setDiscussions} />
-      <Discussions discussions={discussions} onDelete={del} />
+      <Discussions discussions={discussions} onDelete={del} onUpdate={update} />
     </Layout>
   );
 }
