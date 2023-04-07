@@ -82,9 +82,6 @@ const render = (element) => {
 let limit = 10,
   page = 1;
 
-// ul 요소에 data 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul, 0, limit);
 
 const getPageStartEnd = (limit, page) => {
   const len = data.length - 1;
