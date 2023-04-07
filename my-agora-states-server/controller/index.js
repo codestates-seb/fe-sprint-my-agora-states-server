@@ -20,7 +20,7 @@ const discussionsController = {
     if (isExistDiscussion) {
       res.status(409).send('이미 등록된 discussion입니다.');
     } else {
-      discussionsData.push(req.body);
+      discussionsData.unshift(req.body);
       res.status(201).send('discussion이 등록되었습니다.');
     }
   },
