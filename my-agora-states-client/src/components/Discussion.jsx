@@ -14,6 +14,7 @@ function Discussion({ discussion, onDelete }) {
             {answer ? '✅ 답변 완료' : '🆘 진행중'}
           </span> */}
           <div className='edit-section'>
+            <span>✍️</span>
             <span onClick={() => onDelete(id)}>🗑️</span>
           </div>
         </div>

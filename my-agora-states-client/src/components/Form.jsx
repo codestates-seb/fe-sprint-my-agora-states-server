@@ -2,9 +2,9 @@ import React from 'react';
 import useInput from '../hooks/useInput';
 
 function Form({ onCreate }) {
-  const [name, nameInputHandler] = useInput();
-  const [title, titleInputHandler] = useInput();
-  const [question, questionInputHandler] = useInput();
+  const [name, nameInputHandler, setName] = useInput();
+  const [title, titleInputHandler, setTitle] = useInput();
+  const [question, questionInputHandler, setQuestion] = useInput();
 
   const createDiscussion = (e) => {
     e.preventDefault();
@@ -20,6 +20,10 @@ function Form({ onCreate }) {
       url: null,
     };
 
+    setName('');
+    setTitle('');
+    setQuestion('');
+
     onCreate(newDiscussion);
   };
 
@@ -28,14 +32,16 @@ function Form({ onCreate }) {
       <div className='form__input--wrapper'>
         <input
           id='name'
+          value={name}
           onChange={nameInputHandler}
           placeholder='Name'
           autoComplete='off'
           required
         />
-        <input id='title' onChange={titleInputHandler} placeholder='Title' required />
+        <input id='title' value={title} onChange={titleInputHandler} placeholder='Title' required />
         <textarea
           id='story'
+          value={question}
           onChange={questionInputHandler}
           placeholder='Type your question here'
           required

@@ -8,6 +8,7 @@ function Hero({ setDiscussions }) {
   const create = async (data) => {
     await apis.createDiscussion(data);
     setDiscussions((prev) => [data, ...prev]);
+    setIsVisible(false);
   };
 
   return (
