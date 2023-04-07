@@ -48,6 +48,7 @@ function App() {
                   title={li.title}
                   answerUrl={li.answer}
                   id={li.id}
+                  setAgora={setAgora}
                 />
               ))
             ) : (

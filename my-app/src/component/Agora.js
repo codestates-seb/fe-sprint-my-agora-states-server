@@ -1,5 +1,31 @@
-const Agora = ({ title, url, id, avatarUrl, answerUrl, author, createdAt }) => {
+import getServer from "../api/getServer";
+
+const Agora = ({
+  title,
+  url,
+  id,
+  avatarUrl,
+  answerUrl,
+  author,
+  createdAt,
+  setAgora,
+}) => {
   const isAnswer = answerUrl ? true : false;
+
+  const handleDelete = () => {
+    const isDelete = window.confirm("정말로 삭제 하시겠습니까?");
+    if (!isDelete) return;
+    const data = getServer(`http://localhost:4000/discussions/${id}`, "delete");
+    data.then((data) => {
+      console.log(data);
+      setAgora((prev) => {
+        const arr = [...prev];
+        return arr.filter((item) => item.id !== data.id);
+      });
+    });
+  };
+
+  const handleUpdate = () => {};
   return (
     <li className="discussion__container">
       <div className="discussion__avatar--wrapper">
@@ -12,7 +38,15 @@ const Agora = ({ title, url, id, avatarUrl, answerUrl, author, createdAt }) => {
           </a>
         </h2>
         <div className="discussion__information">
-          {author} / {createdAt}
+          <span>
+            {author} / {createdAt}
+          </span>
+          <button className="trash" onClick={handleDelete}>
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button className="update" onClick={handleUpdate}>
+            <i class="fa-solid fa-pen"></i>
+          </button>
         </div>
       </div>
       <div className="discussion__answered">

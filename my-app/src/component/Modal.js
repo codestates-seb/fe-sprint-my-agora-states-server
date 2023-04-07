@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import useInput from "../hook/useInpute";
 import getServer from "../api/getServer";
 

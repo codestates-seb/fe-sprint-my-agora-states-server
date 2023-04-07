@@ -55,8 +55,32 @@
 
 .discussion__information {
   font-size: 10px;
-  opacity: 0.7;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
 }
+.discussion__information > span {
+  text-align: center;
+  margin-right: 10px;
+}
+.trash,
+.update {
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.trash {
+  color: #ff4757;
+}
+.update {
+  color: #0097e6;
+}
+
+.trash:hover,
+.update:hover {
+  scale: 1.2;
+}
+
 .discussion__answered {
   display: flex;
   justify-content: center;

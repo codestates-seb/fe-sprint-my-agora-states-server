@@ -21,5 +21,14 @@ export default function getServer(url, method, data = {}) {
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
+  } else if (method.toLowerCase() === "delete") {
+    return fetch(url, {
+      method,
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   }
 }
