@@ -1,0 +1,33 @@
+@import 'globals.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-backgorund);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
