@@ -43,6 +43,7 @@ function App() {
                   url={li.url}
                   title={li.title}
                   answerUrl={li.answer}
+                  id={li.id}
                 />
               ))}
             </ul>
