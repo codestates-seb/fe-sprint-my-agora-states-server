@@ -14,7 +14,7 @@ const discussionsController = {
     if (!data) return res.status(404).send("Not found");
     return res.status(200).json(data);
   },
-  createOne: (req, res) => {
+  create: (req, res) => {
     const { title, author, bodyHTML } = req.body;
 
     if (handleRequestBody(req, res) !== true) return;
@@ -34,7 +34,22 @@ const discussionsController = {
     discussionsData.unshift(newDiscussion);
     return res.status(201).send("resource created successfully: ID" + id);
   },
+  updateById: (req, res) => {
+    if (handleRequestBody(req, res) !== true) return;
+    const idx = discussionsData.findIndex((el) => el.id === Number(req.params.id));
+    const updated = {
+      ...discussionsData[idx],
+      ...req.body,
+      updateAt: new Date().toISOString(),
+    };
 
+    if (idx !== -1) {
+      discussionsData.splice(idx, 1, updated);
+      return res.status(200).send("resource updated successfully");
+    } else {
+      return res.status(404).send("Not found");
+    }
+  },
 
 };
 
