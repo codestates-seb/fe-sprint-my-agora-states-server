@@ -18,7 +18,7 @@ const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // ? TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
-app.use('/', discussionsRouter)
+app.use('/discussions', discussionsRouter)
 
 // 확인용 logger
 const myLogger = function (req, res, next){
