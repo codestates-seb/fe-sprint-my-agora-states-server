@@ -41,6 +41,8 @@ const discussionsController = {
         (e) => e.author === author
       )[0].avatarUrl;
     }
+
+    discussionsData.unshift(newData);
     res.status(200).send(newData);
   },
 };
