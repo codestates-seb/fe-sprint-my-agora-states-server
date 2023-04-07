@@ -1,19 +1,36 @@
 import { useEffect, useState } from 'react';
 
 import './App.css';
-import DiscussionItem from './components/DiscussionItem/DiscussionItem';
 import NoItem from './components/NoItem/NoItem';
+import DiscussionItem from './components/DiscussionItem/DiscussionItem';
+import DiscussionForm from './components/DiscussionForm/DiscussionForm';
 
 function App() {
   const [datas, setDatas] = useState([]);
+  const [discussionForm, setDiscussionForm] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:4000/discussions', {
       method: 'GET',
     })
       .then((res) => res.json())
-      .then((data) => setDatas(data));
-  }, []);
+      .then((data) => {
+        setDatas(data);
+        setSubmitted(false);
+      });
+  }, [submitted]);
+
+  useEffect(() => {
+    if (Object.keys(discussionForm).length !== 0) {
+      fetch('http://localhost:4000/discussions', {
+        method: 'POST',
+        body: discussionForm,
+      }).then((_) => {
+        setSubmitted(true);
+      });
+    }
+  }, [discussionForm]);
 
   return (
     <>
@@ -61,22 +78,7 @@ function App() {
           </div>
         </section>
 
-        <section className="form__container show">
-          <h1>질문하기</h1>
-          <form method="get" action="" className="form">
-            <div className="form__input--wrapper">
-              <div className="form__personal-input--wrapper">
-                <input id="name" type="text" placeholder="이름을 입력해 주세요." />
-                <input id="email" type="text" placeholder="이메일을 입력해 주세요." />
-              </div>
-              <input id="title" type="text" placeholder="질문 제목을 입력해 주세요." />
-              <textarea id="story" type="text" placeholder="질문 내용을 입력해 주세요."></textarea>
-            </div>
-            <div className="form__submit">
-              <input id="submit-button" type="submit" value="질문 등록하기" />
-            </div>
-          </form>
-        </section>
+        <DiscussionForm setDiscussionForm={setDiscussionForm} />
 
         <section className="discussion__wrapper">
           <h1>질문 모아보기</h1>
