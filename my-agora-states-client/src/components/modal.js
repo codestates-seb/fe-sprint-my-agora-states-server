@@ -1,4 +1,4 @@
-const Modal = function ({ handler, discussionHandler, entryHandler}) {
+const Modal = function ({ handler, discussionHandler}) {
   const offModal = function () {
     handler(false)
   }
@@ -21,7 +21,6 @@ const Modal = function ({ handler, discussionHandler, entryHandler}) {
     question_obj.answer = 'no answer'
     discussionHandler(question_obj)
     handler(false)
-    entryHandler(true)
   }
 
   return (

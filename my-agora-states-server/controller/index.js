@@ -11,13 +11,11 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     let filteredData = discussionsData.find(item => item.id === Number(req.params.id))
-    console.log(filteredData)
     if(filteredData){
       return res.status(200).json(filteredData)
     } else {
       return res.status(404).json('Data Not Found')
     }
-    
   }
 
 };

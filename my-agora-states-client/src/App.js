@@ -23,7 +23,6 @@ const Header = function () {
 function App() {
   const [isModalOn, setModal] = useState(false)
   const [discussionData, setData] = useState([])
-  const [isEntried, serIsEntrieds] = useState(false)
 
   const modalHandler = function (modalState) {
     setModal(modalState)
@@ -40,14 +39,11 @@ function App() {
     setData([newDiscussion, ...discussionData])
   }
 
-  const discussionsController = function(bool){
-    serIsEntrieds(bool)
-  }
   return (
     <main>
       <Header />
       <AddDiscussion handler={modalHandler} />
-      {(isModalOn) ? <Modal handler={modalHandler} discussionHandler={addDiscussion} entryHandler={discussionsController}/> : null}
+      {(isModalOn) ? <Modal handler={modalHandler} discussionHandler={addDiscussion}/> : null}
       <Discussions discussion={discussionData}/>
     </main>
   )
