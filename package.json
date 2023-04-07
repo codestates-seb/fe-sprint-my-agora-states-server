@@ -34,7 +34,9 @@
     "dompurify": "^2.3.8",
     "express": "^4.17.1",
     "jsdom": "^19.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "start": "^5.1.0",
+    "test": "^3.3.0"
   },
   "devDependencies": {
     "codestates-assignment-manager": "^1.8.0",
