@@ -1,6 +1,6 @@
 const { v4: uuid } = require('uuid');
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+const discussionsData = agoraStatesDiscussions.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
 const discussionsController = {
   findAll: (req, res) => {
@@ -32,7 +32,7 @@ const discussionsController = {
       avatarUrl
     };
 
-    discussionsData.push(newData);
+    discussionsData.unshift(newData);
     return res.status(201).json(discussionsData);
   }
 };
