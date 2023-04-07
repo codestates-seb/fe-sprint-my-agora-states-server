@@ -1,0 +1,70 @@
+.form__container {
+    width: 50%;
+    height: 80vh;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 1px rgba(0, 79, 124, 0.712);
+    text-align: center;
+}
+
+h1 {
+    width: 100%;
+    height: 15%;
+    margin-top: 10px;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    text-shadow: 7px 7px rgba(0, 71, 104, 0.486); 
+    font-size: xxx-large;
+}
+
+.form {
+    width: 80%;
+    height: 80%;
+}
+
+#name {
+    width: 30%;
+    height: 30px;
+}
+
+#title {
+    width: 80%;
+    height: 40px;
+}
+
+#story {
+    width: 100%;
+    height: 150px;
+}
+
+input, textarea {
+    border-radius: 5px;
+    opacity: 0.5;
+    font-size: x-large;
+}
+
+.form__submit>input {
+    width: 150px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 3px 3px 0 1px black;
+}
+
+.form__submit>input:active {
+    box-shadow: 0px 0px 0px 0 black;
+    margin: 3px;
+}
+
+.form__submit>input:hover {
+    background-color: rgb(145, 213, 253);
+}
+
+
+h3 {
+    margin-bottom: 0;
+}
