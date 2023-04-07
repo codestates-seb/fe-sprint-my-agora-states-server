@@ -20,6 +20,48 @@ const discussionsController = {
             res.status(404).json("검색 결과가 없습니다.");
         }
     },
+
+    createDiscussion: (req, res) => {
+        const { title, author, avatarUrl } = req.body;
+        console.log(req.body, req.url);
+        const id = parseInt(Math.random() * 10000);
+        const url =
+            "https://github.com/codestates-seb/agora-states-fe/discussions/" +
+            id;
+        const newDiscussion = {
+            id,
+            createdAt: new Date().toISOString(),
+            title,
+            url,
+            author,
+            answer: null,
+            avatarUrl,
+        };
+        discussionsData.unshift(newDiscussion);
+        return res.status(201).json(newDiscussion);
+    },
+
+    updateById: (req, res) => {
+        const { id } = req.params;
+        const bodyData = req.body;
+        const filtered = discussionsData.filter((item) => {
+            return item.id === Number(id);
+        });
+        let result = Object.assign(filtered[0], bodyData);
+        return res.status(200).json(result);
+    },
+
+    deleteById: (req, res) => {
+        const idx = discussionsData.findIndex(
+            (item) => item.id === Number(req.params.id)
+        );
+        if (idx !== -1) {
+            discussionsData.splice(idx, 1);
+            return res.status(202).send("Resource deleted successfully");
+        } else {
+            return res.status(404).send("Not found");
+        }
+    },
 };
 
 module.exports = {
