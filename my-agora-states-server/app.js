@@ -21,11 +21,10 @@ const discussionsRouter = require('./router/discussions');
 app.use('/discussions', discussionsRouter)
 
 // 특정 폴더 안의 파일들을 static 파일로 보낸다.
-app.use(express.static('/Users/User/Desktop/project/codestates/fe-sprint-my-agora-states/'))
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
-  res.status(200).sendFile('/Users/User/Desktop/project/codestates/fe-sprint-my-agora-states/index.html');
+  res.status(200).send('fe-sprint-my-agora-states');
 });
 
 const server = app.listen(port, () => {
