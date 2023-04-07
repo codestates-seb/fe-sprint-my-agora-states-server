@@ -44,12 +44,16 @@ const discussionsController = {
     const { id } = req.params;
     const bodyData = req.body;
 
-    const beUpdatedIdx = discussionsData.findIndex((data) => data.id === Number(id));
-    const updatedPost = { ...discussionsData[beUpdatedIdx], ...bodyData };
+    if (!discussionsData.some((data) => data.id !== Number(id))) {
+      res.status(404).send('id에 해당하는 포스트가 존재하지 않습니다.');
+    } else {
+      const beUpdatedIdx = discussionsData.findIndex((data) => data.id === Number(id));
+      const updatedPost = { ...discussionsData[beUpdatedIdx], ...bodyData };
 
-    discussionsData.splice(beUpdatedIdx, 1, updatedPost);
+      discussionsData.splice(beUpdatedIdx, 1, updatedPost);
 
-    res.status(200).send(updatedPost);
+      res.status(200).send(updatedPost);
+    }
   },
 
   deleteById: (req, res) => {
