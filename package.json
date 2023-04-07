@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node my-agora-states-server/app.js",
+    "client": "cd my-agora-states-in-react && npm run start",
+    "server": "nodemon my-agora-states-server/app.js",
+    "dev" : "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\"",
     "test": "jest"
   },
   "repository": {
@@ -30,11 +32,13 @@
     ]
   },
   "dependencies": {
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "dompurify": "^2.3.8",
     "express": "^4.17.1",
     "jsdom": "^19.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
   },
   "devDependencies": {
     "codestates-assignment-manager": "^1.8.0",
