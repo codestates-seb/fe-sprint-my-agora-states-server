@@ -1,5 +1,4 @@
 const { agoraStatesDiscussions } = require('../repository/discussions');
-const { v4: uuid } = require('uuid');
 const discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
