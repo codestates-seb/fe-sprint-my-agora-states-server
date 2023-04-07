@@ -39,6 +39,18 @@ const discussionsController = {
 
     res.status(201).send(newPost);
   },
+
+  update: (req, res) => {
+    const { id } = req.params;
+    const bodyData = req.body;
+
+    const beUpdatedIdx = discussionsData.findIndex((data) => data.id === Number(id));
+    const updatedPost = { ...discussionsData[beUpdatedIdx], ...bodyData };
+
+    discussionsData.splice(beUpdatedIdx, 1, updatedPost);
+
+    res.status(200).send(updatedPost);
+  },
 };
 
 module.exports = {
