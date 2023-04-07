@@ -22,14 +22,14 @@ Section2에서 배운 내용을 바탕으로 나만의 아고라 스테이츠 �
     - [✔ ] `discussionsController.findById`
 
 **my-agora-states-server 과제 제출 (Pull request)**
-- [ ] Pull request로 과제 제출
+- [ ✔] Pull request로 과제 제출
 
 **my-agora-states-server 시작**
-- [ ] `package.json` 을 참고하여 나만의 아고라 스테이츠 서버를 로컬 환경에서 실행합니다.
+- [✔ ] `package.json` 을 참고하여 나만의 아고라 스테이츠 서버를 로컬 환경에서 실행합니다.
 
 **my-agora-states와 연동하기**
-- [ ] my-agora-states-server가 켜져있는지 확인합니다.
-- [ ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
+- [✔ ] my-agora-states-server가 켜져있는지 확인합니다.
+- [ ✔] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
 
 ## Optional Checklist
 
@@ -40,3 +40,7 @@ Section2에서 배운 내용을 바탕으로 나만의 아고라 스테이츠 �
     - [ ] 기존에 만든 나만의 아고라 스테이츠를 React로 옮기기
         - [ ] 디스커션 나열 기능
     - [ ] 로컬 환경에서 실행한 나만의 아고라 스테이츠 서버에서 discussions 데이터를 조회합니다.
+2. 서버에 기능 추가
+- [ ✔] post 요청으로 디스커션 생성 기능 추가
+- [ ✔] delete 요청으로 디스커션 제거 기능 추가
+-  
