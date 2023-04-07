@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-
 const cors = require('cors');
 const morgan = require('morgan');
 
@@ -16,12 +15,24 @@ const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // app.use()를 활용하여 /discussions 경로로 라우팅  
-app.use('/discussions', discussions);   
+app.use('/discussions', discussionsRouter);   
 
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   res.status(200).send('fe-sprint-my-agora-states-server');
+});
+
+app.use((req, res, next) => {
+  res.status(404).send('Not Found!');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({
+    message: 'Internal Server Error',
+    stacktrace: err.toString()
+  });
 });
 
 const server = app.listen(port, () => {
