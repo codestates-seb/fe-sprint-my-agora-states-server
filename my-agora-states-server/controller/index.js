@@ -44,7 +44,7 @@ const discussionsController = {
       discussionsData.splice(index, 1);
       return res.status(200).send("deleted");
     }else{
-      return res.status(404).send('The course with the given ID was not found');
+      return res.status(404).send('The given ID was not found');
     }
   }
 
