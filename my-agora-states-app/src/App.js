@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,7 +19,7 @@ function App() {
       <div>
         <div className="App">
           <Navbar />
-          <main>
+          <main className="main">
             <Sidebar />
             <section className="features">
               <Routes>
