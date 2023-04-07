@@ -28,11 +28,17 @@ const discussionsController = {
   },
 
   create: (req, res) => {
-    
+    const discussionInfo = {...req.body, "id" : discussionsData.length + 1}
+    discussionsData.unshift(discussionInfo)
+    return res.status(201).json(discussionInfo)
   },
 
   update: (req, res) => {
-    
+  
+  },
+
+  deleteByPostingId: (req, res) => {
+    res.send('TODO:')
   }
 
 };
