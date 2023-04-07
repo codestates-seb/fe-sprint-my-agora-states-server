@@ -1,6 +1,6 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
 const discussionsData = agoraStatesDiscussions;
-
+const { v4:uuid } = require('uuid');
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
@@ -28,6 +28,36 @@ const discussionsController = {
       return res.status(404).send(null);
     }
     
+  },
+
+  //추가
+  create: (req, res)=>{
+    
+    const uuid = uuid();
+    const { id, title, author } = req.body;
+    let filteredData = discussionsData;
+    if(filteredData.find((data) => data.id === id)){
+      return res.status(409).json("It's 중복");
+    }else{
+      filteredData.unshift({uuid, title, author});
+      res.location(`/discussions/${uuid}`);
+      return res.status(201).json(filteredData[0]);
+    }
+
+    
+  },
+
+  update: (req, res)=>{
+1
+  },
+
+  // 삭제
+  deleteById: (req, res)=>{
+    const { id } = req.params;
+    let filteredData = discussionsData;
+    filteredData = filteredData.filter(data => data.id !== id);
+
+    return res.status(204).json("No content!");
   }
 
 };
