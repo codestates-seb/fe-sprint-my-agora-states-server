@@ -40,7 +40,7 @@ const discussionsController = {
     res.status(201).send(newPost);
   },
 
-  update: (req, res) => {
+  updateById: (req, res) => {
     const { id } = req.params;
     const bodyData = req.body;
 
