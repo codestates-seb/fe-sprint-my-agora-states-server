@@ -1,3 +1,5 @@
+const { v4: uuid } = require('uuid');
+
 const { agoraStatesDiscussions } = require('../repository/discussions');
 const discussionsData = agoraStatesDiscussions;
 
@@ -15,6 +17,27 @@ const discussionsController = {
     } else {
       res.status(200).send(filteredData);
     }
+  },
+
+  create: (req, res) => {
+    const id = uuid();
+    const { title, author, bodyHTML, avatarUrl } = req.body;
+
+    const newPost = {
+      id,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      title,
+      url: `http://localhost:3000/discussions/${id}`,
+      author,
+      answer: null,
+      bodyHTML,
+      avatarUrl,
+    };
+
+    // FIXME: 실제 배열에 push하는 작업
+
+    res.status(201).send(newPost);
   },
 };
 
