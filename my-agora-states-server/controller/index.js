@@ -24,6 +24,47 @@ const discussionsController = {
     }else{
       return res.status(404).send(null);
     }
+  },
+
+   //추가
+   create: (req, res)=>{
+    const id = discussionsData.length+1;
+    const bodyData = req.body;
+    console.log('bodyData:',bodyData);
+    let newDiscussion = { id , ...bodyData };
+    discussionsData.unshift(newDiscussion)
+    return res.status(201).json(newDiscussion);
+  },
+
+  //수정
+  update: (req, res)=>{
+    const { id } = req.params;
+    const bodyData = req.body;
+
+     // TODO:
+    //  console.log("req.params", req.params);
+    //  console.log("req.body", req.body);
+
+    // const updatedId = discussionsData.findIndex()
+    let filteredData = discussionsData;
+    filteredData = filteredData.filter(data => data.id === id);
+     
+    if(bodyData){
+      for(let key in bodyData){
+        filteredData[0][key] = bodyData[key];
+       }
+    }
+    return res.status(200).json(filteredData[0]);
+  },
+
+  // 삭제
+  deleteById: (req, res)=>{
+    const { id } = req.params;
+
+    let filteredData = discussionsData;
+    filteredData = filteredData.filter(data => data.id !== id);
+
+    return res.status(204).json("No content!");
   }
 
 };
