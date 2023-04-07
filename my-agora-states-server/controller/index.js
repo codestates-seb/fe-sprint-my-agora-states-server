@@ -51,6 +51,18 @@ const discussionsController = {
 
     res.status(200).send(updatedPost);
   },
+
+  deleteById: (req, res) => {
+    const { id } = req.params;
+
+    if (!discussionsData.some((data) => data.id !== Number(id))) {
+      res.status(404).send('id에 해당하는 포스트가 존재하지 않습니다.');
+    } else {
+      // FIXME: 실제 배열에서 삭제하는 작업
+
+      res.status(200).send(`포스트(id: ${id})가 삭제되었습니다.`);
+    }
+  },
 };
 
 module.exports = {
