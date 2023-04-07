@@ -34,7 +34,18 @@ const discussionsController = {
   },
 
   update: (req, res) => {
-  
+    const {id} = req.params;
+    const idNumber = Number(id)
+    const bodyData = req.body; // 업데이트 희망하는 데이터
+
+    if (id) {
+      const filteredDiscussionsById = discussionsData.filter((discussion) => discussion.id === idNumber ) // 찾음 
+      if (filteredDiscussionsById.length === 0) {
+        return res.status(404).json(`there is no posting by Id(${id}) you were searching for`)
+      }
+      filteredDiscussionsById[0] = {...filteredDiscussionsById[0], ...bodyData}
+      return res.status(200).json(filteredDiscussionsById[0])  // 업데이트 
+    } 
   },
 
   deleteByPostingId: (req, res) => {
