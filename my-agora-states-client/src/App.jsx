@@ -6,7 +6,6 @@ import { apis } from './api';
 
 function App() {
   const [discussions, setDiscussions] = useState([]);
-  console.log(discussions);
 
   useEffect(() => {
     const getDiscussions = async () => {
@@ -16,10 +15,15 @@ function App() {
     getDiscussions();
   }, []);
 
+  const del = async (id) => {
+    await apis.deleteDiscussion(id);
+    setDiscussions((prev) => prev.filter((d) => d.id !== id));
+  };
+
   return (
     <Layout>
       <Hero setDiscussions={setDiscussions} />
-      <Discussions discussions={discussions} />
+      <Discussions discussions={discussions} onDelete={del} />
     </Layout>
   );
 }

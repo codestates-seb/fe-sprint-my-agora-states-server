@@ -1,8 +1,8 @@
 import React from 'react';
 import { dateConverter } from '../functions';
 
-function Discussion({ discussion }) {
-  const { id, author, title, url, avatarUrl, createdAt, answer, bodyHTML } = discussion;
+function Discussion({ discussion, onDelete }) {
+  const { id, author, title, url, avatarUrl, createdAt, bodyHTML } = discussion;
   return (
     <li className='discussion__container'>
       <div className='discussion__content'>
@@ -10,9 +10,12 @@ function Discussion({ discussion }) {
           <h2>
             <a href={url}>{title}</a>
           </h2>
-          <span className={`discussion__answered ${answer ? 'done' : ''}`}>
+          {/* <span className={`discussion__answered ${answer ? 'done' : ''}`}>
             {answer ? '✅ 답변 완료' : '🆘 진행중'}
-          </span>
+          </span> */}
+          <div className='edit-section'>
+            <span onClick={() => onDelete(id)}>🗑️</span>
+          </div>
         </div>
         <div className='discussion__avatar--wrapper'>
           <img className='discussion__avatar--image' src={avatarUrl} alt={`avatar of ${author}`} />

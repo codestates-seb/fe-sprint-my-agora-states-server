@@ -242,3 +242,10 @@ button:focus {
   background-color: #b39eff;
   color: white;
 }
+
+.edit-section {
+  display: flex;
+  gap: 15px;
+  color: gray;
+  font-size: 18px;
+}

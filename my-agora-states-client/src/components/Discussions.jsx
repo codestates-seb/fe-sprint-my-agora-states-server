@@ -1,10 +1,10 @@
 import Discussion from './Discussion';
 
-function Discussions({ discussions }) {
+function Discussions({ discussions, onDelete }) {
   return (
     <ul>
       {discussions.map((discussion) => (
-        <Discussion key={discussion.id} discussion={discussion} />
+        <Discussion key={discussion.id} discussion={discussion} onDelete={onDelete} />
       ))}
     </ul>
   );
