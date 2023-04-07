@@ -20,6 +20,11 @@ const discussionsController = {
       res.status(200).json(...data) 
     } // get으로 받아온 요청은 json이기 때문에, data가 무조건 문자열이다.
   } // 가장 바깥에 있는 괄호를 제거해준다.
+
+  // 
+  // create: (req, res) => {
+  //   const 
+  // }
 };
 module.exports = {
   discussionsController,
