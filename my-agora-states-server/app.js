@@ -10,13 +10,11 @@ app.use(morgan('tiny'));
 // cors를 적용, Express 내장 미들웨어인 express.json()을 적용 
 app.use(cors());
 app.use(express.json());
-
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 
 // app.use()를 활용하여 /discussions 경로로 라우팅  
 app.use('/discussions', discussionsRouter);   
-
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
