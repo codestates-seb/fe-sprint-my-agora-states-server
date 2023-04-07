@@ -217,10 +217,18 @@ ul {
   justify-content: space-between;
 }
 
-.pagination-container button.active{
+.pagination-container button.active {
   background-color: #eee;
 }
 
 .discussion__container.hidden {
   display: none;
+}
+
+.delete-btn {
+  border: none;
+  outline: none;
+  background: #c92275;
+  border-radius: 50px;
+  color: white;
 }
