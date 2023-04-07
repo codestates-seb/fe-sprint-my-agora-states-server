@@ -14,6 +14,26 @@ const discussionsController = {
     if (!data) return res.status(404).send("Not found");
     return res.status(200).json(data);
   },
+  createOne: (req, res) => {
+    const { title, author, bodyHTML } = req.body;
+
+    if (handleRequestBody(req, res) !== true) return;
+    const id = Math.floor(Math.random() * 10000);
+    const avartarId = Math.floor(Math.random() * 100);
+    const url = "https://github.com/codestates-seb/agora-states-fe/discussions/" + id;
+    const newDiscussion = {
+      id,
+      createdAt: new Date().toISOString(),
+      title,
+      url,
+      author,
+      answer: null,
+      bodyHTML,
+      avatarUrl: `https://randomuser.me/api/portraits/men/${avartarId}.jpg`,
+    };
+    discussionsData.unshift(newDiscussion);
+    return res.status(201).send("resource created successfully: ID" + id);
+  },
 
 
 };
