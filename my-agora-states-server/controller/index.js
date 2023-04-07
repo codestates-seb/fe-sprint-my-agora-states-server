@@ -15,7 +15,20 @@ const discussionsController = {
       return res.status(404).send("Not found");
     }
 
+  },
+
+  //[POST] /post 요청 수행
+  create: (req, res) => {
+    let { id, createdAt, updatedAt, title, author, answer, bodyHtml, avatarUrl } = req.body
+    id = discussionsData.length + 4 + 1
+    discussionsData.unshift({ id, createdAt, updatedAt, title, author, answer, bodyHtml, avatarUrl })
+    return res.status(201).json(discussionsData)
+  },
+  deleteById: (req, res) => {
+
   }
+
+
 
 }
 
