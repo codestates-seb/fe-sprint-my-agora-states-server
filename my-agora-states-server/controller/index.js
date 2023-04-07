@@ -4,7 +4,16 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     const { question } = req.query;
-    console.log(question);
+    console.log(req.query.question);
+    if (question) {
+      const filter = discussionsData.filter(
+        (item) =>
+          item.title.includes(question) || item.author.includes(question)
+      );
+      if (filter.length === 0) return res.status(200).json(discussionsData);
+      if (filter) return res.status(200).json(filter);
+    }
+
     return res.status(200).json(discussionsData);
   },
 

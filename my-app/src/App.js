@@ -5,20 +5,22 @@ import Search from "./component/Search";
 import Agora from "./component/Agora";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [agora, setAgora] = useState([]);
   const [search, setSearch] = useState("");
 
   const handleSeaarch = (e) => {
     e.preventDefault();
-    console.log("click");
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    const json = getServer("http://localhost:4000/discussions");
+    const json = getServer(
+      `http://localhost:4000/discussions?question=${search}`
+    );
     json.then((data) => {
       setAgora(data);
-      setIsLoading(false);
+      setIsLoading(true);
     });
   }, [isLoading]);
 
@@ -32,7 +34,7 @@ function App() {
       />
       <main>
         <article class="discussion__wrapper">
-          {agora && (
+          {isLoading && (
             <ul class="discussions__container">
               {agora.map((li, index) => (
                 <Agora
