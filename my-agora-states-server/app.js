@@ -5,12 +5,10 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 
-
-
 // const jsonParser = express.json({strict: false}); // 원래 객체로만 받는 데 false로하면 배열 같은 걸로 받을 수 있게 됨
 // morgan 미들웨어가 세팅되어 있습니다.
 // HTTP 요청 logger를 편리하게 사용할 수 있는 미들웨어 입니다.
-app.use(morgan('tiny'));
+app.use(morgan('tiny')); // 로그(log)를 관리하기 위한 별도의 서드파티 라이브러리 -> tiny (로그의 포맷)
 
 // TODO: cors를 적용합니다.
 app.use(cors(
@@ -24,7 +22,7 @@ app.use(express.json());
 const port = 4000;
 const discussionsRouter = require('./router/discussions');
 // const discussions = require('./repository/discussions');
-
+// Bare Minimum Requirement
 
 // TODO: app.use()를 활용하여 /discussions 경로로 라우팅합니다. 
 app.use('/discussions', discussionsRouter);
@@ -45,3 +43,6 @@ const server = app.listen(port, () => {
 
 module.exports.app = app;
 module.exports.server = server;
+
+
+// 앞으로 해야할 fetch 부분에 힌트를 얻어서 감사했습닏다. -> async await
