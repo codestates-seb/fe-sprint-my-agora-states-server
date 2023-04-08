@@ -1,0 +1,10 @@
+.wrapper {
+  flex: 0.1;
+  text-align: center;
+}
+
+.avartar {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+}

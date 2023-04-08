@@ -1,0 +1,31 @@
+.discussion {
+  display: flex;
+  width: 100%;
+  padding: 30px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.answer {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  background-color: aqua;
+  border-radius: 10px;
+  width: 80px;
+  padding: 5px;
+  text-align: center;
+  /* font-size: 16px; */
+}
+
+.delete {
+  flex: 0.5;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+}
+
+.delete:hover {
+  transform: scale(1.2);
+}
