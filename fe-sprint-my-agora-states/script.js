@@ -15,6 +15,20 @@ const render = (element, data) => {
   }
   return;
 };
+
+// [GET] 요청으로 받아와서 서버의 데이터를 렌더링하기
+
+fetch(`http://localhost:4000/discussions`)
+  .then((res) => res.json())
+  .then((data) => {
+    // localStorage.setItem("discussions", JSON.stringify(data)); // 로컬에 데이터 담기
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul, data);
+    setupDeleteButtonListeners();
+    pagination();
+  })
+  .catch((error) => console.error(error));
+
 // 디스커션 추가 기능
 
 // let elInputUsername = document.querySelector('#name');
@@ -80,6 +94,8 @@ form.addEventListener("submit", function (e) {
       ul.prepend(convertToDiscussion(data));
       // render(ul, data);
       alert("질문이 등록되었습니다");
+      setupDeleteButtonListeners();
+      pagination();
       location.reload();
     })
     .catch((error) => console.error(error));
@@ -158,6 +174,8 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered, deleteBtn);
   return li;
 };
+
+
 
 // 새로운 배열요소부터 다르게 적용할 dom 요소 함수.
 
@@ -240,7 +258,9 @@ function setupDeleteButtonListeners() {
         .then((res) => {
           if (res.ok) {
             console.log("Data deleted successfully!");
-            location.reload();
+            const ul = document.querySelector("ul.discussions__container");
+            const firstChild = ul.firstChild;
+            ul.removeChild(firstChild);
           } else {
             console.error("Failed to delete data.");
           }
@@ -250,20 +270,11 @@ function setupDeleteButtonListeners() {
   });
 }
 
-window.addEventListener("load", function () {
-  setupDeleteButtonListeners();
-});
+// window.addEventListener("load", function () {
+//   setupDeleteButtonListeners();
+// });
 
-// [GET] 요청으로 받아와서 서버의 데이터를 렌더링하기
 
-fetch(`http://localhost:4000/discussions`)
-  .then((res) => res.json())
-  .then((data) => {
-    // localStorage.setItem("discussions", JSON.stringify(data)); // 로컬에 데이터 담기
-    const ul = document.querySelector("ul.discussions__container");
-    render(ul, data);
-  })
-  .catch((error) => console.error(error));
 
 // const discussions = JSON.parse(localStorage.getItem("discussions"));
 // const newId = discussions[0].id + 1;
@@ -279,7 +290,8 @@ fetch(`http://localhost:4000/discussions`)
 // ------------------------------------------------------------
 // 페이지네이션
 
-const paginationNumbers = document.querySelector(".pagination-numbers");
+function pagination () {
+  const paginationNumbers = document.querySelector(".pagination-numbers");
 const paginatedList = document.querySelector(".paginated-list");
 const listItems = paginatedList.querySelectorAll("li");
 const paginationLimit = 10;
@@ -344,5 +356,7 @@ const setCurrentPage = (pageNum) => {
     }
   });
 };
+}
+
 
 // test1
