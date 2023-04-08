@@ -15,6 +15,8 @@ const render = (element, data) => {
   }
   return;
 };
+const modal = document.querySelector(".modal.hide");
+const closeBtn = document.querySelector(".close");
 
 // [GET] 요청으로 받아와서 서버의 데이터를 렌더링하기
 
@@ -26,6 +28,7 @@ fetch(`http://localhost:4000/discussions`)
     render(ul, data);
     setupDeleteButtonListeners();
     pagination();
+    setupOpenButtonListeners();
   })
   .catch((error) => console.error(error));
 
@@ -96,6 +99,7 @@ form.addEventListener("submit", function (e) {
       alert("질문이 등록되었습니다");
       setupDeleteButtonListeners();
       pagination();
+      setupOpenButtonListeners();
       location.reload();
     })
     .catch((error) => console.error(error));
@@ -154,6 +158,7 @@ const convertToDiscussion = (obj) => {
   const discussionLink = document.createElement("a");
   discussionLink.setAttribute("href", obj.url);
   discussionLink.textContent = obj.title;
+  discussionLink.id = `discussion-${obj.id}`;
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
   discussionTitle.append(discussionLink);
@@ -171,11 +176,27 @@ const convertToDiscussion = (obj) => {
   deleteBtn.id = obj.id;
   deleteBtn.textContent = "삭제";
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered, deleteBtn);
+  const OpenModalBtn = document.createElement("button");
+  OpenModalBtn.className = "open-btn";
+  OpenModalBtn.textContent = "수정";
+  OpenModalBtn.id = obj.id;
+
+  const btnWrapper = document.createElement("div");
+  btnWrapper.className = "btn-wrapper";
+  btnWrapper.append(OpenModalBtn);
+  btnWrapper.append(deleteBtn);
+  // const modal = document.createElement('div');
+  // modal.className = 'modal';
+  // const modalContent = document.createElement('div');
+  // modalContent.className = 'modal-content';
+  // const inputToModify = document.createElement('input');
+
+  // modalContent.append(inputToModify);
+  // modal.append(modalContent);
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered, btnWrapper);
   return li;
 };
-
-
 
 // 새로운 배열요소부터 다르게 적용할 dom 요소 함수.
 
@@ -246,6 +267,54 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 
+closeBtn.addEventListener("click", function () {
+  modal.classList.add("hide");
+});
+
+// window.addEventListener("click", function(event) {
+//   if(event.target === modal) {
+//     modal.style.display = "block";
+//   } else {
+//     modal.style.display = "none";
+//   }
+// })
+
+function setupOpenButtonListeners() {
+  const openBtn = document.querySelectorAll(".open-btn");
+  openBtn.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const id = String(button.id);
+      modal.classList.remove("hide");
+      
+      // 모달 form
+
+      const modalForm = document.querySelector(".modal-form");
+      modalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        modal.classList.add("hide");
+        console.log(modalForm.elements.story.value);
+        fetch(`http://localhost:4000/discussions/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title: modalForm.elements.story.value }),
+        })
+          .then((res) => {
+            res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const title = document.querySelector(`#discussion-${id}`);
+            console.log(title);
+            title.textContent = data;
+            location.reload();
+          })
+      });
+    });
+  });
+}
+
 function setupDeleteButtonListeners() {
   const deleteBtn = document.querySelectorAll(".delete-btn");
 
@@ -274,8 +343,6 @@ function setupDeleteButtonListeners() {
 //   setupDeleteButtonListeners();
 // });
 
-
-
 // const discussions = JSON.parse(localStorage.getItem("discussions"));
 // const newId = discussions[0].id + 1;
 // if (discussions) {
@@ -290,73 +357,72 @@ function setupDeleteButtonListeners() {
 // ------------------------------------------------------------
 // 페이지네이션
 
-function pagination () {
+function pagination() {
   const paginationNumbers = document.querySelector(".pagination-numbers");
-const paginatedList = document.querySelector(".paginated-list");
-const listItems = paginatedList.querySelectorAll("li");
-const paginationLimit = 10;
+  const paginatedList = document.querySelector(".paginated-list");
+  const listItems = paginatedList.querySelectorAll("li");
+  const paginationLimit = 10;
 
-const pageCount = Math.ceil(listItems.length / paginationLimit);
+  const pageCount = Math.ceil(listItems.length / paginationLimit);
 
-let currentPage;
+  let currentPage;
 
-const appendPageNumber = (index) => {
-  const pageNumber = document.createElement("button");
-  pageNumber.className = `pagination-number ${index}`;
-  pageNumber.setAttribute("page-index", index);
-  pageNumber.textContent = index;
+  const appendPageNumber = (index) => {
+    const pageNumber = document.createElement("button");
+    pageNumber.className = `pagination-number ${index}`;
+    pageNumber.setAttribute("page-index", index);
+    pageNumber.textContent = index;
 
-  paginationNumbers.appendChild(pageNumber);
-};
+    paginationNumbers.appendChild(pageNumber);
+  };
 
-const getPaginationNumbers = () => {
-  for (let i = 1; i <= pageCount; i++) {
-    appendPageNumber(i);
-  }
-};
-
-window.addEventListener("load", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
+  const getPaginationNumbers = () => {
+    for (let i = 1; i <= pageCount; i++) {
+      appendPageNumber(i);
     }
+  };
+
+  window.addEventListener("load", () => {
+    getPaginationNumbers();
+    setCurrentPage(1);
+
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+      const pageIndex = Number(button.getAttribute("page-index"));
+
+      if (pageIndex) {
+        button.addEventListener("click", () => {
+          setCurrentPage(pageIndex);
+        });
+      }
+    });
   });
-});
 
-const handleActivePageNumber = () => {
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    button.classList.remove("active");
+  const handleActivePageNumber = () => {
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+      button.classList.remove("active");
 
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex === currentPage) {
-      button.classList.add("active");
-    }
-  });
-};
+      const pageIndex = Number(button.getAttribute("page-index"));
+      if (pageIndex === currentPage) {
+        button.classList.add("active");
+      }
+    });
+  };
 
-const setCurrentPage = (pageNum) => {
-  currentPage = pageNum;
+  const setCurrentPage = (pageNum) => {
+    currentPage = pageNum;
 
-  handleActivePageNumber();
+    handleActivePageNumber();
 
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
+    const prevRange = (pageNum - 1) * paginationLimit;
+    const currRange = pageNum * paginationLimit;
 
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
-  });
-};
+    listItems.forEach((item, index) => {
+      item.classList.add("hidden");
+      if (index >= prevRange && index < currRange) {
+        item.classList.remove("hidden");
+      }
+    });
+  };
 }
-
 
 // test1

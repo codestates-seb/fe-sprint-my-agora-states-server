@@ -44,6 +44,17 @@ const discussionsController = {
     }
     return res.status(404).json({ message: "Discussion not found" });
   },
+
+  update: (req, res) => {
+    const { id } = req.params;
+    for(let i = 0; i < discussionsData.length; i++) {
+      if(discussionsData[i].id === parseInt(id)) {
+        discussionsData[i].title = req.body.title;
+        return res.status(200).json({ title: discussionsData[i].title });
+      }
+    }
+    return res.status(404).json({ message: "Discussion not found" });
+  }
 };
 
 module.exports = {

@@ -50,6 +50,23 @@
         <section class="discussion__wrapper">
           <ul class="discussions__container paginated-list"></ul>
         </section>
+
+        <div id="modal" class="modal hide">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="" class="modal-form">
+              <textarea
+                  id="modal-story"
+                  name="story"
+                  placeholder=" 질문을 작성하세요"
+                  required
+                ></textarea>
+                <div class="modal__submit">
+                  <input type="submit" value="submit" id="modal-submit" />
+                </div>
+            </form>
+          </div>
+        </div>
       </div>
 
       <nav class="pagination-container">
