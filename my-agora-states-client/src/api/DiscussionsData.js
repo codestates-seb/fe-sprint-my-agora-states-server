@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:4000';
+const baseURL = "http://localhost:4000";
 
 export const getDiscussions = () => {
   return fetch(`${baseURL}/discussions`).then((res) => res.json());
@@ -11,17 +11,18 @@ export const getDiscussions10 = (page, limit) => {
 };
 
 // Add Discussion
-export const addDiscussion = ({ author, title, bodyHtml }) => {
+export const addDiscussion = ({ author, title, bodyHtml, page, limit }) => {
   return fetch(`${baseURL}/discussions/`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ author, title, bodyHtml }),
   }).then((res) => {
     if (res.status === 201) {
-      return getDiscussions();
+      // return getDiscussions();
+      return getDiscussions10(page, limit);
     }
   });
 };
@@ -29,7 +30,7 @@ export const addDiscussion = ({ author, title, bodyHtml }) => {
 // Delete Discussion
 export const deleteDiscussion = (id) => {
   return fetch(`${baseURL}/discussions/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
   }).then((res) => {
     if (res.status === 200 || res.status === 204) {
       return getDiscussions();

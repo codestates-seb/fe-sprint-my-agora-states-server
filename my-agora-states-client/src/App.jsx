@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import Header from './components/Header/Header';
-import Discussions from './components/Discussions/Discussions';
-import { getDiscussions, getDiscussions10 } from './api/DiscussionsData';
+import { useEffect, useState } from "react";
+import Header from "./components/Header/Header";
+import Discussions from "./components/Discussions/Discussions";
+import { getDiscussions, getDiscussions10 } from "./api/DiscussionsData";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   const [discussions, setDiscussions] = useState([]);
@@ -13,32 +14,24 @@ function App() {
     getDiscussions().then((data) => setTotal(Math.ceil(data.length / limit)));
     getDiscussions10(page, limit).then((data) => setDiscussions(data));
     return;
-  }, [page]);
-
-  const handlePrev = () => {
-    const current = page - 1 < 0 ? 0 : page - 1;
-
-    setPage(current);
-  };
-  const handleNext = () => {
-    setPage(page + 1);
-  };
+  }, [page, discussions]);
 
   return (
     <>
       {/* header */}
-      <Header updateDiscussion={setDiscussions} />
+      <Header
+        page={page}
+        limit={limit}
+        updateDiscussion={setDiscussions}
+        updatePage={setPage}
+      />
       {/* contents */}
       <Discussions
         discussions={discussions}
         updateDiscussion={setDiscussions}
       />
       {/* pagination */}
-      <div>
-        <button onClick={handlePrev}>{'<'}</button>
-        {`${page + 1}/ ${total}`}
-        <button onClick={handleNext}>{'>'}</button>
-      </div>
+      <Pagination page={page} total={total} updatePage={setPage} />
     </>
   );
 }

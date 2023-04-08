@@ -1,0 +1,17 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.button {
+  font-size: 1.4rem;
+  background: transparent;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+  vertical-align: center;
+  /* color:whitesmoke */
+}

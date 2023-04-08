@@ -1,18 +1,23 @@
-import React from 'react';
-import { addDiscussion } from '../../api/DiscussionsData';
+import React from "react";
+import { addDiscussion } from "../../api/DiscussionsData";
 
-const Form = ({ updateDiscussion }) => {
+const Form = ({ page, limit, updateDiscussion, updatePage }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
 
     const author = e.target[0].value;
-    const title = e.target[0].value;
-    const bodyHtml = e.target[0].value;
+    const title = e.target[1].value;
+    const bodyHtml = e.target[2].value;
 
-    addDiscussion({ author, title, bodyHtml }).then((data) =>
-      updateDiscussion(data)
-    );
+    addDiscussion({ author, title, bodyHtml, page, limit }).then((data) => {
+      updateDiscussion(data);
+      updatePage(0);
+    });
+
+    e.target[0].value = "";
+    e.target[1].value = "";
+    e.target[2].value = "";
   };
 
   return (
