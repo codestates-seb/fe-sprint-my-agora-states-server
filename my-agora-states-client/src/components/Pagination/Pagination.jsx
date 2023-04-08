@@ -8,7 +8,9 @@ const Pagination = ({ page, total, updatePage }) => {
     updatePage(current);
   };
   const handleNext = () => {
-    updatePage(page + 1);
+    console.log(total);
+    const current = page >= total - 1 ? total - 1 : page + 1;
+    updatePage(current);
   };
 
   return (

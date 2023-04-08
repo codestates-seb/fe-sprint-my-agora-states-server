@@ -14,7 +14,7 @@ function App() {
     getDiscussions().then((data) => setTotal(Math.ceil(data.length / limit)));
     getDiscussions10(page, limit).then((data) => setDiscussions(data));
     return;
-  }, [page, discussions]);
+  }, [page]);
 
   return (
     <>

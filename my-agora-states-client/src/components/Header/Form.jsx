@@ -15,9 +15,9 @@ const Form = ({ page, limit, updateDiscussion, updatePage }) => {
       updatePage(0);
     });
 
-    e.target[0].value = "";
-    e.target[1].value = "";
-    e.target[2].value = "";
+    // e.target[0].value = "";
+    // e.target[1].value = "";
+    // e.target[2].value = "";
   };
 
   return (
