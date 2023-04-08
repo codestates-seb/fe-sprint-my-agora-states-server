@@ -80,6 +80,7 @@ form.addEventListener("submit", function (e) {
       ul.prepend(convertToDiscussion(data));
       // render(ul, data);
       alert("질문이 등록되었습니다");
+      location.reload();
     })
     .catch((error) => console.error(error));
   // .then(() => {
@@ -113,25 +114,6 @@ form.addEventListener("submit", function (e) {
   // btnPopClose.addEventListener('click', function() {
   //   this.parentNode.style.display = 'none';
   // })
-});
-
-const deleteBtn = document.querySelectorAll(".delete-btn");
-
-deleteBtn.forEach((button) => {
-  button.addEventListener("click", function (e) {
-    console.log(button.id);
-    fetch(`http://localhost:4000/discussions/${button.id}`, {
-      method: "DELETE",
-    })
-      .then((res) => {
-        if (res.ok) {
-          console.log("Data deleted successfully!");
-        } else {
-          console.error("Failed to delete data.");
-        }
-      })
-      .catch((error) => console.error(error));
-  });
 });
 
 // ----------------------------------------------------------------
@@ -245,6 +227,32 @@ const convertToDiscussion = (obj) => {
 // }
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
+function setupDeleteButtonListeners() {
+  const deleteBtn = document.querySelectorAll(".delete-btn");
+
+  deleteBtn.forEach((button) => {
+    const id = button.getAttribute("id");
+    button.addEventListener("click", function (e) {
+      fetch(`http://localhost:4000/discussions/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          if (res.ok) {
+            console.log("Data deleted successfully!");
+            location.reload();
+          } else {
+            console.error("Failed to delete data.");
+          }
+        })
+        .catch((error) => console.error(error));
+    });
+  });
+}
+
+window.addEventListener("load", function () {
+  setupDeleteButtonListeners();
+});
 
 // [GET] 요청으로 받아와서 서버의 데이터를 렌더링하기
 
