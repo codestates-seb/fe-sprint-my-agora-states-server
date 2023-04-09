@@ -45,4 +45,3 @@ module.exports.app = app;
 module.exports.server = server;
 
 
-// 앞으로 해야할 fetch 부분에 힌트를 얻어서 감사했습닏다. -> async await
