@@ -8,7 +8,6 @@ const DiscussionForm = ({ setIsOpen, setDiscussionForm }) => {
     email: '',
     title: '',
     story: '',
-    avatarUrl: '../../img/user.png',
   });
 
   const { author, email, title, bodyHTML } = inputs;

@@ -21,7 +21,11 @@ const DiscussionItem = ({ createdAt, title, url, author, answer, bodyHTML, avata
     <li className="discussion__container">
       <div className="discussion__information">
         <div className="discussion__avatar--wrapper">
-          <img className="discussion__avatar--image" src={avatarUrl} alt="avatar" />
+          <img
+            className="discussion__avatar--image"
+            src={avatarUrl ? require('../../img/user.png') : avatarUrl}
+            alt="avatar"
+          />
         </div>
         <div className="discussion__author">{author}</div>
         <div className="discussion__created-time">{parseCreatedTime(createdAt)}</div>
