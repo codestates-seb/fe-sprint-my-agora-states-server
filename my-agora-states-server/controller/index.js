@@ -1,6 +1,19 @@
 const { agoraStatesDiscussions } = require("../repository/discussions");
-const discussionsData = agoraStatesDiscussions;
+let discussionsData = agoraStatesDiscussions;
 
+const getPageStartEnd = (limit, page) => {
+  const pageStart = Number(page - 1) * Number(limit);
+  const pageEnd = Number(pageStart) + Number(limit);
+  return { pageStart, pageEnd };
+};
+
+const handleRequestBody = (req, res) => {
+  if (!req.body) return res.status(400).send("no request body");
+  const { title, author, bodyHTML } = req.body;
+  if (!title && !author && !bodyHTML)
+    return res.status(400).send("bad request");
+  return true;
+};
 
 const discussionsController = {
   // [GET] /discussions?query={query} 요청을 수행
@@ -28,9 +41,10 @@ const discussionsController = {
   },
 
   create: (req, res) => {
-    const discussionInfo = {...req.body, "id" : discussionsData.length + 1}
+    const discussionInfo = {...req.body, "id" : Math.random()}
     discussionsData.unshift(discussionInfo)
     return res.status(201).json(discussionInfo)
+    // return res.status(201).json(`Successfully uploaded : ${JSON.stringify(discussionInfo)}`)
   },
 
   update: (req, res) => {
