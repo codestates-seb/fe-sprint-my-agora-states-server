@@ -23,7 +23,7 @@ const DiscussionItem = ({ createdAt, title, url, author, answer, bodyHTML, avata
         <div className="discussion__avatar--wrapper">
           <img
             className="discussion__avatar--image"
-            src={avatarUrl ? require('../../img/user.png') : avatarUrl}
+            src={avatarUrl ? avatarUrl : require('../../img/user.png')}
             alt="avatar"
           />
         </div>
