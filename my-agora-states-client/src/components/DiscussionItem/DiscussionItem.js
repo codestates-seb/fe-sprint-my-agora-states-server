@@ -7,11 +7,13 @@ const DiscussionItem = ({ createdAt, title, url, author, answer, bodyHTML, avata
   let answeredClass = '';
 
   if (answer === null) {
-    answered = '답변 대기중';
-    answeredClass = 'unsolved';
-  } else if (answer === undefined) {
-    answered = '공지';
-    answeredClass = 'notice';
+    if (title.includes('notice')) {
+      answered = '공지';
+      answeredClass = 'notice';
+    } else {
+      answered = '답변 대기중';
+      answeredClass = 'unsolved';
+    }
   } else {
     answered = '답변 완료';
     answeredClass = 'solved';
