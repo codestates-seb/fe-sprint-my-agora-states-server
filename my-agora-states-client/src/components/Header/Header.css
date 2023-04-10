@@ -1,0 +1,50 @@
+header {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+}
+
+.header__logo--container {
+  min-width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo--image {
+  width: 100px;
+}
+
+.header__nav {
+  flex-grow: 1;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  min-width: 180px;
+}
+
+.header__nav > div {
+  margin-right: 20px;
+}
+
+.header__nav a {
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.header__guest--info {
+  min-width: 130px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header__guest--info span {
+  font-size: 9px;
+}
+
+.header__guest--info img {
+  width: 25px;
+  height: 25px;
+}
