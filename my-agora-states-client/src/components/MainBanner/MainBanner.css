@@ -1,0 +1,56 @@
+.main__container {
+  display: flex;
+  height: 350px;
+  width: 60vw;
+  max-width: 700px;
+  min-width: 590px;
+  justify-content: center;
+}
+
+.main__info--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 1;
+}
+
+.main__info--wrapper h1 {
+  font-weight: 900;
+  font-size: 33px;
+  font-family: 'Secular One', sans-serif;
+  line-height: 120%;
+}
+
+.main__info--wrapper p {
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.main__info--wrapper button {
+  background-color: var(--purple);
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 11px;
+  width: 120px;
+  height: 30px;
+}
+
+.main__info--wrapper button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.main__image--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-basis: 1;
+}
+
+.main__image--wrapper img {
+  width: 380px;
+  height: 80%;
+}
