@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 import './DiscussionForm.css';
 
-const DiscussionForm = ({ isOpen, setIsOpen, setDiscussionForm }) => {
+const DiscussionForm = ({ setIsOpen, setDiscussionForm }) => {
   const [inputs, setInputs] = useState({
-    name: '',
+    author: '',
     email: '',
     title: '',
     story: '',
     avatarUrl: '../../img/user.png',
   });
 
-  const { name, email, title, story } = inputs;
+  const { author, email, title, bodyHTML } = inputs;
 
   const onChange = (e) => {
     setInputs({
@@ -24,21 +24,21 @@ const DiscussionForm = ({ isOpen, setIsOpen, setDiscussionForm }) => {
     e.preventDefault();
     setDiscussionForm(inputs);
     setIsOpen(false);
-    setInputs({ name: '', email: '', title: '', story: '', avatarUrl: '../../img/user.png' });
+    setInputs({ author: '', email: '', title: '', bodyHTML: '', avatarUrl: '../../img/user.png' });
   };
 
-  return isOpen ? (
+  return (
     <section className="form__container show">
       <h1>질문하기</h1>
       <form method="" action="" className="form">
         <div className="form__input--wrapper">
           <div className="form__personal-input--wrapper">
             <input
-              id="name"
-              name="name"
+              id="author"
+              name="author"
               type="text"
               placeholder="이름을 입력해 주세요."
-              value={name}
+              value={author}
               onChange={onChange}
             />
             <input
@@ -59,11 +59,11 @@ const DiscussionForm = ({ isOpen, setIsOpen, setDiscussionForm }) => {
             onChange={onChange}
           />
           <textarea
-            id="story"
-            name="story"
+            id="bodyHTML"
+            name="bodyHTML"
             type="text"
             placeholder="질문 내용을 입력해 주세요."
-            value={story}
+            value={bodyHTML}
             onChange={onChange}
           ></textarea>
         </div>
@@ -72,7 +72,7 @@ const DiscussionForm = ({ isOpen, setIsOpen, setDiscussionForm }) => {
         </div>
       </form>
     </section>
-  ) : undefined;
+  );
 };
 
 export default DiscussionForm;

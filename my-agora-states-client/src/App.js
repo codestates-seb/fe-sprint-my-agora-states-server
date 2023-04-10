@@ -24,10 +24,13 @@ function App() {
   }, [submitted]);
 
   useEffect(() => {
-    if (Object.keys(discussionForm).length !== 0) {
+    if (discussionForm.title !== undefined) {
       fetch('http://localhost:4000/discussions', {
         method: 'POST',
-        body: discussionForm,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(discussionForm),
       }).then((_) => {
         setSubmitted(true);
       });
@@ -86,11 +89,9 @@ function App() {
           </div>
         </section>
 
-        <DiscussionForm
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          setDiscussionForm={setDiscussionForm}
-        />
+        {isOpen ? (
+          <DiscussionForm setIsOpen={setIsOpen} setDiscussionForm={setDiscussionForm} />
+        ) : undefined}
 
         <section className="discussion__wrapper">
           <h1>질문 모아보기</h1>
