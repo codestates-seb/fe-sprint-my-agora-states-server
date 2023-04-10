@@ -6,6 +6,7 @@ import DiscussionItem from './components/DiscussionItem/DiscussionItem';
 import DiscussionForm from './components/DiscussionForm/DiscussionForm';
 import SideBar from './components/SideBar/SideBar';
 import Header from './components/Header/Header';
+import MainBanner from './components/MainBanner/MainBanner';
 
 function App() {
   const [datas, setDatas] = useState([]);
@@ -38,37 +39,17 @@ function App() {
     }
   }, [discussionForm]);
 
-  const clickHandler = () => {
+  const openClickHandler = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
       <Header />
-
       <hr />
 
       <main>
-        <section className="main__container">
-          <div className="main__info--wrapper">
-            <h1>
-              My
-              <br />
-              Agora States
-            </h1>
-            <p>
-              누구든지 자유롭게 질문하고 답하며,
-              <br />
-              함께 성장하는 공간
-            </p>
-            <button id="asking" onClick={clickHandler}>
-              질문하기
-            </button>
-          </div>
-          <div className="main__image--wrapper">
-            <img src={require('./img/agora-main.jpg')} alt="main" />
-          </div>
-        </section>
+        <MainBanner openClickHandler={openClickHandler} />
 
         {isOpen ? (
           <DiscussionForm setIsOpen={setIsOpen} setDiscussionForm={setDiscussionForm} />
