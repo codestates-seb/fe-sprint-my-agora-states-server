@@ -17,7 +17,7 @@ const discussionsController = {
       return data.id === Number(id);
     });
 
-    
+  
     //객체 형태로 전달해야하는데, filteredData 는 배열이다.
     if(filteredData.length > 0){
       return res.status(200).json(filteredData[0]);
