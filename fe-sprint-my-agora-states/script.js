@@ -302,12 +302,14 @@ function setupOpenButtonListeners() {
         })
           .then((res) => {
             res.json();
+            console.log(res)
           })
           .then((data) => {
             console.log(data);
             const title = document.querySelector(`#discussion-${id}`);
             console.log(title);
             title.textContent = data;
+            alert("제목이 수정되었습니다.")
             location.reload();
           })
       });
@@ -329,6 +331,7 @@ function setupDeleteButtonListeners() {
             console.log("Data deleted successfully!");
             const ul = document.querySelector("ul.discussions__container");
             const firstChild = ul.firstChild;
+            alert("삭제되었습니다.")
             ul.removeChild(firstChild);
           } else {
             console.error("Failed to delete data.");
