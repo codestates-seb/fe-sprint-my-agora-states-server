@@ -6,7 +6,8 @@ import Discussions from './components/Discussions';
 const App = (props) => {
   const domain = "http://localhost:4000"
   const [discussions, setDiscussions] = useState([]);
-
+  const [noticeDiscussions, setNoticeDiscussions] = useState([]);
+  const [otherDiscussions, setOtherDiscussions] = useState([]);
   useEffect(() => {
     getDiscussion();
   }, []);
@@ -16,15 +17,19 @@ const App = (props) => {
       .then((res) => res.json())
       .then((data) => {
         setDiscussions(data);
+        setNoticeDiscussions(data.filter(e => e.author === 'kimploo'));
+        setOtherDiscussions(data.filter(e => e.author !== 'kimploo'));
       });
   };
-
+  
+  
   const addDiscussion = ({author, title, bodyText}) => {
     const newDiscussionData = {
       author: author,
       title: title,
       bodyHTML : bodyText,
     };
+
     fetch(domain + "/discussions/", {
       method: "POST",
       headers: {
@@ -56,7 +61,9 @@ const App = (props) => {
       <Form addDiscussion={addDiscussion}></Form>
       <Discussions
         discussions={discussions}
-        deleteDisucssion={deleteDisucssion}>
+        deleteDisucssion={deleteDisucssion}
+        noticeDiscussions={noticeDiscussions}
+        otherDiscussions={otherDiscussions}>
       </Discussions>
     </main>
    </>

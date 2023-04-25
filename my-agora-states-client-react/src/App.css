@@ -38,15 +38,12 @@ div.container_wrapper > section {
 
 /* section */
 .discussion__wrapper {
-  background-color: #ffcc01;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  margin: 0.2rem;
 }
 .discussion_container {
   /* width: 50rem; */
   padding: 0.5rem;
   margin: 0.5rem;
+  width: 540px;
   padding-left:0;
   display: flex;
   align-items: center;
@@ -347,4 +344,31 @@ button.topBtn > svg {
 /* class 추가 목록 */
 .disabled{
   display: none;
+}
+
+.notice_discussion_wrapper , .others_discussion_wrapper {
+  background-color: #ffcc01;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin: 0.2rem;
+}
+.notice_discussion_container, .others_discussion_container {
+  /* width: 50rem; */
+  padding: 0.5rem;
+  margin: 0.5rem;
+  padding-left:0;
+  display: flex;
+  align-items: center;
+  width: 540px;
+}
+
+.others_discussion_wrapper {
+  background-color: #0064bd;
+}
+
+button.toggle{
+  background: transparent;
+  border: none;
+  margin-right: 0.5rem; 
+  font-size: 1.5rem;
 }
