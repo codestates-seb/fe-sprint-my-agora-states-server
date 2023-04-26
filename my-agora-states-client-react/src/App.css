@@ -6,23 +6,17 @@
 }
 body{
   display: flex;
-  justify-content: space-evenly;
-  /* background-color: #22272e; */
-  /* background-color: #2d333b; */
-  
-}
-main > * {
-  padding : 0.5rem;
+  justify-content: space-evenly;  
 }
 h1{
   text-align: center;
   font-size: 3rem;
-  /* color: #adbac7; */
   margin: 1.5rem;
 }
 main {
   display: flex;
-  
+  justify-content: center;
+  flex-wrap : wrap;
 }
 
 div.container_wrapper{
@@ -35,27 +29,12 @@ div.container_wrapper > section {
 }
 
 /* section */
-
-/* section */
-.discussion__wrapper {
-}
-.discussion_container {
-  /* width: 50rem; */
-  padding: 0.5rem;
-  margin: 0.5rem;
-  width: 540px;
-  padding-left:0;
-  display: flex;
-  align-items: center;
-}
 .form__container{
   display: flex;
   justify-content: center;
 }
-li.discussion__container:hover{
-/* div.form__submit>input:hover{ */
-  /* background-color: #fff4d1; */
-  /* opacity: 0.5; */
+li.discussion__container:hover,
+div.form__submit>input:hover{
   transform:scale(1.05);  
   transition: transform .5s;
 }
@@ -95,7 +74,7 @@ color: black;
 
 li.discussion__container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 540px;
   padding: 0.5rem;
@@ -116,19 +95,19 @@ div.li_container{
 }
 /* li */
 /* 변경 후 */
-div.li_container, div.discussion__container_li{  
+div.li_container, div.discussion__container__div{  
   display: flex;
   flex-direction: column;
   width : 33rem;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   background-color: white;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  /* box-shadow: 0 4px 12px rgb(0 0 0 / 10%); */
   border-radius: 8px;
 }
 div.user_info_section,div.discussion_section{
   display: flex;
   align-items:center;
-  /* padding: 0.2rem; */
+  padding: 0.2rem;
 }
 div.discussion_section{
   padding: 0.5rem;
@@ -154,8 +133,8 @@ div.discussion__avatar--wrapper{
 }
 div.discussion__avatar--wrapper > img{
   border-radius: 50%;
-  /* width: 48px; */
   width: 2rem;
+  height: 2rem;
 }
 div.discussion__information{
   display: flex;
@@ -353,13 +332,12 @@ button.topBtn > svg {
   margin: 0.2rem;
 }
 .notice_discussion_container, .others_discussion_container {
-  /* width: 50rem; */
   padding: 0.5rem;
   margin: 0.5rem;
   padding-left:0;
   display: flex;
   align-items: center;
-  width: 540px;
+  /* width: 540px; */
 }
 
 .others_discussion_wrapper {
@@ -372,3 +350,20 @@ button.toggle{
   margin-right: 0.5rem; 
   font-size: 1.5rem;
 }
+
+div.discussion__information{
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+div.discussion__information > p:nth-child(2) {
+  margin: 0 1rem;
+  font-weight: 100;
+  opacity: 0.8;
+}
+div.discussion__information > p{
+  font-size: 0.8rem;
+  color: gray;
+  cursor: pointer;
+}
+

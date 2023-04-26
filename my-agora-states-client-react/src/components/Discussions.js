@@ -5,6 +5,7 @@ import { useState } from "react";
 const Discussions = ({discussions, deleteDisucssion, noticeDiscussions, otherDiscussions}) => {
     const [noticeIsOpen, setNoticeIsOpen] = useState(true);
     const [othersIsOpen, setOthersIsOpen] = useState(true);
+    
     const handleNoticeToggle = () =>{
         setNoticeIsOpen(!noticeIsOpen);
     }
@@ -28,7 +29,7 @@ const Discussions = ({discussions, deleteDisucssion, noticeDiscussions, otherDis
                 { noticeIsOpen ?
                     <ul className="notice_discussions__container">
                     {noticeDiscussions.map((discussion) => {
-                        return <Discussion key={discussion.id} discussion={discussion} deleteDiscussion={deleteDisucssion} />
+                        return <Discussion key={discussion.id} discussion={discussion} deleteDiscussion={deleteDisucssion} notice={true} />
                     })}
                 </ul> : ''
                 }
@@ -48,7 +49,7 @@ const Discussions = ({discussions, deleteDisucssion, noticeDiscussions, otherDis
                 { othersIsOpen ?
                     <ul className="others_discussions__container">
                     {otherDiscussions.map((discussion) => {
-                        return <Discussion key={discussion.id} discussion={discussion} deleteDiscussion={deleteDisucssion} />
+                        return <Discussion key={discussion.id} discussion={discussion} deleteDiscussion={deleteDisucssion} notice={false}/>
                     })}
                 </ul> : ''
                 }

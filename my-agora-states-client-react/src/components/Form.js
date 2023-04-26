@@ -1,4 +1,5 @@
 const Form = ({ addDiscussion }) => {
+  
     const handleSubmit = (event) => {
       event.preventDefault();
       const author = event.target[0].value;
