@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Form from './components/Form';
 import Discussions from './components/Discussions';
 
+
 const App = (props) => {
   const domain = "http://localhost:4000"
   const [discussions, setDiscussions] = useState([]);
@@ -68,7 +69,9 @@ const App = (props) => {
    <>
     <h1>My Agora States!</h1>
     <main className="main">
-      <Form addDiscussion={addDiscussion}></Form>
+      
+      <Form addDiscussion={addDiscussion}>
+      </Form>
       <Discussions
         discussions={discussions}
         deleteDisucssion={deleteDisucssion}

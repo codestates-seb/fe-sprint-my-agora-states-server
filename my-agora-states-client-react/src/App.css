@@ -31,7 +31,8 @@ div.container_wrapper > section {
 /* section */
 .form__container{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
 }
 li.discussion__container:hover,
 div.form__submit>input:hover{
@@ -232,6 +233,7 @@ label.search_container_label{
   flex-direction: row;
   padding: 0.2rem;
   align-items: center;
+  border: none;
 }
 label.search_container_label > input {
   margin: 0 0.5rem;
@@ -337,7 +339,7 @@ button.topBtn > svg {
   padding-left:0;
   display: flex;
   align-items: center;
-  /* width: 540px; */
+  width: 540px;
 }
 
 .others_discussion_wrapper {
@@ -367,3 +369,6 @@ div.discussion__information > p{
   cursor: pointer;
 }
 
+.notice_discussion_container, .notice_discussions__container, .notice_discussion_wrapper{
+  transition : 0.5s;
+}

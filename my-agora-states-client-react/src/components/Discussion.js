@@ -37,7 +37,9 @@ const Discussion = ({discussion, deleteDiscussion, notice}) => {
           }
         }
       };
-      
+      const handleAnswered = () => {
+        window.open(answer.url);
+      }
     return(
         <li className="discussion__container">
           <div className="discussion__container__div">
@@ -63,7 +65,7 @@ const Discussion = ({discussion, deleteDiscussion, notice}) => {
               </h2>
               {/* <div className="discussion__information">{`${author} / ${new Date(createdAt).toLocaleTimeString()}`}</div> */}
 
-              <div className="discussion__answered">
+              <div className="discussion__answered" onClick={handleAnswered}>
                 {/* <p onClick={() => deleteDiscussion(id)}>{answer ? "☑" : "☒"}</p> */}
                 { !notice ?
                 <>

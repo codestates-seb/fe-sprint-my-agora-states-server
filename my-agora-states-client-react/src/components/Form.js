@@ -1,3 +1,4 @@
+import Search from "./Search";
 const Form = ({ addDiscussion }) => {
   
     const handleSubmit = (event) => {
@@ -10,6 +11,7 @@ const Form = ({ addDiscussion }) => {
   
     return (
       <section className="form__container">
+        <Search/>
         <form action="" method="get" className="form" onSubmit={handleSubmit}>
           <div className="form__input--wrapper">
             <div className="form__input--name">
