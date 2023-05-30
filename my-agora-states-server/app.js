@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
   //sendFile(path.join(__dirname,'../react--project/build/index.html'))
   //res.status(200).send('fe-sprint-my-agora-states-server');
-  res.sendFile(path.join(__dirname,'../../react--project/build/index.html'))
+  res.status(200).sendFile(path.join(__dirname,'../../react--project/build/index.html'))
 });
 
 app.post('/', (req, res) => {
