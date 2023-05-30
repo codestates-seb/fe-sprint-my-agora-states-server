@@ -2,6 +2,7 @@ const {agoraStatesDiscussions} = require('./repository/discussions.js')
 const agoradata = agoraStatesDiscussions;
 
 const express = require('express');
+const path = require('path')
 const app = express();
 
 const cors = require('cors');
@@ -17,6 +18,7 @@ app.use(cors());
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname,'../../react--project/build')))
 
 const port = 4000;
 const discussionsRouter = require('./router/discussions.js');
@@ -27,7 +29,9 @@ app.use('/discussions', discussionsRouter)
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
-  res.status(200).send('fe-sprint-my-agora-states-server');
+  //sendFile(path.join(__dirname,'../react--project/build/index.html'))
+  //res.status(200).send('fe-sprint-my-agora-states-server');
+  res.sendFile(path.join(__dirname,'../../react--project/build/index.html'))
 });
 
 app.post('/', (req, res) => {
