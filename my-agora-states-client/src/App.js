@@ -44,7 +44,7 @@ function App() {
     if (isUpdate === true) {
       setisLoding(true);
       axios
-        .put("http://localhost:4000/discussions", {
+        .patch("http://localhost:4000/discussions", {
           ...NewNotice,
         })
         .then((el) => {
