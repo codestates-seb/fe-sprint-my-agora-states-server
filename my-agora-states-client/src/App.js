@@ -28,16 +28,14 @@ function App() {
   const [key, setkey] = useState(46);
 
   useEffect(() => {
-    if (isUpdate === false) {
-      setisLoding(true);
-      axios
-        .get("http://localhost:4000/discussions")
-        .then((el) => {
-          setNoticeList(el.data);
-          setisLoding(false);
-        })
-        .catch((error) => console.log(`${error} 최초 호출 실패`));
-    }
+    setisLoding(true);
+    axios
+      .get("http://localhost:4000/discussions")
+      .then((el) => {
+        setNoticeList(el.data);
+        setisLoding(false);
+      })
+      .catch((error) => console.log(`${error} 최초 호출 실패`));
   }, []);
 
   useEffect(() => {
