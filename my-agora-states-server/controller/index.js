@@ -24,7 +24,7 @@ const discussionsController = {
 
     const newDiscussion = {
       id,
-      createdAt: new Date().toLocaleString(),
+      createdAt: new Date(),
       title,
       url: '#',
       author: id,
