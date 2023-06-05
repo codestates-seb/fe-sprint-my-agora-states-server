@@ -1,6 +1,6 @@
 const PAGE_COUNT = 5;
 
-export const calculatePageValue = (currentPage, totalPage) => {
+const calculatePageValue = (currentPage, totalPage) => {
   const pageGroup = Math.ceil(currentPage / PAGE_COUNT);
 
   let lastPage = pageGroup * PAGE_COUNT;
@@ -15,3 +15,5 @@ export const calculatePageValue = (currentPage, totalPage) => {
 
   return { firstPage, lastPage, pageCount };
 };
+
+export default calculatePageValue;

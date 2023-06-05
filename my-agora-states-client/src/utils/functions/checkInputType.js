@@ -1,1 +1,3 @@
-export const checkInputType = (element) => element;
+const checkInputType = (element) => element;
+
+export default checkInputType;
