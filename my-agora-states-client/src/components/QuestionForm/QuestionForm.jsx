@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Input from './Input.jsx';
-import INPUT_INFO from '../../utils/contants/inputInfo.js';
+import INPUT_INFO from 'utils/contants/inputInfo.js';
 
 function QuestionForm({ isSuccess, setIsSuccess }) {
   const [body, setBody] = useState({});

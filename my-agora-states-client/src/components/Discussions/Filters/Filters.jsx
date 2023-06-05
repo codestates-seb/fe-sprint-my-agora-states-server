@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import FilterButton from './FilterButton.jsx';
-import FILTER_BUTTON_INFO from '../../../utils/contants/filterButtonInfo.js';
+import FILTER_BUTTON_INFO from 'utils/contants/filterButtonInfo.js';
 
 function Filters({ setCurrentFilter }) {
   return (

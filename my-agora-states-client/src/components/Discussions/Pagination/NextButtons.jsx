@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { moveButtonMixin } from '../../../styles/mixin.js';
+import { moveButtonMixin } from 'styles/mixin.js';
 
 function NextButtons({ setCurrentPage, totalPage }) {
   const handleClickNext = (e) => {

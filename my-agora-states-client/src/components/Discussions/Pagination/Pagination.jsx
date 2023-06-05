@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PrevButtons from './PrevButtons.jsx';
 import PageButton from './PageButton.jsx';
 import NextButtons from './NextButtons.jsx';
-import { calculatePageValue } from '../../../utils/functions/calculatePageValue.js';
+import calculatePageValue from 'utils/functions/calculatePageValue.js';
 
 function Pagination({ currentPage, totalPage, setCurrentPage }) {
   const { firstPage, lastPage, pageCount } = calculatePageValue(

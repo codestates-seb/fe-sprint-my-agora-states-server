@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from '../context/ThemeProvider.jsx';
+import { ThemeContext } from 'context/ThemeProvider.jsx';
 
 function ColorMode() {
   const { theme, onChangeTheme } = useContext(ThemeContext);

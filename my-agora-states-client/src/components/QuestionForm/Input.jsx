@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { checkInputType } from '../../utils/functions/checkInputType';
-import { inputMixin } from '../../styles/mixin';
+import checkInputType from 'utils/functions/checkInputType.js';
+import { inputMixin } from 'styles/mixin.js';
 
 function Input({ info, setBody }) {
   const inputType = checkInputType(info.element);

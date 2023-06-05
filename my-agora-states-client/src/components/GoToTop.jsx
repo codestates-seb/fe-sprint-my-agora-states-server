@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GOTOTOP_VALUE } from '../utils/contants/motionValue';
+import { GOTOTOP_VALUE } from 'utils/contants/motionValue.js';
 
 const ARROW_ICON_URL = `${process.env.PUBLIC_URL}/assets/arrow_top.png`;
 

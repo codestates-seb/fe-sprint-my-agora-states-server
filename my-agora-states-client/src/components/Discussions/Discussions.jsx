@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Filters from './Filters/Filters.jsx';
 import Content from './Content.jsx';
 import Pagination from './Pagination/Pagination.jsx';
-import filterDiscussions from '../../utils/functions/filterDiscussions.js';
-import sliceDiscussions from '../../utils/functions/sliceDiscussions.js';
+import filterDiscussions from 'utils/functions/filterDiscussions.js';
+import sliceDiscussions from 'utils/functions/sliceDiscussions.js';
 
 function Discussions({ isSuccess }) {
   const [discussions, setDiscussions] = useState([]);

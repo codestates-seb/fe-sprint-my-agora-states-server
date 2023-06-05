@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ALERT_VALUE } from '../utils/contants/motionValue.js';
+import { ALERT_VALUE } from 'utils/contants/motionValue.js';
 
 function Alert() {
   const { initial, animate, transition } = ALERT_VALUE;

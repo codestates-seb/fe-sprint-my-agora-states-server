@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import useTheme from '../hooks/useTheme.js';
-import { light, dark } from '../styles/theme.js';
+import useTheme from 'hooks/useTheme.js';
+import { light, dark } from 'styles/theme.js';
 import { ThemeProvider as CustomThemeProvider } from 'styled-components';
 
 const defaultTheme = {

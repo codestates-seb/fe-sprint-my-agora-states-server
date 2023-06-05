@@ -1,6 +1,6 @@
 import uuid from 'react-uuid';
 import styled from 'styled-components';
-import convertDate from '../../utils/functions/convertDate.js';
+import convertDate from 'utils/functions/convertDate.js';
 
 const CHECKED_ICON_URL = `${process.env.PUBLIC_URL}/assets/checked.png`;
 const UNCHECKED_ICON_URL = `${process.env.PUBLIC_URL}/assets/unchecked.png`;
