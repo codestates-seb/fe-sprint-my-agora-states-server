@@ -34,12 +34,7 @@ function QuestionForm({ isSuccess, setIsSuccess }) {
         <h2 className="srOnly">질문 등록</h2>
         <form onSubmit={handleSubmit} ref={form}>
           {INPUT_INFO.map((info) => (
-            <Input
-              info={info}
-              key={info.htmlFor}
-              body={body}
-              setBody={setBody}
-            />
+            <Input info={info} key={info.htmlFor} setBody={setBody} />
           ))}
         </form>
       </FormContainer>
