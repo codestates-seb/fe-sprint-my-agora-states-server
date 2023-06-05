@@ -16,10 +16,9 @@ const discussionsController = {
     );
 
     if (discussion) {
-      const { id, title, url, author, bodyHTML, avatarUrl } = discussion;
-      return res.status(200).json(discussion);
+      res.status(200).json(discussion);
     } else {
-      return res.status(404).json({ error: "discussion not found" });
+      res.status(404).json({ error: "discussion not found" });
     }
   },
 };
