@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
-import ThemeProvider from './context/ThemeProvider.jsx';
-import { GlobalStyle } from './styles/globalStyle';
-import { NormalizeStyle } from './styles/normalizeStyle';
-import Home from './pages/Home.jsx';
+import ThemeProvider from 'context/ThemeProvider.jsx';
+import GlobalStyle from 'styles/globalStyle.js';
+import NormalizeStyle from 'styles/normalizeStyle.js';
+import Home from 'pages/Home.jsx';
 
 function Root() {
   return (

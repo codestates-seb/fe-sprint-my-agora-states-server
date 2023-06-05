@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle/*css*/ `
+const GlobalStyle = createGlobalStyle/*css*/ `
   :root {
     --transition-duration: 0.2;
   }
@@ -75,3 +75,5 @@ export const GlobalStyle = createGlobalStyle/*css*/ `
     }
   }
 `;
+
+export default GlobalStyle;

@@ -7,8 +7,8 @@ import {
   ColorMode,
   GoToTop,
   Alert,
-} from '../components';
-import { FLOATING_MOTION_VALUE } from '../utils/contants/motionValue.js';
+} from 'components';
+import { FLOATING_MOTION_VALUE } from 'utils/contants/motionValue.js';
 
 function Home() {
   const [isSuccess, setIsSuccess] = useState(false);

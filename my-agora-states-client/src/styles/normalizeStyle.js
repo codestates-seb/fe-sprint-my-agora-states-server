@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const NormalizeStyle = createGlobalStyle/*css*/ `
+const NormalizeStyle = createGlobalStyle/*css*/ `
   h1,
   h2,
   h3,
@@ -37,3 +37,5 @@ export const NormalizeStyle = createGlobalStyle/*css*/ `
     background: transparent;
   }
 `;
+
+export default NormalizeStyle;
