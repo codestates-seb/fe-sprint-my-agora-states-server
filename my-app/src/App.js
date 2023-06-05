@@ -23,7 +23,7 @@ function App() {
       setAgora(data);
       setIsLoading(true);
     });
-  }, [isLoading]);
+  }, [isLoading, search]);
 
   return (
     <>
