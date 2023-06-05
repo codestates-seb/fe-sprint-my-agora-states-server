@@ -4,7 +4,7 @@ let discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     const { question } = req.query;
-    console.log(req.query.question);
+
     if (question) {
       const filter = discussionsData.filter(
         (item) =>
@@ -38,7 +38,7 @@ const discussionsController = {
       bodyHTML: question.length > 0 ? question : "#",
       avatarUrl,
     };
-    console.log(newData);
+
     discussionsData.unshift(newData);
     return res.status(200).json(newData);
   },
@@ -47,12 +47,14 @@ const discussionsController = {
     const { id } = req.params;
 
     const filter = discussionsData.filter((item) => item.id !== Number(id));
-    console.log(filter.length);
+
     const deleteData = discussionsData.find((item) => item.id === Number(id));
     discussionsData = [...filter];
-    console.log(deleteData);
+
     return res.status(200).json(deleteData);
   },
+
+  updatateDiscussion: (req, res) => {},
 };
 
 module.exports = {
