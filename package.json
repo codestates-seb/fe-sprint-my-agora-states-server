@@ -20,6 +20,7 @@
   "homepage": "https://github.com/codestates-seb/fe-sprint-my-agora-states-server#readme",
   "jest": {
     "reporters": [
+
       "default",
       [
         "./node_modules/codestates-assignment-manager/imposter-reporter/index.js",
