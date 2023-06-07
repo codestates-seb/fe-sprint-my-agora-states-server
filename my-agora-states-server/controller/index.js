@@ -6,7 +6,6 @@ const discussionsController = {
     // TODO: 모든 discussions 목록을 응답합니다.
     // res.send("TODO:");
 
-    //declare the data into allDiscussions
     const allDiscussions = discussionsData;
     res.json(allDiscussions);
   },
@@ -14,7 +13,7 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     // res.send("TODO:");
-    const { id } = req.params; // Rename discussionId to id
+    const { id } = req.params;
 
     const findDiscussion = discussionsData.find(
       (item) => item.id === Number(id)
