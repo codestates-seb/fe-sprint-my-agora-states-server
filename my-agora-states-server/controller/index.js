@@ -42,7 +42,7 @@ const discussionsController = {
 
   create: (req, res) => {
     // 디스커션 데이터 추가
-    discussionsData.push({
+    discussionsData.unshift({
       id: Number(req.body.id),
       createdAt: new Date().toLocaleString(),
       updatedAt: new Date().toLocaleString(),
@@ -52,7 +52,7 @@ const discussionsController = {
       bodyHTML: req.body.bodyHTML,
     });
 
-    res.status(201).json(discussionsData[discussionsData.length - 1]);
+    res.status(201).json(discussionsData[0]);
   },
 
   deleteById: (req, res) => {
