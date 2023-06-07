@@ -27,7 +27,7 @@ app.use('/discussions',discussionsRouter) // discussions에 해당하는 애들�
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
-  res.Sstatus(200).send('fe-sprint-my-agora-states-서버');
+  res.status(200).send('fe-sprint-my-agora-states-서버');
 });
 
 const server = app.listen(port, () => {
