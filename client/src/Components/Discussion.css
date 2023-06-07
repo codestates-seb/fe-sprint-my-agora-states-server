@@ -1,0 +1,84 @@
+.discussions__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.discussion__container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* 정사각형 모양을 유지하기 위해 padding-bottom 값을 100%로 설정합니다. */
+}
+
+.discussion__avatar--wrapper {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discussion__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.discussion__content div:last-child {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-bottom: 2rem;
+}
+
+.discussion__container h3 {
+  font-family: "Pretendard-bold";
+  position: absolute;
+  top: 5vh;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.discussion__container img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-top: -1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #aaa;
+}
