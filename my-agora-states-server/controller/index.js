@@ -12,8 +12,13 @@ const discussionsController = {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const { id } = req.params
     const result = discussionsData.filter(el => el.id.toString() === id)
-    res.status(200)
-    res.send(result)
+    if(result.length !== 0){
+      res.status(200)
+      res.send(result[0])
+    }else{
+      res.status(404)
+      res.send()
+    }
   },
 
   addDis:(req, res) => {
