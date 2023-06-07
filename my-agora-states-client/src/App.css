@@ -82,7 +82,7 @@ ul {
   flex-flow: column;
   align-items: flex-end;
   gap: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 .title-input, .content-textarea {
   width: 100%;
