@@ -1,0 +1,7 @@
+.titleBar {
+    height: 10vh;
+    padding: 10px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
