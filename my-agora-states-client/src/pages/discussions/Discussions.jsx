@@ -14,7 +14,7 @@ const Discussions = () => {
         createdAt: discussion.createdAt,
         url: discussion.url,
         author: discussion.author,
-        answer: discussion.bodyHTML,
+        title: discussion.title,
         avatar: discussion.avatarUrl,
       }));
       setDiscussions(formattedDiscussions);
