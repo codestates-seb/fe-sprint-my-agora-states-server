@@ -1,0 +1,29 @@
+h2 {
+    text-align: center;
+}
+
+.discussion-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.discussion-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.discussion-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.discussion-info {
+    font-size: 14px;
+    color: #888;
+    margin-left: auto;
+}
