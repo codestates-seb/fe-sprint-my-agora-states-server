@@ -14,7 +14,7 @@ app.use(cors());
 
 // TODO: Express 내장 미들웨어인 express.json()을 적용합니다.
 // express 내장 미들웨어: 파싱
-app.use(express.json({strict:false}))
+app.use(express.json())
 
 
 const port = 4000;
@@ -27,7 +27,7 @@ app.use('/discussions',discussionsRouter) // discussions에 해당하는 애들�
 
 app.get('/', (req, res) => {
   // 서버 상태 확인을 위해 상태 코드 200과 함께 응답을 보냅니다.
-  res.status(200).send('fe-sprint-my-agora-states-서버');
+  res.Sstatus(200).send('fe-sprint-my-agora-states-서버');
 });
 
 const server = app.listen(port, () => {
