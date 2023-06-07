@@ -4,6 +4,30 @@ import Discussion from "./Discussion";
 function App() {
   const [discussion, setDiscussion] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const nowPage = [];
+  for (
+    let i = (page - 1) * 10;
+    i < page * 10 && i < discussion.length;
+    i += 1
+  ) {
+    nowPage.push(discussion[i]);
+  }
+
+  const totalPage = Math.ceil(discussion.length / 10);
+  let pageGroup = Math.ceil(page / 10);
+  let last = pageGroup * 10;
+  let first = last - (10 - 1) <= 0 ? 1 : last - (10 - 1);
+  if (last > totalPage) last = totalPage;
+  let next = last + 1;
+  let prev = first - 1;
+
+  let fragmentPage = [];
+  for (let i = first; i <= last; i++) {
+    fragmentPage.push(i);
+  }
 
   useEffect(() => {
     const load = async () => {
@@ -50,13 +74,45 @@ function App() {
       <section className="discussion__wrapper">
         <ul className="discussions__container">
           {!loading ? (
-            discussion.map((item) => <Discussion obj={item} key={item.id} />)
+            nowPage.map((item) => <Discussion obj={item} key={item.id} />)
           ) : (
             <p>Loading</p>
           )}
         </ul>
       </section>
-      <footer className="pagenation margin_h_20"></footer>
+      {discussion.length <= 10 ? null : (
+        <footer className="pagenation margin_h_20">
+          {currentPage != 1 ? null : (
+            <span
+              onClick={() => {
+                setCurrentPage(1);
+              }}
+            >
+              &lt;&lt;
+            </span>
+          )}
+          {currentPage != 1 ? null : (
+            <span
+              onClick={() => {
+                setCurrentPage(currentPage - 1);
+              }}
+            >
+              &lt;
+            </span>
+          )}
+          {fragmentPage.map((i) => {
+            return (
+              <span
+                onClick={() => {
+                  setPage(i);
+                }}
+              >
+                {i}
+              </span>
+            );
+          })}
+        </footer>
+      )}
     </main>
   );
 }
