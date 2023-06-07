@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Pretendard";
+  font-family: 100;
+  src: url("../public/font/web/static/woff2/Pretendard-Thin.woff2")
+      format("woff2"),
+    url("../public/font/web/static/woff/Pretendard-Thin.woff") format("woff"),
+    url("../public/font/public/static/Pretendard-Thin.otf") format("otf"),
+    url("../public/font/public/static/alternative/Pretendard-Thin.ttf")
+      format("ttf");
+}
+
+@font-face {
+  font-family: "Pretendard-bold";
+  font-family: 400;
+  src: url("../public/font/web/static/woff2/Pretendard-Bold.woff2")
+      format("woff2"),
+    url("../public/font/web/static/woff/Pretendard-Bold.woff") format("woff"),
+    url("../public/font/public/static/Pretendard-Bold.otf") format("otf"),
+    url("../public/font/public/static/alternative/Pretendard-Bold.ttf")
+      format("ttf");
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+body::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨김 */
+}

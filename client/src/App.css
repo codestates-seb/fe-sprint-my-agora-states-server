@@ -1,0 +1,48 @@
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* Header */
+header {
+  font-family: 'Pretendard-bold';
+  letter-spacing: 13vw;
+}
+
+/* Footer */
+footer {
+  font-size: 0.75rem;
+  margin-top: -2rem;
+  position: sticky;
+  bottom: 0;
+  text-align: right;
+}
+footer span {
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+/* Sidebar */
+.sidebar {
+  font-family: 'Pretendard-bold';
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0rem 2rem 0rem;
+}
+
+.right-bar {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding: 2rem 0rem 2rem 0rem;
+}
+
+.sidebar span {
+line-height: 2rem;
+}
