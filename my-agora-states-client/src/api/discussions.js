@@ -14,3 +14,16 @@ export const getDiscussion = async () => {
     return alert(err);
   }
 };
+
+export const postDiscussion = async (payload) => {
+  try {
+    const res = await axios(`${url}/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      data: payload,
+    });
+    return `${res.data.author} 디스커션 등록 완료`;
+  } catch (err) {
+    return "No Discussion";
+  }
+};
