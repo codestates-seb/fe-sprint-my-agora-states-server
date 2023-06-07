@@ -11,8 +11,8 @@ const discussionsController = {
   findById: (req, res) => {
     // TODO: 요청으로 들어온 id와 일치하는 discussion을 응답합니다.
     const { id } = req.params;
-    const response = discussionsData.filter((ele) => ele.id === Number(id));
-    if (response.length === 0) res.status(404).json();
+    const response = discussionsData.find((ele) => ele.id === Number(id));
+    if (response === undefined) res.status(404).json();
     else res.status(200).json(response);
   },
 
