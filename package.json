@@ -40,6 +40,7 @@
     "codestates-assignment-manager": "^1.8.0",
     "cross-env": "^7.0.3",
     "jest": "^26.6.3",
+    "nodemon": "^2.0.22",
     "prettier": "^2.2.1",
     "supertest": "^6.1.3"
   }
