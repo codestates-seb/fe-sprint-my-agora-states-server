@@ -14,7 +14,7 @@ const discussionsController = {
     if (discussion) {
       res.status(200).json(discussion);
     } else {
-      res.status(404).send("땡");
+      res.status(404).send("땡~");
     }
   },
 };
