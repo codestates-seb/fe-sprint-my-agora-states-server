@@ -18,6 +18,26 @@ const discussionsController = {
       ? res.status(200).send(target)
       : res.status(404).send("Discussion Not Found");
   },
+
+  addDiscussion: (req, res) => {
+    // request에서 요청한 id, title, question
+    const { id, title, question } = req.body;
+
+    const newDiscussion = {
+      id,
+      createdAt: new Date().toLocaleString(),
+      title,
+      url: null,
+      author: id,
+      answer: null,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+      bodyHTML: question,
+    };
+    discussionsData = [newDiscussion, ...discussionsData];
+
+    return res.status(201).send(newDiscussion);
+  },
 };
 
 module.exports = {
