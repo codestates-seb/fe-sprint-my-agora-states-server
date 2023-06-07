@@ -31,7 +31,7 @@ function App() {
     }
   };
 
-  const postDelete = async (id) => {
+  const deleteData = async (id) => {
     try {
       const response = await axios.delete(
         'http://localhost:4000/discussions/' + id
@@ -56,7 +56,7 @@ function App() {
         <DataForm onCreate={postData}></DataForm>
         <ul>
           {datas.map((data) => (
-            <DataList onDelete={postDelete} data={data} key={data.id} />
+            <DataList onDelete={deleteData} data={data} key={data.id} />
           ))}
         </ul>
       </main>
