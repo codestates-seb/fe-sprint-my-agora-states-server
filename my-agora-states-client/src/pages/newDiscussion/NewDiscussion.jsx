@@ -29,26 +29,32 @@ const NewDiscussion = () => {
     <div id="NewDiscussion">
       <div className="newDiscussion">
         <div className="newDiscussion_wrapper">
-          <div className="username_input">
+          <div className="username input">
+            <div className="text">Enter your name:</div>
             <input
               type="text"
               placeholder="이름을 입력해주세요."
               className="name_input"
             />
           </div>
-          <div className="title_input">
+          <div className="title input">
+            <div className="text">Enter your title:</div>
             <input
               type="text"
               placeholder="질문을 입력해주세요."
               className="title_input"
             />
           </div>
-          <div className="question_input">
-            <input
+          <div className="question input">
+            <div className="text">Your question:</div>
+            <textarea
               type="text"
               placeholder="내용을 입력해주세요."
               className="question_input"
             />
+          </div>
+          <div className="submit">
+            <button>submit</button>
           </div>
         </div>
       </div>
