@@ -115,23 +115,23 @@
 
       .answer_contents {
         .answer_content {
-          display: flex;
-          flex-direction: column;
+          line-height: 2;
+          word-break: keep-all;
 
-          //   overflow-y: scroll;
+          overflow-y: scroll;
           overflow-y: auto;
+
           height: 200px;
 
           &::-webkit-scrollbar {
             width: 5px;
           }
-
           &::-webkit-scrollbar-track {
             border-radius: 3.5px;
-            background-color: black;
+            background: rgba(0, 0, 0, 0.439);
           }
-          &::-webkit-scrollbar-track {
-            background: lightgrey;
+          &::-webkit-scrollbar-thumb {
+            background: wheat;
           }
         }
       }

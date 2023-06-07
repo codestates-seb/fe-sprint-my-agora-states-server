@@ -21,19 +21,21 @@ const discussionsController = {
 
   addDiscussion: (req, res) => {
     // request에서 요청한 id, title, question
-    const { id, title, question } = req.body;
+    if (!req.body) {
+      return res.status(404).send("디스커션 등록 실패");
+    }
+    const { id, username, title } = req.body;
 
     const newDiscussion = {
       id,
       createdAt: new Date().toLocaleString(),
       title,
       url: null,
-      author: id,
+      author: username,
       answer: null,
-      avatarUrl:
-        "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
-      bodyHTML: question,
+      avatarUrl: `https://github.com/${id}.png`,
     };
+
     discussionsData = [newDiscussion, ...discussionsData];
 
     return res.status(201).send(newDiscussion);

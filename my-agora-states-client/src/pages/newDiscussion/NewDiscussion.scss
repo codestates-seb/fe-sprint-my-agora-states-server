@@ -1,22 +1,32 @@
 #NewDiscussion {
-  .newDiscussion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form__container {
     display: flex;
     justify-content: center;
-    margin: 10px 0 0 0;
 
-    .newDiscussion_wrapper {
+    width: 540px;
+    height: 250px;
+    margin: 10px 0 10px 0;
+
+    border-radius: 10px;
+
+    background-color: #6ecc94;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+      inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+
+    .form__input--wrapper {
+      width: 350px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
 
-      width: 540px;
-      height: 250px;
-      margin-bottom: 30px;
-      border: 2px solid 6ec7cc;
-      border-radius: 10px;
-      background-color: #6ecc94;
-      box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+      .text {
+        font-weight: bold;
+      }
 
       .input {
         display: flex;
@@ -31,49 +41,76 @@
           height: 25px;
           border-radius: 5px;
           border: none;
-          padding: 0 10px;
+
+          padding: 10px 10px;
+        }
+
+        .username_section,
+        .title_section {
+          display: flex;
+          justify-content: space-between;
+
+          width: 350px;
+          height: 25px;
+          border-radius: 5px;
+          border: none;
+
+          padding: 10px 10px;
         }
 
         .title_input {
-          margin: 0 0 0 15px;
+          margin: 0 0 0 16px;
         }
 
-        .question_input {
-          width: 300px;
-          height: 50px;
-          border-radius: 5px;
-          border: none;
-          padding: 0 10px;
-          margin: 0 0 0 20px;
+        .question_section {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          width: 350px;
+          padding: 10px 10px;
+
+          .text {
+            display: flex;
+          }
+          .question_input {
+            display: flex;
+            justify-content: flex-start;
+            width: 330px;
+            height: 70px;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 10px;
+          }
         }
         textarea {
           resize: none;
         }
       }
+    }
+    .submit {
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 30px;
 
-      .submit {
+      .submit_button {
         display: flex;
         justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        border: 0;
 
-        button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          width: 100px;
-          height: 50px;
-          border: 0;
+        padding: 0 20px;
+        font-size: 20px;
 
-          padding: 0 20px;
-          font-size: 20px;
-
-          color: #fff;
-          text-shadow: 1px 1px 1px #000;
-          border-radius: 10px;
-          background-color: #ff9033;
-          box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-            inset -2px -2px 3px rgba(0, 0, 0, 0.6);
-        }
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: #ff9033;
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+          inset -2px -2px 3px rgba(0, 0, 0, 0.6);
       }
     }
   }
