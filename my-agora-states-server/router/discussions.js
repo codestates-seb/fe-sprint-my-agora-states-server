@@ -14,7 +14,7 @@ router.put('/:id', update);
 
 router.post('/', create);
 
-router.delete('/id', deletep);
+router.delete('/:id', deletep);
 
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
 

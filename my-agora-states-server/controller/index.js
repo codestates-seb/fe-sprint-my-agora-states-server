@@ -24,7 +24,7 @@ const discussionsController = {
     const findIdDiscussionsData = discussionsData.find((discussion) => discussion.id === Number(id));
 
     if (!findIdDiscussionsData) {
-      return res.status(404).json({ error: "discussion 없음" });
+      return res.status(404).json('error: discussion 없음');
     }
     
     res.status(200).json(findIdDiscussionsData)
@@ -52,6 +52,7 @@ const discussionsController = {
   },
 
   create: (req, res) => {
+    console.log(req.body);
     const { id, createdAt, updatedAt, title , url , author , answer , bodyHTML , avatarUrl } = req.body;
 
     
@@ -68,12 +69,36 @@ const discussionsController = {
     };
 
     
-    booking.push(createDiscussion);
+    
+    if (!createDiscussion) {
+      return res.status(400).json('error: discussion 못만듬');
+    } else {
+      discussionsData.push(createDiscussion);
+      return res.status(201).json(createDiscussion);
+    }
 
     
-    return res.status(201).json(createDiscussion);
-    
   },
+
+  // 포스트만~ 테스트용
+  // {
+  //   "id": 43,
+  //   "createdAt": "2022-05-16T01:02:17Z",
+  //   "updatedAt": "2022-05-16T01:02:17Z",
+  //   "title": "Some title",
+  //   "url": "https://some.url",
+  //   "author": "Some author",
+  //   "answer": {
+  //     "id": "Some id",
+  //     "createdAt": "2022-05-16T01:02:17Z",
+  //     "url": "https://some.url",
+  //     "author": "Some author",
+  //     "bodyHTML": "<p>Some HTML</p>",
+  //     "avatarUrl": "https://some.url"
+  //   },
+  //   "bodyHTML": "<p>Some HTML</p>",
+  //   "avatarUrl": "https://some.url"
+  // }
 
 
   deletep: (req, res) => {
@@ -82,11 +107,11 @@ const discussionsController = {
     const index = discussionsData.findIndex(discussion => discussion.id === Number(id));
     
     if (index === -1) {
-      return res.status(404).json({ error: "discussion 없음" });
+      return res.status(404).json('error: discussion 없음 ');
     }
 
     discussionsData.splice(index, 1);
-    res.status(200).json({ message: 'Discussion 삭제' });
+    res.status(200).json('message: Discussion 삭제');
 }
   
 
