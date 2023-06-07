@@ -13,7 +13,7 @@ const discussionsController = {
     const filtered = discussionsData.filter(data => {
       return data.id === Number(id);
     })
-    console.log(filtered);
+    // console.log(filtered);
     if (filtered.length ===0){
       return res.status(404).json({'message': `${id} Not found.`});ß
     } else {
