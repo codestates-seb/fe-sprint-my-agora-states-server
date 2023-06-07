@@ -21,6 +21,27 @@ const discussionsController = {
       res.status(404).json({ error: "discussion not found" });
     }
   },
+
+  create: (req, res) => {
+    const { title, author, url, bodyHTML, avatarUrl } = req.body;
+
+    // 새로운 discussion 객체 생성
+    const newDiscussion = {
+      id: discussionsData.length + 1, // 새로운 id를 할당해야 함
+      createdAt: new Date().toISOString(),
+      title,
+      author,
+      url,
+      bodyHTML,
+      avatarUrl,
+    };
+
+    // discussionsData에 새로운 discussion 추가
+    discussionsData.unshift(newDiscussion);
+
+    // 저장 완료 메시지 응답
+    res.status(201).json(newDiscussion);
+  },
 };
 
 module.exports = {

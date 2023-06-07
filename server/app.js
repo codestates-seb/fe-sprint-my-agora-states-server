@@ -12,7 +12,7 @@ const discussionsRouter = require("./router/discussions");
 app.use("/discussions", discussionsRouter); // /discussions 라우팅
 
 app.get("/", (req, res) => {
-  res.status(200).send("fe-sprint-my-agora-states-server");
+  res.status(200).send("server");
 }); // 서버 상태 확인
 
 const server = app.listen(port, () => {
