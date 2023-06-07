@@ -4,10 +4,16 @@ const { findAll, findById } = discussionsController;
 const express = require('express');
 const router = express.Router();
 
+
+router.get('/', findAll);      
 // TODO: 모든 discussions 목록을 조회하는 라우터를 작성합니다.
-
-
+router.get('/:id', findById);  
 // TODO: :id에 맞는 discussion을 조회하는 라우터를 작성합니다.
+// router.post('/', create);      
+// router.put('/:id', update);
+// router.delete('/:id', deleteByPostingId); 
+
+
 
 
 module.exports = router;
