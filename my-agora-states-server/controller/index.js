@@ -20,6 +20,8 @@ const discussionsController = {
       return el.id === Number(id)
     })
 
+    if(target === undefined) return res.status(404).json(discussionsData)
+
     return res.json(target)
   },
 
