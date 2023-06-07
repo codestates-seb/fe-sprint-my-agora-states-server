@@ -1,58 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
-
-
-//추가된 데이터 받아서 배열에 넣어주는 함수
-const form = document.querySelector('form.form');
-const newPostAuthor = form.querySelector('#name');
-const newPostTitle = form.querySelector('#title');
-const newPostBody = document.querySelector('#story');
-let now = new Date();
-let agoraStatesDiscussions;
-
-form.addEventListener('submit', function (event){
-  event.preventDefault();
-})
-
-function post(body) {
-  fetch(`http://localhost:4000/discussions/post`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {
-      'Content-type': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(res => {
-    this.render(res);
-  });
-}
-
-function removeAllChild(parent){
-  while(parent.firstchild) {
-    parent.removeChild(parent.firstchild);
-  }
-}
-
-function submit(){
-  const newPost = {
-  createdAt: `${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 ${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 작성`,
-  title: newPostTitle.value,
-  url: `https://github.com/codestates-seb/agora-states-fe/discussions/${(Number(agoraStatesDiscussions[0].url.slice(62))+1).toString()}`,
-  author: newPostAuthor.value,
-  answer: null,
-  bodyHTML: newPostBody.value,
-  avatarUrl:
-  "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-  }
-  post(newPost);
-  removeAllChild(ul);
-  rendering();
-}
-
-const submitButton = document.querySelector('#submit');
-submitButton.addEventListener('click', submit);
-
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -114,6 +61,55 @@ function rendering() {
   })
 }
 rendering()
+
+
+//추가된 데이터 받아서 배열에 넣어주는 함수
+const form = document.querySelector('form.form');
+const newPostAuthor = form.querySelector('#name');
+const newPostTitle = form.querySelector('#title');
+const newPostBody = document.querySelector('#story');
+let now = new Date();
+let agoraStatesDiscussions;
+
+form.addEventListener('submit', function (event){
+  event.preventDefault();
+})
+
+function post(body) {
+  fetch(`http://localhost:4000/discussions/post`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+  .then(res => res.json());
+}
+
+function removeAllUlChild(){
+  while(ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+}
+
+function submit(){
+  const newPost = {
+  title: newPostTitle.value,
+  url: `https://github.com/codestates-seb/agora-states-fe/discussions/${(Number(agoraStatesDiscussions[0].url.slice(62))+1).toString()}`,
+  author: newPostAuthor.value,
+  answer: null,
+  bodyHTML: newPostBody.value,
+  avatarUrl:
+  "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  }
+  post(newPost);
+  removeAllUlChild();
+  rendering();
+}
+
+const submitButton = document.querySelector('#submit');
+submitButton.addEventListener('click', submit);
+
 /*
 //페이지네이션
 //currentPage(현재페이지), totalcount(총 데이터 갯수), pagecount(화면에 나타날 페이지 갯수), limit(페이지당 데이터 갯수)

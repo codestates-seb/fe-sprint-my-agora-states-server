@@ -31,13 +31,19 @@ const discussionsController = {
 
   postDiscussion: (req, res) => {
     const bodydata = req.body;
+    const { title, author, bodyHTML } = req.body;
+    if(author === ''|| title === '' || bodyHTML === ''){
+      return res.json(400).json();
+    }
     const id = Number(discussionsData[0].id) + 1;
-    const newDisscussion = {id, ...bodydata}
+    const newDisscussion = {
+      id, 
+      createdAt: now.toLocaleString(),
+      ...bodydata
+    }
     discussionsData.unshift(newDisscussion);
-    console.log(discussionsData)
-    res.json(newDisscussion)
+    return res.json(newDisscussion)
   }
-
 };
 
 module.exports = {
