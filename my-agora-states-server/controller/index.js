@@ -4,7 +4,9 @@ const discussionsData = agoraStatesDiscussions;
 const discussionsController = {
   findAll: (req, res) => {
     // TODO: 모든 discussions 목록을 응답합니다.
-    res.send('TODO:')
+    const {author} = req.query;
+    console.log({author, query:req.query})
+    res.json(discussionsData)
   },
 
   findById: (req, res) => {
