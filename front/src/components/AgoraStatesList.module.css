@@ -1,0 +1,13 @@
+.list {
+    height: 77vh;
+    overflow: scroll;
+}
+.list::-webkit-scrollbar {
+    width: 10px;
+}
+.list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+}
