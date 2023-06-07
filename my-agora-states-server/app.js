@@ -25,6 +25,11 @@ app.get("/", (req, res) => {
   res.status(200).send("fe-sprint-my-agora-states-server");
 });
 
+// 404가 뜨는 이유는
+// app.post("/", (req, res) => {
+//   res.s
+// })
+
 const server = app.listen(port, () => {
   console.log(`[RUN] My Agora States Server... | http://localhost:${port}`);
 });

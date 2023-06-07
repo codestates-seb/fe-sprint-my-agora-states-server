@@ -23,7 +23,7 @@ export const postDiscussion = async (payload) => {
       headers: { "Content-Type": "application/json" },
       data: payload,
     });
-    return `${res.data.author} 디스커션 등록 완료`;
+    return res.data;
   } catch (err) {
     return "No Data";
   }

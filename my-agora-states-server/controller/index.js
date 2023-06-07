@@ -20,25 +20,26 @@ const discussionsController = {
   },
 
   addDiscussion: (req, res) => {
-    // request에서 요청한 id, title, question
-    if (!req.body) {
-      return res.status(404).send("디스커션 등록 실패");
-    }
-    const { id, username, title } = req.body;
+    console.log(req.body);
+
+    const { id, author, title } = req.body;
 
     const newDiscussion = {
       id,
       createdAt: new Date().toLocaleString(),
       title,
       url: null,
-      author: username,
+      author,
       answer: null,
-      avatarUrl: `https://github.com/${id}.png`,
+      avatarUrl: `https://github.com/${author}.png`,
     };
 
-    discussionsData = [newDiscussion, ...discussionsData];
+    console.log(newDiscussion);
+    // 배열에 추가하는 부분...
 
-    return res.status(201).send(newDiscussion);
+    discussionsData.unshift(newDiscussion);
+
+    res.status(201).send(newDiscussion);
   },
 };
 

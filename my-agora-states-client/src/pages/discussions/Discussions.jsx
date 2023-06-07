@@ -6,9 +6,15 @@ import { getDiscussion } from "../../api/discussions";
 
 import "./Discussions.scss";
 
-const Discussions = () => {
+const Discussions = ({ newDiscussion }) => {
   const [discussions, setDiscussions] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    console.log(newDiscussion);
+    setDiscussions([newDiscussion, ...discussions]);
+  }, [newDiscussion]);
+
+  console.log(discussions);
 
   useEffect(() => {
     (async () => {
@@ -33,7 +39,7 @@ const Discussions = () => {
       const update = [...prev];
 
       update[idx].isOpen = true;
-      setIsOpen(true);
+      // setIsOpen(true);
       return update;
     });
   };
@@ -43,7 +49,7 @@ const Discussions = () => {
       const update = [...prev];
 
       update[idx].isOpen = false;
-      setIsOpen(false);
+      // setIsOpen(false);
       return update;
     });
   };

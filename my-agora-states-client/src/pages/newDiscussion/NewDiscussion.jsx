@@ -4,7 +4,7 @@ import { postDiscussion } from "../../api/discussions";
 import "./NewDiscussion.scss";
 import shortid from "shortid";
 
-const NewDiscussion = () => {
+const NewDiscussion = ({ setNewDiscussion }) => {
   const id = shortid.generate();
 
   const [username, setUsername] = useState("");
@@ -19,12 +19,12 @@ const NewDiscussion = () => {
       url: null,
       author: username,
       answer: null,
-      avatarUrl: `https://github.com/${id}.png`,
+      avatarUrl: `https://github.com/${username}.png`,
     });
 
-    if (data === "No Data") {
-      alert("모두 기입해주시길 바랍니다.");
-    } else {
+    if (data !== "No Data") {
+      // console.log(data);
+      setNewDiscussion(data);
       alert("새로운 디스커션 등록 완료 :)");
     }
   };
