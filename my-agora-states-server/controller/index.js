@@ -19,11 +19,9 @@ const discussionsController = {
       (item) => item.id === Number(id)
     );
 
-    if (findDiscussion) {
-      return res.status(200).json(findDiscussion);
-    } else {
-      return res.status(404).json({ error: "Discussion not found" });
-    }
+    return findDiscussion
+      ? res.status(200).json(findDiscussion)
+      : res.status(404).json({ error: "Discussion ID not found" });
   },
 };
 
