@@ -31,3 +31,16 @@ const server = app.listen(port, () => {
 
 module.exports.app = app;
 module.exports.server = server;
+
+// 서버
+// 쿼리 파라미터(e.g. author)에 따른 필터링 데이터 조회 (Read)
+// 디스커션 데이터 추가 (Create)
+// 특정 디스커션 데이터 수정 (Update)
+// 특정 디스커션 데이터 삭제 (Delete)
+// 클라이언트
+// 특정 author의 질문만 볼 수 있는 기능 (e.g. 작성자 검색창)
+// 제목 클릭 시 질문 내용과 답변 내용 볼 수 있도록 (e.g. accordion UI)
+// 답변이 달렸는 지 여부에 따라 렌더링이 달라지도록 (e.g. 체크 이모지)
+// 데이터를 추가할 수 있는 인터페이스 구현 (e.g. input, textarea)
+// 특정 데이터를 수정할 수 있는 인터페이스 구현 (e.g. 제목 옆 연필 이모지 누르면 제목 수정)
+// 특정 데이터를 삭제할 수 있는 인터페이스 구현 (e.g. 디스커션 옆 휴지통 이모지)

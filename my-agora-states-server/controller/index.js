@@ -3,13 +3,6 @@ const discussionsData = agoraStatesDiscussions;
 
 const discussionsController = {
   findAll: (req, res) => {
-    // TODO: 모든 discussions 목록을 응답합니다.
-    // const {author} = req.query;
-    // if(author){
-    //   res.json(discussionsData.filter((item) => item.author === author))
-    // }else{
-    //   res.json(discussionsData);
-    // }
     res.status(200).json(discussionsData);
   },
 
