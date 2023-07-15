@@ -1,3 +1,7 @@
+## 📌 Vanilla JS로 구현한 원본
+
+👉 [Repository 바로 가기](https://github.com/nalsae/my-agora-states-js)
+
 ## 🔧 기술 스택
 
 ### 🔨 Front-End
