@@ -1,9 +1,3 @@
-# Description
-
-Section2에서 배운 내용을 바탕으로 나만의 아고라 스테이츠 서버를 만듭니다.
-
-- [코드스테이츠 fe-sprint-my-agora-states-server Repository](https://github.com/codestates-seb/fe-sprint-my-agora-states-server)에서 자신의 Repository로 fork후 과제 진행합니다.
-
 ## 🔧 기술 스택
 
 ### 🔨 Front-End
