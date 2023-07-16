@@ -68,21 +68,27 @@ npm start
 (gif 파일 용량 때문에 로딩에 시간이 좀 걸립니다 😥)
 
 ✔ **최초 렌더링 시 애니메이션**
+
 ![animation](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/8cb1de11-0638-4680-8caf-8cbe4ba2dbe8)
 
 ✔ **질문 등록 & GitHub 프로필 적용**
+
 ![질문등록](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/7d2c9699-a6d5-43d3-bda4-363f626582ab)
 
 ✔ **페이지네이션**
+
 ![페이지네이션](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/9d6ca76b-7e8a-46a0-a381-6b331b733e53)
 
 ✔ **색상 모드 전환**
+
 ![색상모드](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/6c6c82c0-037f-4d9b-85da-e64ff094e822)
 
 ✔ **상단 이동 버튼**
+
 ![gototop](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/0a1d90e0-c4f5-426b-9561-15d7534a6a7b)
 
 ✔ **답변 필터 기능**
+
 ![답변필터](https://github.com/codestates-seb/fe-sprint-my-agora-states-server/assets/101828759/8917b2af-a7cd-413c-a9f1-bdedb38f9aef)
 
 
