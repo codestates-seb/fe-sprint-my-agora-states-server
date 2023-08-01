@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  list-style: none;
+  font-weight: normal;
+  color: #222;
+}
+body,
+button,
+input,
+textarea {
+  font-family: "Noto Sans KR", sans-serif;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+a {
+  display: inline;
+  text-decoration: none;
+}
+h1 {
+  padding: 10px 20px;
+  font-size: 32px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+main, header {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+ul {
+  overflow: hidden;
+}
+.info, .content-box {
+  border-top: 1px solid #ccc;
+  padding: 20px;
+}
+.info {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.content-box {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: center;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.content {
+  width: 100%;
+}
+.info:hover, .active {
+  background: #f7f7f7;
+}
+.status {
+  display: inline-block;
+  padding: 5px;
+  color: #fff;
+}
+.answered {
+  background: #4ccd9e;
+}
+.wating {
+  background: #747474
+}
+.form {
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 20px;
+}
+.title-input, .content-textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 10px;
+}
+.title-input {
+  border-bottom: 1px solid #ccc;
+}
+.submit, .delete {
+  background: #747474;
+  padding: 10px 45px;
+  color: #fff;
+  border: none;
+}
+.submit:hover{
+  background: #888;
+} 
