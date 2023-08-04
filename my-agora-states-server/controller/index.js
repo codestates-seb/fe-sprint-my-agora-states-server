@@ -75,8 +75,6 @@ const discussionsController = {
 const opentalkController = {
 
   findAll: (req, res) => {
-    console.log('opentalk findAll')
-    console.log(opentalkData)
     return res.status(200).json(opentalkData);
   },
   
